@@ -51,7 +51,17 @@ function smartScrollTo(href: string, onDone?: () => void): boolean {
   return true
 }
 
-function NavLink({ href, children, featured }: { href: string; children: React.ReactNode; featured?: boolean }) {
+function NavLink({
+  href,
+  children,
+  featured,
+  isActive,
+}: {
+  href: string
+  children: React.ReactNode
+  featured?: boolean
+  isActive?: boolean
+}) {
   if (featured) {
     return (
       <a
@@ -93,17 +103,39 @@ function NavLink({ href, children, featured }: { href: string; children: React.R
     <a
       href={href}
       onClick={(e) => { if (smartScrollTo(href)) e.preventDefault() }}
-      className="group relative overflow-hidden text-[#8A8280] hover:text-[#EBE6E2] transition-colors duration-300 text-[11px] tracking-[0.2em] uppercase"
+      className={`group relative text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 ${
+        isActive ? "text-[#EBE6E2]" : "text-[#8A8280] hover:text-[#EBE6E2]"
+      }`}
       style={{ fontFamily: "var(--font-mono)" }}
     >
       <span className="relative z-10">{children}</span>
-      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-[#E26721] via-[#D62A5F] to-[#9E1194] transition-all duration-500 group-hover:w-full" />
+      {/* Hover underline — only when not active */}
+      {!isActive && (
+        <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#E26721] via-[#D62A5F] to-[#9E1194] transition-all duration-500 group-hover:w-full" />
+      )}
+      {/* Active section indicator — slides smoothly between links */}
+      {isActive && (
+        <motion.span
+          layoutId="active-section-indicator"
+          className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
+          style={{
+            background: "linear-gradient(90deg, #F08D28, #E26721, #D62A5F, #9E1194)",
+            boxShadow: "0 0 8px rgba(226,103,33,0.65)",
+          }}
+          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+        />
+      )}
     </a>
   )
 }
 
+// Section IDs in the order they appear on the homepage. Used to track which
+// section is currently in view so the navbar can highlight the matching link.
+const TRACKED_SECTIONS = ["home", "about", "pillars", "events", "connect"] as const
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
   const scrollProgress = useMotionValue(0)
   const smoothProgress = useSpring(scrollProgress, { stiffness: 120, damping: 24 })
 
@@ -129,6 +161,57 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true })
     return () => window.removeEventListener("scroll", onScroll)
   }, [scrollProgress])
+
+  // Track which homepage section is currently in view. Active link gets
+  // a sliding underline indicator. Only runs on routes where these sections
+  // exist (home page).
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    // Only run section tracking on the home page where these IDs exist.
+    if (window.location.pathname !== "/") {
+      setActiveSection(null)
+      return
+    }
+
+    // The currently-active section is whichever one overlaps a narrow band
+    // around the middle of the viewport. The map preserves "the last seen
+    // intersecting section" even when transitions briefly leave everything
+    // outside the band.
+    const visibilityMap = new Map<string, number>()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          visibilityMap.set(entry.target.id, entry.intersectionRatio)
+        }
+        // Pick the section with the largest visibility ratio, preferring
+        // the order in TRACKED_SECTIONS when there's a tie.
+        let bestId: string | null = null
+        let bestRatio = 0
+        for (const id of TRACKED_SECTIONS) {
+          const ratio = visibilityMap.get(id) ?? 0
+          if (ratio > bestRatio) {
+            bestRatio = ratio
+            bestId = id
+          }
+        }
+        if (bestId) setActiveSection(bestId)
+      },
+      {
+        // The band stretches across the middle 40% of the viewport. A
+        // section is "active" only while it overlaps this band.
+        rootMargin: "-30% 0px -50% 0px",
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    )
+
+    const elements = TRACKED_SECTIONS.map((id) => document.getElementById(id)).filter(
+      (el): el is HTMLElement => el !== null
+    )
+    elements.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <>
@@ -175,9 +258,22 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-3.5 lg:gap-5">
-            {navLinks.map((link) => (
-              <NavLink key={link.href} href={link.href} featured={link.featured}>{link.label}</NavLink>
-            ))}
+            {navLinks.map((link) => {
+              // Derive the section id from a "/#xyz" hash href so we can
+              // match against the active section being tracked.
+              const sectionId = link.href.startsWith("/#") ? link.href.slice(2) : null
+              const isActive = sectionId !== null && sectionId === activeSection
+              return (
+                <NavLink
+                  key={link.href}
+                  href={link.href}
+                  featured={link.featured}
+                  isActive={isActive}
+                >
+                  {link.label}
+                </NavLink>
+              )
+            })}
           </nav>
 
           {/* CTA — subtle gradient, glow on hover */}
