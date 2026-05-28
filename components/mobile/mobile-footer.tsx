@@ -23,8 +23,8 @@ export function MobileFooter() {
         </div>
 
         <p className="text-[#8A8280] text-sm leading-relaxed" style={{ fontFamily: "var(--font-sans)" }}>
-          Young adults burning for one thing — His presence. Gathering in Tulsa,
-          last Friday of every month.
+          Young adults burning for one thing: HIS PRESENCE. Gathering in Tulsa, Oklahoma every
+          last Friday of the month.
         </p>
 
         <nav className="grid grid-cols-2 gap-x-6 gap-y-3">

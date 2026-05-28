@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, Mail } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 // Lucide-react 1.14 doesn't ship an Instagram glyph — use an inline SVG.
 function InstagramIcon({ size = 18 }: { size?: number }) {
@@ -72,25 +72,25 @@ import { MobileFooter } from "@/components/mobile/mobile-footer"
 const PILLARS = [
   {
     label: "Prayer",
-    body: "Persistent, unhurried, contending — until heaven moves.",
+    body: "We believe, there's no presence without prayer.",
     photo: "/Main Empashis/7N2A0276.jpg",
     color: "#E26721",
   },
   {
     label: "Worship",
-    body: "Sung, shouted, whispered. The room becomes the altar.",
+    body: "We believe that we were created to worship.",
     photo: "/Main Empashis/IMG_0005.JPG",
     color: "#D62A5F",
   },
   {
     label: "Community",
-    body: "Tables, testimonies, late-night conversations. Family.",
+    body: "We believe that purpose is discovered in community.",
     photo: "/Main Empashis/7N2A9803.jpg",
     color: "#9E1194",
   },
   {
     label: "Growth",
-    body: "Discipleship that costs us — formed by Word and Spirit.",
+    body: "We believe that he takes us from glory to glory.",
     photo: "/Main Empashis/7N2A1949.jpg",
     color: "#F08D28",
   },
@@ -285,7 +285,7 @@ function NextGathering() {
           className="mt-4 text-[#8A8280] text-[15px] leading-relaxed"
           style={{ fontFamily: "var(--font-sans)" }}
         >
-          Doors at 6:30. Worship at 7. We linger as long as He does.
+          Every last Friday · 7:30 PM. The heartbeat of everything we do is His presence. Come hungry. Come expectant.
         </p>
       </FadeIn>
 
@@ -483,12 +483,6 @@ function Connect() {
       <div className="mt-6 space-y-3">
         {[
           {
-            icon: <Mail size={18} />,
-            label: "Email us",
-            sub: "hello@presencenights.com",
-            href: "mailto:hello@presencenights.com",
-          },
-          {
             icon: <InstagramIcon size={18} />,
             label: "Follow on Instagram",
             sub: "@presencenights",
@@ -516,7 +510,7 @@ function Connect() {
           <FadeIn key={item.label} delay={80 + i * 60}>
             <a
               href={item.href}
-              target={item.href.startsWith("mailto") ? undefined : "_blank"}
+              target="_blank"
               rel="noopener noreferrer"
               className="mobile-touch flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 active:scale-[0.99] transition-transform"
               style={{ background: "rgba(22,16,14,0.55)" }}

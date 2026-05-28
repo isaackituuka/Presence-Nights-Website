@@ -12,25 +12,25 @@ import { MobileFooter } from "@/components/mobile/mobile-footer"
 const PILLARS = [
   {
     word: "AWAKEN",
-    body: "From slumber. From small dreams. From the lie that this generation is too far gone.",
+    body: "Rise from spiritual sleep. God is awakening a generation to see with clarity, feel with conviction, and respond with urgency.",
     photo: "/curated/glimpses/7N2A0213.JPG",
     color: "#F08D28",
   },
   {
     word: "IGNITE",
-    body: "The fire of the Holy Spirit on a generation that won't apologize for burning bright.",
+    body: "Let the fire of the Holy Spirit take over. This is more than a moment it's the beginning of a life set ablaze with divine purpose.",
     photo: "/curated/glimpses/7N2A0081.JPG",
     color: "#E26721",
   },
   {
     word: "REVIVE",
-    body: "Restoration. Breath returning. The dry bones standing up — an army.",
+    body: "What seemed lost or lifeless is being restored. God is breathing life back into dry places, dreams, and hearts.",
     photo: "/curated/glimpses/7N2A0021.JPG",
     color: "#D62A5F",
   },
   {
     word: "ARISE",
-    body: "From our seats. Into our cities. Sent ones with boldness, truth, and tenderness.",
+    body: "Stand in boldness and truth. You were made for this hour called to arise and carry the fire forward.",
     photo: "/curated/glimpses/7N2A9975.JPG",
     color: "#9E1194",
   },
@@ -176,7 +176,7 @@ function Hero() {
           className="mt-6 text-[#EBE6E2]/75 text-[15px]"
           style={{ fontFamily: "var(--font-sans)" }}
         >
-          This generation. This hour. This fire.
+          Activating a generation for End Time Revival.
         </p>
       </div>
 
@@ -367,9 +367,9 @@ function Recap() {
   return (
     <section className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#9E1194">In their own words</SectionLabel>
+        <SectionLabel color="#9E1194">In our own words</SectionLabel>
         <H2>
-          A room <span className="italic gradient-text-fire">filled with awe</span>.
+          Do it again <span className="italic gradient-text-fire">in our times</span>.
         </H2>
       </FadeIn>
 
@@ -405,7 +405,7 @@ function PillarsList() {
   return (
     <section className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#E26721">What burned in 2025</SectionLabel>
+        <SectionLabel color="#E26721">Activate pillars</SectionLabel>
         <H2>
           Four words we won&apos;t <span className="italic gradient-text-fire">put down</span>.
         </H2>
@@ -468,7 +468,7 @@ function GlimpsesCarousel() {
         <FadeIn>
           <SectionLabel color="#D62A5F">Glimpses</SectionLabel>
           <H2>
-            Frames from a <span className="italic gradient-text-fire">holy weekend</span>.
+            Frames from <span className="italic gradient-text-fire">last year</span>.
           </H2>
         </FadeIn>
       </div>
@@ -502,9 +502,9 @@ function GlimpsesCarousel() {
 function ComingSoon() {
   const items = [
     { label: "Lineup", body: "Voices being prepared. Names revealed soon." },
-    { label: "Schedule", body: "Sessions, sets, and altar moments." },
-    { label: "Tickets", body: "Open in waves. First wave drops first." },
-    { label: "Hours", body: "Happy Hour returns 5–8pm. Family." },
+    { label: "Schedule", body: "Two nights. Sessions, sets, and altar moments." },
+    { label: "Registration", body: "Tickets open in waves. First wave drops first." },
+    { label: "After-hours", body: "Happy Hour returns 5–8pm. Tables, food, family." },
   ]
   return (
     <section className="px-5 mt-16">

@@ -105,8 +105,7 @@ export default function MobileLeadershipPage() {
               className="mt-5 text-[#8A8280] text-[15px] leading-relaxed"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              The hands and hearts behind every gathering — serving so the room
-              can encounter Him.
+              We lead so others can encounter his presence.
             </p>
           </FadeIn>
         </div>
@@ -166,8 +165,8 @@ export default function MobileLeadershipPage() {
               className="mt-4 text-[16px] italic text-[#EBE6E2]/80 leading-relaxed"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Intercessors, worshippers, hosts, sound techs, and friends serving every gathering.
-              We are <span className="not-italic font-semibold gradient-text-brand">better together</span>.
+              We are more than just a leadership team. Alongside us are countless hosts, intercessors, worshipers, and friends who make every gathering possible.
+              Together we host the presence of God and serve his generation. <span className="not-italic font-semibold gradient-text-brand">We are better together</span>.
             </p>
           </div>
         </FadeIn>
