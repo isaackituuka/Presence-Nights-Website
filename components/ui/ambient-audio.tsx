@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Volume2, VolumeX } from "lucide-react"
 
 const SRC = "/audio/ambient.mp3"
-const TARGET_VOLUME = 0.18
+const TARGET_VOLUME = 0.32
 const FADE_MS = 1400
 const HERO_THRESHOLD = 0.8 // fraction of viewport height to consider "past hero"
 const SCROLL_IDLE_MS = 700 // ms after scroll stops before button reappears
