@@ -1,8 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
 import { Typewriter } from "@/components/ui/typewriter"
 import { ChevronDown } from "lucide-react"
 
@@ -59,53 +58,27 @@ function ParticleField() {
 
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"])
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"])
   const opacity = useTransform(scrollYProgress, [0.65, 0.95], [1, 0])
 
-  useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const connection = (navigator as Navigator & {
-      connection?: { saveData?: boolean; effectiveType?: string }
-    }).connection
-    const slowConnection =
-      connection?.saveData ||
-      connection?.effectiveType === "slow-2g" ||
-      connection?.effectiveType === "2g"
-
-    if (reducedMotion || slowConnection) return
-
-    const id = window.setTimeout(() => setShouldPlayVideo(true), 1200)
-    return () => window.clearTimeout(id)
-  }, [])
-
   return (
-    <section id="home" ref={ref} className="relative h-screen w-full overflow-hidden">
-      {/* Parallax background */}
-      <motion.div className="absolute inset-0 scale-110" style={{ y: imageY }}>
-        <Image
-          src="/hero-bg.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
+    <section id="home" ref={ref} className="relative h-screen w-full overflow-hidden" style={{ contain: "paint" }}>
+      {/* Parallax background — video with poster fallback (no layout swap) */}
+      <motion.div className="absolute inset-0 scale-110" style={{ y: imageY, willChange: "transform" }}>
+        <video
+          src="/video/hero-bg.mp4"
+          poster="/hero-bg.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ cursor: "default", transform: "translateZ(0)", willChange: "transform" }}
         />
-        {shouldPlayVideo && (
-          <video
-            src="/video/hero-bg.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            style={{ cursor: "default" }}
-          />
-        )}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0C070A]/60 via-transparent to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/40 via-transparent to-[#0C070A]/40" />
@@ -122,7 +95,7 @@ export function HeroSection() {
       {/* Content — uses CSS animations, NOT framer-motion animate */}
       <motion.div
         className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4"
-        style={{ y: contentY, opacity }}
+        style={{ y: contentY, opacity, willChange: "transform, opacity" }}
       >
         {/* PN logo badge — CSS animated */}
         <div className="hero-logo-anim mb-8">

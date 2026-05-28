@@ -14,10 +14,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <>
       <ScrollProgressBar />
       <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-        style={{ willChange: "transform, opacity" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        style={{ willChange: "opacity" }}
       >
         {children}
       </motion.div>
