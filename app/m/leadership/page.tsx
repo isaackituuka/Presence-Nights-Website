@@ -16,7 +16,7 @@ const LEADERS: { team: string; color: string; people: Leader[] }[] = [
     people: [
       { name: "Sam", role: "Programming & Operations", photo: "/gallery/IMG_4571.JPG" },
       { name: "Aaron", role: "Programming & Operations", photo: "/gallery/IMG_4572.JPG" },
-      { name: "Daniel", role: "Finance", photo: "/gallery/7N2A0779.jpg" },
+      { name: "Daniel", role: "Finance", photo: "/gallery/PHOTO-2026-04-03-13-38-27.JPG" },
     ],
   },
   {
@@ -33,7 +33,7 @@ const LEADERS: { team: string; color: string; people: Leader[] }[] = [
     color: "#9E1194",
     people: [
       { name: "Sadie", role: "Marketing & Communication", photo: "/gallery/IMG_4577.JPG" },
-      { name: "Wonder & Theo Joshua", role: "Worship", photo: "/gallery/7N2A1684.jpg" },
+      { name: "Wonder & Theo Joshua", role: "Worship", photo: "/gallery/Untitled (Poster (US)) - 1.PNG" },
     ],
   },
 ]

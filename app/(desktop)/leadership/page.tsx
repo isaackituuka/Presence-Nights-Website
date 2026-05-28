@@ -14,7 +14,7 @@ type Leader = { name: string; role: string; photo: string }
 const operations: Leader[] = [
   { name: "Sam", role: "Programming & Operations", photo: "/gallery/IMG_4571.JPG" },
   { name: "Aaron", role: "Programming & Operations", photo: "/gallery/IMG_4572.JPG" },
-  { name: "Daniel", role: "Finance", photo: "/gallery/7N2A0779.jpg" },
+  { name: "Daniel", role: "Finance", photo: "/gallery/PHOTO-2026-04-03-13-38-27.JPG" },
 ]
 const pastoral: Leader[] = [
   { name: "David", role: "Outreach & Prayer", photo: "/gallery/IMG_4573.JPG" },
@@ -23,7 +23,7 @@ const pastoral: Leader[] = [
 ]
 const creative: Leader[] = [
   { name: "Sadie", role: "Marketing & Communication", photo: "/gallery/IMG_4577.JPG" },
-  { name: "Wonder & Theo Joshua", role: "Worship", photo: "/gallery/7N2A1684.jpg"},
+  { name: "Wonder & Theo Joshua", role: "Worship", photo: "/gallery/Untitled (Poster (US)) - 1.PNG"},
 ]
 const teamLeader: Leader = {
   name: "Tim",
