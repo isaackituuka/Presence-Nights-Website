@@ -11,7 +11,7 @@ const pillars = [
     italic: "We believe, there's no presence without prayer.",
     verse: '"My house shall be called a house of prayer."',
     cite: "Matthew 21:13",
-    photo: "/curated/main/pillar-prayer.jpg",
+    photo: "/Main Empashis/7N2A0276.jpg",
     color: "#E26721",
   },
   {
@@ -20,7 +20,7 @@ const pillars = [
     italic: "We believe that we were created to worship.",
     verse: "He inhabits the praise of His people.",
     cite: "Psalm 22:3",
-    photo: "/curated/main/IMG_1827.jpg",
+    photo: "/Main Empashis/IMG_0005.JPG",
     color: "#D62A5F",
   },
   {
@@ -29,7 +29,7 @@ const pillars = [
     italic: "We believe that purpose is discovered in community.",
     verse: "Iron sharpens iron.",
     cite: "Proverbs 27:17",
-    photo: "/curated/main/pillar-community.jpg",
+    photo: "/Main Empashis/7N2A9803.jpg",
     color: "#9E1194",
   },
   {
@@ -38,7 +38,7 @@ const pillars = [
     italic: "We believe that he takes us from glory to glory.",
     verse: "But when I grew up, I left those infant ways for good.",
     cite: "1 Corinthians 13:11",
-    photo: "/curated/main/7N2A9803.JPG",
+    photo: "/Main Empashis/7N2A1949.jpg",
     color: "#F08D28",
   },
 ]

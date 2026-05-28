@@ -5,11 +5,11 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion"
 import Image from "next/image"
 
 const beliefs = [
-  { no: "01", text: "His Presence is real",   accent: "and can be experienced.",   photo: "/curated/main/IMG_1828.jpg" },
-  { no: "02", text: "His Presence brings",    accent: "real-life transformation.", photo: "/curated/main/7N2A1756.JPG" },
-  { no: "03", text: "His Presence sets",      accent: "the captives free.",        photo: "/curated/main/7N2A0622.JPG" },
-  { no: "04", text: "There is power in",      accent: "intentional, godly community.", photo: "/curated/main/conviction-community.jpg" },
-  { no: "05", text: "He inhabits",            accent: "the praise of His people.", photo: "/curated/main/conviction-praise.jpg" },
+  { no: "01", text: "His Presence is real",   accent: "and can be experienced.",   photo: "/Main Empashis/7N2A0091.jpg" },
+  { no: "02", text: "His Presence brings",    accent: "real-life transformation.", photo: "/Main Empashis/7N2A0083.jpg" },
+  { no: "03", text: "His Presence sets",      accent: "the captives free.",        photo: "/Main Empashis/7N2A0014.jpg" },
+  { no: "04", text: "There is power in",      accent: "intentional, godly community.", photo: "/Main Empashis/7N2A9880.jpg" },
+  { no: "05", text: "He inhabits",            accent: "the praise of His people.", photo: "/Main Empashis/7N2A1844.jpg" },
 ]
 
 function BeliefPhoto({
