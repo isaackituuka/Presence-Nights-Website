@@ -29,8 +29,8 @@ function BeliefPhoto({
   return (
     <motion.div className="absolute inset-0" style={{ opacity, scale, x }}>
       <Image src={belief.photo} alt="" fill className="object-cover" sizes="100vw" loading="lazy" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/95 via-[#0C070A]/70 to-[#0C070A]/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/70 via-transparent to-[#0C070A]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#000000]/70 to-[#000000]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-[#000000]/30" />
     </motion.div>
   )
 }
@@ -56,7 +56,7 @@ function BeliefRow({
       <span className="text-[#8A8280]/90 text-xs md:text-sm tracking-[0.35em]" style={{ fontFamily: "var(--font-mono)" }}>
         {belief.no}
       </span>
-      <span className="text-2xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.01em] text-[#EBE6E2]" style={{ fontFamily: "var(--font-display)" }}>
+      <span className="text-2xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.01em] text-[#FFFFED]" style={{ fontFamily: "var(--font-display)" }}>
         {belief.text}{" "}
         <span className="italic gradient-text-fire">{belief.accent}</span>
       </span>
@@ -88,7 +88,7 @@ export function SceneConvictions() {
 
         {/* Static frame */}
         <div className="absolute top-8 left-8 right-8 z-30 flex items-center justify-between pointer-events-none">
-          <span className="text-[#D62A5F] text-[10px] tracking-[0.5em]" style={{ fontFamily: "var(--font-mono)" }}>
+          <span className="text-[#A9C0BF] text-[10px] tracking-[0.5em]" style={{ fontFamily: "var(--font-mono)" }}>
             03 — OUR CONVICTIONS
           </span>
         </div>

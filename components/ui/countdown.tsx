@@ -51,7 +51,7 @@ export function Countdown({ className = "", variant = "inline" }: Props) {
         style={{ fontFamily: "var(--font-mono)" }}
         aria-label="Next gathering countdown loading"
       >
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E26721] animate-pulse" />
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#D85325] animate-pulse" />
         Next gathering — loading
       </span>
     )
@@ -66,13 +66,13 @@ export function Countdown({ className = "", variant = "inline" }: Props) {
   if (variant === "card") {
     return (
       <div
-        className={`flex items-center gap-4 rounded-2xl border border-[#E26721]/30 px-4 py-3 backdrop-blur-md ${className}`}
+        className={`flex items-center gap-4 rounded-2xl border border-[#D85325]/30 px-4 py-3 backdrop-blur-md ${className}`}
         style={{ background: "rgba(22,16,14,0.6)" }}
         aria-live="polite"
       >
         <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-[#E26721]/60 animate-ping" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E26721]" />
+          <span className="absolute inline-flex h-full w-full rounded-full bg-[#D85325]/60 animate-ping" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D85325]" />
         </span>
         <div className="flex flex-col">
           <span
@@ -82,7 +82,7 @@ export function Countdown({ className = "", variant = "inline" }: Props) {
             Next gathering · {dateLabel}
           </span>
           <span
-            className="text-base font-semibold text-[#EBE6E2] tabular-nums"
+            className="text-base font-semibold text-[#FFFFED] tabular-nums"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             {tonight
@@ -97,13 +97,13 @@ export function Countdown({ className = "", variant = "inline" }: Props) {
   // inline
   return (
     <span
-      className={`inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-[#EBE6E2]/85 ${className}`}
+      className={`inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-[#FFFFED]/85 ${className}`}
       style={{ fontFamily: "var(--font-mono)" }}
       aria-live="polite"
     >
       <span className="relative flex h-1.5 w-1.5">
-        <span className="absolute inline-flex h-full w-full rounded-full bg-[#E26721]/60 animate-ping" />
-        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#E26721]" />
+        <span className="absolute inline-flex h-full w-full rounded-full bg-[#D85325]/60 animate-ping" />
+        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#D85325]" />
       </span>
       <span className="text-[#8A8280]">In</span>
       <span className="tabular-nums">

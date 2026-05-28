@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="relative bg-[#0C070A]">
+    <main className="relative bg-[#000000]">
       <JsonLd
         id="presence-home-breadcrumb-jsonld"
         data={breadcrumbJsonLd([{ name: "Presence Nights", path: "/" }])}

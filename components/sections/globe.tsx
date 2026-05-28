@@ -10,7 +10,7 @@ const GlobeCanvas = dynamic(() => import("@/components/ui/wireframe-dotted-globe
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-16 h-16 rounded-full border border-[#E26721]/40 animate-pulse-glow" />
+      <div className="w-16 h-16 rounded-full border border-[#D85325]/40 animate-pulse-glow" />
     </div>
   ),
 })
@@ -93,7 +93,7 @@ export function GlobeSection() {
 
   return (
     <section ref={ref} className="relative py-16 md:py-24 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(158,17,148,0.05)_0%,transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(169,192,191,0.05)_0%,transparent_70%)]" />
       <div className="absolute top-0 left-0 right-0 divider-gradient opacity-20" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
@@ -108,13 +108,13 @@ export function GlobeSection() {
           >
             {/* Pulsing aura behind globe */}
             <motion.div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(226,103,33,0.18)_0%,transparent_70%)] blur-2xl"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(216,83,37,0.18)_0%,transparent_70%)] blur-2xl"
               animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.08, 1] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             />
             {/* Slow magenta secondary aura */}
             <motion.div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(158,17,148,0.12)_0%,transparent_60%)] blur-3xl"
+              className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(169,192,191,0.12)_0%,transparent_60%)] blur-3xl"
               animate={{ opacity: [0.4, 0.9, 0.4], scale: [1.05, 0.95, 1.05] }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
@@ -147,16 +147,16 @@ export function GlobeSection() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7 }}
             >
-              <div className="w-8 h-8 rounded-full bg-[#9E1194]/20 flex items-center justify-center">
-                <Globe2 size={14} className="text-[#9E1194]" />
+              <div className="w-8 h-8 rounded-full bg-[#A9C0BF]/20 flex items-center justify-center">
+                <Globe2 size={14} className="text-[#A9C0BF]" />
               </div>
-              <span className="text-[#9E1194] text-xs tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-mono)" }}>
+              <span className="text-[#A9C0BF] text-xs tracking-[0.4em] uppercase" style={{ fontFamily: "var(--font-mono)" }}>
                 A Global Movement
               </span>
             </motion.div>
 
             <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#EBE6E2] mb-6 leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFFFED] mb-6 leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
               initial={{ opacity: 0, y: 40, letterSpacing: "0.04em" }}
               animate={inView ? { opacity: 1, y: 0, letterSpacing: "0em" } : {}}
@@ -188,16 +188,16 @@ export function GlobeSection() {
               {highlights.map((h, i) => (
                 <motion.div
                   key={h.region}
-                  className="glass rounded-xl p-3 border border-[rgba(255,255,255,0.05)] hover:border-[#E26721]/40 hover:scale-[1.04] transition-all duration-300"
+                  className="glass rounded-xl p-3 border border-[rgba(255,255,255,0.05)] hover:border-[#D85325]/40 hover:scale-[1.04] transition-all duration-300"
                   initial={{ opacity: 0, y: 30, rotateX: -25, scale: 0.9 }}
                   animate={inView ? { opacity: 1, y: 0, rotateX: 0, scale: 1 } : {}}
                   transition={{ duration: 0.7, delay: 0.4 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   style={{ transformPerspective: 600 }}
                 >
                   <div className="flex items-start gap-2">
-                    <MapPin size={12} className="text-[#E26721] shrink-0 mt-0.5" />
+                    <MapPin size={12} className="text-[#D85325] shrink-0 mt-0.5" />
                     <div>
-                      <div className="text-[#EBE6E2] text-xs font-semibold mb-0.5" style={{ fontFamily: "var(--font-mono)" }}>
+                      <div className="text-[#FFFFED] text-xs font-semibold mb-0.5" style={{ fontFamily: "var(--font-mono)" }}>
                         {h.region}
                       </div>
                       <div className="text-[#8A8280] text-xs leading-snug" style={{ fontFamily: "var(--font-sans)" }}>

@@ -32,7 +32,7 @@ const Footer = dynamic(() =>
  *  SHARED — small primitives
  * --------------------------------------------------------- */
 
-function Eyebrow({ children, color = "#E26721" }: { children: React.ReactNode; color?: string }) {
+function Eyebrow({ children, color = "#D85325" }: { children: React.ReactNode; color?: string }) {
   return (
     <span
       className="inline-block text-[10px] tracking-[0.6em] uppercase"
@@ -51,7 +51,7 @@ const SPARKS = Array.from({ length: 14 }, (_, i) => ({
   size: 1 + ((i * 7) % 3),
   dur: 6 + (i % 5),
   delay: (i % 6) * 0.5,
-  color: i % 3 === 0 ? "#F08D28" : i % 3 === 1 ? "#E26721" : "#D62A5F",
+  color: i % 3 === 0 ? "#E66839" : i % 3 === 1 ? "#D85325" : "#A9C0BF",
 }))
 
 function EmberField({ density = 1 }: { density?: number }) {
@@ -107,15 +107,15 @@ function IgnitionHero() {
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(226,103,33,0.18)_0%,transparent_55%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(12,7,10,0.85)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/55 to-[#000000]/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_60%,rgba(216,83,37,0.18)_0%,transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(0,0,0,0.85)_100%)]" />
       </motion.div>
 
       <EmberField />
 
       {/* Bottom horizon glow */}
-      <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[110%] h-72 bg-[#E26721]/12 blur-[100px] rounded-[100%] pointer-events-none" />
+      <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-[110%] h-72 bg-[#D85325]/12 blur-[100px] rounded-[100%] pointer-events-none" />
 
       <motion.div
         className="relative z-10 flex h-full flex-col items-center justify-center text-center px-4"
@@ -126,18 +126,18 @@ function IgnitionHero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative mb-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#E26721]/35 backdrop-blur-sm bg-[#0C070A]/30"
+          className="relative mb-8 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D85325]/35 backdrop-blur-sm bg-[#000000]/30"
         >
           <span className="relative flex h-1.5 w-1.5">
             <motion.span
-              className="absolute inset-0 rounded-full bg-[#E26721]"
+              className="absolute inset-0 rounded-full bg-[#D85325]"
               animate={{ scale: [1, 2.4], opacity: [0.6, 0] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
             />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E26721]" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#D85325]" />
           </span>
           <span
-            className="text-[10px] tracking-[0.4em] uppercase text-[#EBE6E2]/85"
+            className="text-[10px] tracking-[0.4em] uppercase text-[#FFFFED]/85"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Coming October 2026
@@ -149,7 +149,7 @@ function IgnitionHero() {
           initial={{ opacity: 0, y: 30, letterSpacing: "0.18em" }}
           animate={{ opacity: 1, y: 0, letterSpacing: "-0.02em" }}
           transition={{ duration: 1.4, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="font-bold leading-[0.85] text-[#EBE6E2]"
+          className="font-bold leading-[0.85] text-[#FFFFED]"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(3.6rem, 14vw, 11rem)",
@@ -166,11 +166,11 @@ function IgnitionHero() {
           className="relative -mt-2 md:-mt-4"
         >
           <span
-            className="font-black italic bg-gradient-to-br from-[#F08D28] via-[#E26721] to-[#9E1194] bg-clip-text text-transparent leading-none"
+            className="font-black italic bg-gradient-to-br from-[#E66839] via-[#D85325] to-[#A9C0BF] bg-clip-text text-transparent leading-none"
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(5rem, 20vw, 16rem)",
-              filter: "drop-shadow(0 0 40px rgba(226,103,33,0.45))",
+              filter: "drop-shadow(0 0 40px rgba(216,83,37,0.45))",
             }}
           >
             26
@@ -184,14 +184,14 @@ function IgnitionHero() {
           transition={{ duration: 0.8, delay: 1.6 }}
           className="mt-6 flex items-center gap-3 md:gap-5"
         >
-          <span className="h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <span className="h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-[#D85325]" />
           <span
-            className="text-[#E26721] tracking-[0.4em] md:tracking-[0.55em] text-xs md:text-sm uppercase"
+            className="text-[#D85325] tracking-[0.4em] md:tracking-[0.55em] text-xs md:text-sm uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Oct 2 · 3 · Tulsa
           </span>
-          <span className="h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <span className="h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-[#D85325]" />
         </motion.div>
 
         {/* Motto */}
@@ -199,7 +199,7 @@ function IgnitionHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.85 }}
-          className="mt-7 text-base md:text-lg text-[#EBE6E2]/70 max-w-md"
+          className="mt-7 text-base md:text-lg text-[#FFFFED]/70 max-w-md"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Activating a generation for End Time Revival.
@@ -220,7 +220,7 @@ function IgnitionHero() {
           Begin
         </span>
         <motion.div
-          className="w-px h-10 bg-gradient-to-b from-[#E26721] to-transparent"
+          className="w-px h-10 bg-gradient-to-b from-[#D85325] to-transparent"
           animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "top" }}
@@ -240,7 +240,7 @@ function Remembrance() {
   return (
     <section ref={ref} className="relative py-20 md:py-28 px-6 md:px-12 text-center overflow-hidden">
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(226,103,33,0.05),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,83,37,0.05),transparent_60%)]"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 1.4 }}
@@ -257,7 +257,7 @@ function Remembrance() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-7 text-3xl sm:text-5xl md:text-6xl font-bold text-[#EBE6E2] leading-[1.05]"
+          className="mt-7 text-3xl sm:text-5xl md:text-6xl font-bold text-[#FFFFED] leading-[1.05]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           For two nights, we gather
@@ -297,28 +297,28 @@ const PILLARS: Pillar[] = [
     index: "01",
     body: "Rise from spiritual sleep. God is awakening a generation to see with clarity, feel with conviction, and respond with urgency.",
     photo: "/curated/glimpses/7N2A0213.JPG",
-    accent: "#F08D28",
+    accent: "#E66839",
   },
   {
     word: "IGNITE",
     index: "02",
     body: "Let the fire of the Holy Spirit take over. This is more than a moment it's the beginning of a life set ablaze with divine purpose.",
     photo: "/curated/glimpses/7N2A0081.JPG",
-    accent: "#E26721",
+    accent: "#D85325",
   },
   {
     word: "REVIVE",
     index: "03",
     body: "What seemed lost or lifeless is being restored. God is breathing life back into dry places, dreams, and hearts.",
     photo: "/curated/glimpses/7N2A0021.JPG",
-    accent: "#D62A5F",
+    accent: "#A9C0BF",
   },
   {
     word: "ARISE",
     index: "04",
     body: "Stand in boldness and truth. You were made for this hour called to arise and carry the fire forward.",
     photo: "/curated/glimpses/7N2A9975.JPG",
-    accent: "#9E1194",
+    accent: "#A9C0BF",
   },
 ]
 
@@ -371,8 +371,8 @@ function PillarPanel({
           loading="lazy"
           quality={index === 0 ? 80 : 70}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,7,10,0.55)_0%,rgba(12,7,10,0.92)_100%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.55)_0%,rgba(0,0,0,0.92)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/55 to-[#000000]/40" />
         <div
           className="absolute inset-0 mix-blend-overlay opacity-40"
           style={{ background: `radial-gradient(ellipse at 50% 60%, ${pillar.accent}55, transparent 60%)` }}
@@ -388,7 +388,7 @@ function PillarPanel({
         </div>
 
         <motion.h2
-          className="font-bold leading-[0.92] tracking-[-0.02em] text-[#EBE6E2]"
+          className="font-bold leading-[0.92] tracking-[-0.02em] text-[#FFFFED]"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(3.2rem, 14vw, 11rem)",
@@ -401,7 +401,7 @@ function PillarPanel({
           <span
             className="bg-clip-text text-transparent"
             style={{
-              backgroundImage: `linear-gradient(120deg, #FFFAF5 0%, ${pillar.accent} 65%, #EBE6E2 100%)`,
+              backgroundImage: `linear-gradient(120deg, #FFFAF5 0%, ${pillar.accent} 65%, #FFFFED 100%)`,
             }}
           >
             {pillar.word}
@@ -409,7 +409,7 @@ function PillarPanel({
         </motion.h2>
 
         <motion.p
-          className="mt-7 md:mt-9 max-w-xl text-base md:text-xl text-[#EBE6E2]/82 leading-relaxed"
+          className="mt-7 md:mt-9 max-w-xl text-base md:text-xl text-[#FFFFED]/82 leading-relaxed"
           style={{ fontFamily: "var(--font-sans)", opacity: bodyOpacity, y: bodyY }}
         >
           {pillar.body}
@@ -422,7 +422,7 @@ function PillarPanel({
           <div
             key={i}
             className="w-1 h-7 rounded-full transition-all duration-500"
-            style={{ background: i === index ? pillar.accent : "rgba(235,230,226,0.18)" }}
+            style={{ background: i === index ? pillar.accent : "rgba(255,255,237,0.18)" }}
           />
         ))}
       </div>
@@ -454,7 +454,7 @@ function FourPillars() {
 
         {/* Permanent label */}
         <div
-          className="absolute top-20 md:top-8 left-6 md:left-8 text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.5em] uppercase text-[#EBE6E2]/40 z-10"
+          className="absolute top-20 md:top-8 left-6 md:left-8 text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.5em] uppercase text-[#FFFFED]/40 z-10"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           Activate pillars
@@ -483,7 +483,7 @@ function VideoCard({ videoId, label, delay, inView }: VideoCardProps) {
       initial={{ opacity: 0, scale: 0.96 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 1.1, delay, ease: [0.22, 1, 0.36, 1] }}
-      className="relative aspect-video rounded-2xl overflow-hidden border border-[#E26721]/25 shadow-[0_30px_120px_rgba(0,0,0,0.6)]"
+      className="relative aspect-video rounded-2xl overflow-hidden border border-[#D85325]/25 shadow-[0_30px_120px_rgba(0,0,0,0.6)]"
     >
       {playing ? (
         <iframe
@@ -509,7 +509,7 @@ function VideoCard({ videoId, label, delay, inView }: VideoCardProps) {
             unoptimized
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/80 via-[#0C070A]/20 to-[#0C070A]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/20 to-[#000000]/40" />
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
               className="relative flex h-20 w-20 items-center justify-center rounded-full"
@@ -517,20 +517,20 @@ function VideoCard({ videoId, label, delay, inView }: VideoCardProps) {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2.4, repeat: Infinity }}
             >
-              <span className="absolute inset-0 rounded-full border border-[#E26721]/55" />
+              <span className="absolute inset-0 rounded-full border border-[#D85325]/55" />
               <motion.span
-                className="absolute inset-0 rounded-full border border-[#E26721]"
+                className="absolute inset-0 rounded-full border border-[#D85325]"
                 animate={{ scale: [1, 1.4, 1.7], opacity: [0.6, 0.15, 0] }}
                 transition={{ duration: 2.2, repeat: Infinity, ease: "easeOut" }}
               />
-              <span className="absolute inset-0 rounded-full bg-[#E26721]/15 backdrop-blur-md" />
-              <svg width="22" height="26" viewBox="0 0 22 26" fill="#EBE6E2" className="relative z-10 ml-1">
+              <span className="absolute inset-0 rounded-full bg-[#D85325]/15 backdrop-blur-md" />
+              <svg width="22" height="26" viewBox="0 0 22 26" fill="#FFFFED" className="relative z-10 ml-1">
                 <path d="M2 1.5v23l18-11.5z" />
               </svg>
             </motion.div>
           </div>
           <div
-            className="absolute bottom-5 left-5 right-5 text-left text-[#EBE6E2]/85 text-xs md:text-sm tracking-[0.25em] uppercase"
+            className="absolute bottom-5 left-5 right-5 text-left text-[#FFFFED]/85 text-xs md:text-sm tracking-[0.25em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Watch — {label}
@@ -552,7 +552,7 @@ function WitnessVideo() {
 
   return (
     <section ref={ref} className="relative py-20 md:py-24 px-6 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(158,17,148,0.08),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(169,192,191,0.08),transparent_60%)]" />
       <div className="relative max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -560,9 +560,9 @@ function WitnessVideo() {
           transition={{ duration: 0.7 }}
           className="text-center mb-10 md:mb-14"
         >
-          <Eyebrow color="#9E1194">In our own words</Eyebrow>
+          <Eyebrow color="#A9C0BF">In our own words</Eyebrow>
           <h2
-            className="mt-5 text-3xl md:text-5xl font-bold text-[#EBE6E2] leading-tight"
+            className="mt-5 text-3xl md:text-5xl font-bold text-[#FFFFED] leading-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Do it again <span className="italic gradient-text-fire">in our times</span>
@@ -589,7 +589,7 @@ function WitnessVideo() {
           className="mt-14 md:mt-20 max-w-3xl mx-auto text-center"
         >
           <blockquote
-            className="text-xl md:text-3xl text-[#EBE6E2]/85 italic leading-relaxed"
+            className="text-xl md:text-3xl text-[#FFFFED]/85 italic leading-relaxed"
             style={{ fontFamily: "var(--font-display)" }}
           >
             “O LORD, I have heard of what You have done,
@@ -597,7 +597,7 @@ function WitnessVideo() {
             and I am filled with <span className="not-italic gradient-text-fire font-semibold">awe</span>.”
           </blockquote>
           <figcaption
-            className="mt-5 text-[10px] tracking-[0.5em] uppercase text-[#E26721]"
+            className="mt-5 text-[10px] tracking-[0.5em] uppercase text-[#D85325]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Habakkuk 3:2
@@ -624,9 +624,9 @@ function GlimpsesMosaic() {
         transition={{ duration: 0.8 }}
         className="text-center mb-10 md:mb-14 px-6"
       >
-        <Eyebrow color="#D62A5F">Glimpses</Eyebrow>
+        <Eyebrow color="#A9C0BF">Glimpses</Eyebrow>
         <h2
-          className="mt-5 text-3xl md:text-5xl font-bold text-[#EBE6E2] leading-tight"
+          className="mt-5 text-3xl md:text-5xl font-bold text-[#FFFFED] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Frames from <span className="italic gradient-text-fire"> last year</span>.
@@ -673,20 +673,20 @@ function CountdownCell({ label, value }: { label: string; value: number | string
   return (
     <div className="flex flex-col items-center">
       <div
-        className="relative w-[78px] sm:w-[110px] md:w-[140px] aspect-[3/4] flex items-center justify-center rounded-2xl border border-[#E26721]/22 bg-[#16100E]/55 backdrop-blur-md overflow-hidden"
-        style={{ boxShadow: "0 30px 60px rgba(0,0,0,0.45), inset 0 0 30px rgba(226,103,33,0.06)" }}
+        className="relative w-[78px] sm:w-[110px] md:w-[140px] aspect-[3/4] flex items-center justify-center rounded-2xl border border-[#D85325]/22 bg-[#16100E]/55 backdrop-blur-md overflow-hidden"
+        style={{ boxShadow: "0 30px 60px rgba(0,0,0,0.45), inset 0 0 30px rgba(216,83,37,0.06)" }}
       >
         <span
-          className="font-bold tabular-nums bg-gradient-to-b from-[#FFFAF5] via-[#F08D28] to-[#E26721] bg-clip-text text-transparent leading-none"
+          className="font-bold tabular-nums bg-gradient-to-b from-[#FFFAF5] via-[#E66839] to-[#D85325] bg-clip-text text-transparent leading-none"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(2.6rem, 7vw, 5.6rem)",
-            filter: "drop-shadow(0 0 20px rgba(226,103,33,0.35))",
+            filter: "drop-shadow(0 0 20px rgba(216,83,37,0.35))",
           }}
         >
           {String(value).padStart(2, "0")}
         </span>
-        <div className="absolute inset-x-0 top-1/2 h-px bg-[#EBE6E2]/8 pointer-events-none" />
+        <div className="absolute inset-x-0 top-1/2 h-px bg-[#FFFFED]/8 pointer-events-none" />
       </div>
       <span
         className="mt-3 text-[10px] tracking-[0.5em] uppercase text-[#8A8280]"
@@ -705,7 +705,7 @@ function TheDate() {
 
   return (
     <section ref={ref} className="relative py-16 md:py-24 px-6 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(226,103,33,0.10),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(216,83,37,0.10),transparent_55%)]" />
       <div className="relative max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -719,11 +719,11 @@ function TheDate() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.95, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 text-4xl sm:text-6xl md:text-7xl font-bold text-[#EBE6E2] leading-[0.95]"
+          className="mt-6 text-4xl sm:text-6xl md:text-7xl font-bold text-[#FFFFED] leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           October <span className="italic gradient-text-fire whitespace-nowrap">2 &amp; 3</span>
-          <span className="block sm:inline text-[#EBE6E2]/85">, 2026</span>
+          <span className="block sm:inline text-[#FFFFED]/85">, 2026</span>
         </motion.h2>
 
         <motion.p
@@ -768,9 +768,9 @@ function ThePlace() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Eyebrow color="#D62A5F">The place</Eyebrow>
+          <Eyebrow color="#A9C0BF">The place</Eyebrow>
           <h2
-            className="mt-5 text-4xl md:text-6xl font-bold text-[#EBE6E2] leading-[1]"
+            className="mt-5 text-4xl md:text-6xl font-bold text-[#FFFFED] leading-[1]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Tulsa, <span className="italic gradient-text-fire">again</span>.
@@ -782,7 +782,7 @@ function ThePlace() {
             Same ground where it broke open in &apos;25 — and we&apos;re widening the doors.
           </p>
           <div
-            className="mt-7 text-[#EBE6E2]/85 text-sm md:text-base"
+            className="mt-7 text-[#FFFFED]/85 text-sm md:text-base"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             12231 S. 74th E Ave.
@@ -828,9 +828,9 @@ function WhatsComing() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12 md:mb-16"
         >
-          <Eyebrow color="#9E1194">What&apos;s coming</Eyebrow>
+          <Eyebrow color="#A9C0BF">What&apos;s coming</Eyebrow>
           <h2
-            className="mt-5 text-3xl md:text-5xl font-bold text-[#EBE6E2] leading-tight"
+            className="mt-5 text-3xl md:text-5xl font-bold text-[#FFFFED] leading-tight"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Some things are <span className="italic gradient-text-fire">on the way</span>.
@@ -844,29 +844,29 @@ function WhatsComing() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 + i * 0.08 }}
-              className="group relative rounded-2xl border border-[#EBE6E2]/8 bg-[#16100E]/55 backdrop-blur-md p-7 md:p-9 overflow-hidden hover:border-[#E26721]/35 transition-colors duration-500"
+              className="group relative rounded-2xl border border-[#FFFFED]/8 bg-[#16100E]/55 backdrop-blur-md p-7 md:p-9 overflow-hidden hover:border-[#D85325]/35 transition-colors duration-500"
             >
               <div className="flex items-center justify-between mb-5">
                 <span
-                  className="text-[10px] tracking-[0.5em] uppercase text-[#E26721]"
+                  className="text-[10px] tracking-[0.5em] uppercase text-[#D85325]"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {t.label}
                 </span>
                 <span
-                  className="text-[9px] tracking-[0.4em] uppercase text-[#8A8280] px-2 py-1 rounded-full border border-[#EBE6E2]/10"
+                  className="text-[9px] tracking-[0.4em] uppercase text-[#8A8280] px-2 py-1 rounded-full border border-[#FFFFED]/10"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   Soon
                 </span>
               </div>
               <p
-                className="text-[#EBE6E2]/85 text-lg md:text-xl leading-snug"
+                className="text-[#FFFFED]/85 text-lg md:text-xl leading-snug"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {t.body}
               </p>
-              <div className="absolute -bottom-px left-0 h-px w-0 bg-gradient-to-r from-[#E26721] via-[#D62A5F] to-[#9E1194] transition-all duration-700 group-hover:w-full" />
+              <div className="absolute -bottom-px left-0 h-px w-0 bg-gradient-to-r from-[#D85325] via-[#A9C0BF] to-[#A9C0BF] transition-all duration-700 group-hover:w-full" />
             </motion.div>
           ))}
         </div>
@@ -888,11 +888,11 @@ function LinkButton({ label, sublabel, href }: { label: string; sublabel: string
       className="relative group"
     >
       <div
-        className="relative px-7 md:px-10 py-3.5 md:py-4 rounded-full text-[#EBE6E2] tracking-[0.18em] uppercase text-[11px] md:text-xs font-semibold overflow-hidden transition-transform duration-300 group-hover:scale-[1.04]"
+        className="relative px-7 md:px-10 py-3.5 md:py-4 rounded-full text-[#FFFFED] tracking-[0.18em] uppercase text-[11px] md:text-xs font-semibold overflow-hidden transition-transform duration-300 group-hover:scale-[1.04]"
         style={{
           fontFamily: "var(--font-mono)",
-          background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-          boxShadow: "0 8px 30px rgba(226,103,33,0.28)",
+          background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+          boxShadow: "0 8px 30px rgba(216,83,37,0.28)",
         }}
       >
         <span className="relative z-10">{label}</span>
@@ -918,7 +918,7 @@ function Invitation() {
 
   return (
     <section ref={ref} className="relative py-20 md:py-28 px-6 md:px-12 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(226,103,33,0.10),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(216,83,37,0.10),transparent_55%)]" />
 
       {/* Marquee — motto floating across */}
       <motion.div
@@ -928,7 +928,7 @@ function Invitation() {
         {Array.from({ length: 3 }).map((_, i) => (
           <span
             key={i}
-            className="font-bold text-[#EBE6E2] mr-12"
+            className="font-bold text-[#FFFFED] mr-12"
             style={{ fontFamily: "var(--font-display)", fontSize: "clamp(4rem, 10vw, 8rem)" }}
           >
             THIS GENERATION · THIS HOUR · THIS FIRE ·
@@ -949,7 +949,7 @@ function Invitation() {
           initial={{ opacity: 0, y: 28 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 text-4xl md:text-6xl font-bold text-[#EBE6E2] leading-[1]"
+          className="mt-6 text-4xl md:text-6xl font-bold text-[#FFFFED] leading-[1]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Come <span className="italic gradient-text-fire">hungry</span>.
@@ -981,7 +981,7 @@ function Invitation() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.9 }}
-          className="mt-16 text-[10px] tracking-[0.55em] uppercase text-[#E26721]/85"
+          className="mt-16 text-[10px] tracking-[0.55em] uppercase text-[#D85325]/85"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           This generation · This hour · This fire
@@ -997,7 +997,7 @@ function Invitation() {
 
 export default function Activate26Page() {
   return (
-    <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen">
+    <main className="relative bg-[#000000] text-[#FFFFED] min-h-screen">
       <AmbientBackdrop />
       <Navbar />
       <AmbientAudio />

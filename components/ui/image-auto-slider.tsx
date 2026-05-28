@@ -47,10 +47,10 @@ export function ImageAutoSlider({
           {looped.map((src, i) => (
             <div
               key={i}
-              className="group relative flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-[#EBE6E2]/8 bg-[#16100E]"
+              className="group relative flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden border border-[#FFFFED]/8 bg-[#16100E]"
               style={{
                 boxShadow:
-                  "0 18px 50px rgba(0,0,0,0.55), 0 0 30px rgba(226,103,33,0.10), inset 0 0 0 1px rgba(226,103,33,0.10)",
+                  "0 18px 50px rgba(0,0,0,0.55), 0 0 30px rgba(216,83,37,0.10), inset 0 0 0 1px rgba(216,83,37,0.10)",
               }}
             >
               <Image
@@ -63,13 +63,13 @@ export function ImageAutoSlider({
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
               />
               {/* Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-[#0C070A]/15 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/55 via-transparent to-[#000000]/15 pointer-events-none" />
               {/* Fire glow ring on hover */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
                   boxShadow:
-                    "0 0 0 1px rgba(226,103,33,0.45), 0 0 30px rgba(226,103,33,0.55), 0 0 70px rgba(214,42,95,0.30)",
+                    "0 0 0 1px rgba(216,83,37,0.45), 0 0 30px rgba(216,83,37,0.55), 0 0 70px rgba(169,192,191,0.30)",
                 }}
               />
             </div>

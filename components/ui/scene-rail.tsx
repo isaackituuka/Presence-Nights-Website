@@ -45,7 +45,7 @@ export function SceneRail() {
             className="text-[10px] tracking-[0.3em] transition-all duration-500"
             style={{
               fontFamily: "var(--font-mono)",
-              color: i === active ? "#EBE6E2" : "rgba(138,130,128,0.45)",
+              color: i === active ? "#FFFFED" : "rgba(138,130,128,0.45)",
               opacity: i === active ? 1 : 0,
               transform: i === active ? "translateX(0)" : "translateX(8px)",
             }}
@@ -57,7 +57,7 @@ export function SceneRail() {
             animate={{
               width: i === active ? 24 : 8,
               height: 2,
-              backgroundColor: i === active ? "#E26721" : "rgba(235,230,226,0.25)",
+              backgroundColor: i === active ? "#D85325" : "rgba(255,255,237,0.25)",
             }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           />

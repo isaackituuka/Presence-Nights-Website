@@ -44,7 +44,7 @@ function LeaderCard({ leader, size = "md", index = 0 }: { leader: Leader; size?:
   const spotlight = useTransform(
     [px, py] as const,
     ([x, y]: number[]) =>
-      `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(226,103,33,0.28) 0%, rgba(214,42,95,0.12) 35%, transparent 65%)`,
+      `radial-gradient(circle at ${x * 100}% ${y * 100}%, rgba(216,83,37,0.28) 0%, rgba(169,192,191,0.12) 35%, transparent 65%)`,
   )
 
   const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -76,7 +76,7 @@ function LeaderCard({ leader, size = "md", index = 0 }: { leader: Leader; size?:
       style={{ perspective: 800 }}
     >
       <motion.div
-        className="relative aspect-square overflow-hidden rounded-[1.35rem] border border-[rgba(255,255,255,0.09)] transition-colors duration-500 group-hover:border-[#E26721]/55"
+        className="relative aspect-square overflow-hidden rounded-[1.35rem] border border-[rgba(255,255,255,0.09)] transition-colors duration-500 group-hover:border-[#D85325]/55"
         style={{
           rotateX: rotX,
           rotateY: rotY,
@@ -92,8 +92,8 @@ function LeaderCard({ leader, size = "md", index = 0 }: { leader: Leader; size?:
           className="object-cover grayscale-[0.2] brightness-[1.05] saturate-[0.92] contrast-[1.04] group-hover:grayscale-0 group-hover:brightness-[1.12] group-hover:saturate-100 transition-[filter,transform] duration-700 group-hover:scale-[1.07]"
         />
         {/* Bottom gradient for legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/72 via-[#0C070A]/10 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(226,103,33,0.08),transparent_45%,rgba(214,42,95,0.08))] opacity-70 mix-blend-screen pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/72 via-[#000000]/10 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(216,83,37,0.08),transparent_45%,rgba(169,192,191,0.08))] opacity-70 mix-blend-screen pointer-events-none" />
         <motion.div
           aria-hidden="true"
           className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent mix-blend-screen pointer-events-none"
@@ -111,13 +111,13 @@ function LeaderCard({ leader, size = "md", index = 0 }: { leader: Leader; size?:
 
       <div className="mt-4 text-center">
         <h3
-          className={`${nameSize} font-bold text-[#EBE6E2] tracking-[-0.01em] leading-tight`}
+          className={`${nameSize} font-bold text-[#FFFFED] tracking-[-0.01em] leading-tight`}
           style={{ fontFamily: "var(--font-display)" }}
         >
           {leader.name}
         </h3>
         <p
-          className={`mt-1.5 text-[10px] tracking-[0.3em] uppercase ${size === "lg" ? "text-[#E26721]" : "text-[#8A8280]"}`}
+          className={`mt-1.5 text-[10px] tracking-[0.3em] uppercase ${size === "lg" ? "text-[#D85325]" : "text-[#8A8280]"}`}
           style={{ fontFamily: "var(--font-mono)" }}
         >
           {leader.role}
@@ -180,7 +180,7 @@ function HeroBlock() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="inline-block text-[#E26721] text-[10px] tracking-[0.6em] uppercase mb-6"
+          className="inline-block text-[#D85325] text-[10px] tracking-[0.6em] uppercase mb-6"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           07 — Leadership
@@ -190,7 +190,7 @@ function HeroBlock() {
           initial={{ opacity: 0, y: 24, letterSpacing: "0.06em" }}
           animate={{ opacity: 1, y: 0, letterSpacing: "-0.02em" }}
           transition={{ duration: 1.1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#EBE6E2] leading-[0.95]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-[#FFFFED] leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Our {" "}
@@ -224,13 +224,13 @@ function ClosingNote() {
         transition={{ duration: 0.8 }}
       >
         <span
-          className="text-[10px] tracking-[0.5em] uppercase text-[#E26721]"
+          className="text-[10px] tracking-[0.5em] uppercase text-[#D85325]"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           And many more —
         </span>
         <p
-          className="mt-6 text-xl md:text-2xl italic text-[#EBE6E2]/80 leading-relaxed"
+          className="mt-6 text-xl md:text-2xl italic text-[#FFFFED]/80 leading-relaxed"
           style={{ fontFamily: "var(--font-display)" }}
         >
           We are more than just a leadership team. Alongside us are countless hosts, intercessors, worshipers, and friends who make every gathering possible. 
@@ -243,7 +243,7 @@ function ClosingNote() {
 
 export default function LeadershipPage() {
   return (
-    <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen">
+    <main className="relative bg-[#000000] text-[#FFFFED] min-h-screen">
       <AmbientBackdrop />
       <Navbar />
       <AmbientAudio />
@@ -251,21 +251,21 @@ export default function LeadershipPage() {
       <HeroBlock />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-12 pb-12 md:pb-20 space-y-14 md:space-y-20">
-        <Row leaders={operations} label="Operations" color="#E26721" />
-        <Row leaders={pastoral} label="Discipleship & Community" color="#D62A5F" />
-        <Row leaders={creative} label="Production & Worship" color="#9E1194" />
+        <Row leaders={operations} label="Operations" color="#D85325" />
+        <Row leaders={pastoral} label="Discipleship & Community" color="#A9C0BF" />
+        <Row leaders={creative} label="Production & Worship" color="#A9C0BF" />
 
         {/* Capstone — Tim */}
         <div className="relative pt-4">
           <div className="flex items-center gap-3 mb-10 md:mb-14 justify-center">
-            <span className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent to-[#F08D28]" />
+            <span className="h-px w-12 md:w-20 bg-gradient-to-r from-transparent to-[#E66839]" />
             <span
-              className="text-[10px] tracking-[0.4em] uppercase text-[#F08D28]"
+              className="text-[10px] tracking-[0.4em] uppercase text-[#E66839]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               Team Leader
             </span>
-            <span className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent to-[#F08D28]" />
+            <span className="h-px w-12 md:w-20 bg-gradient-to-l from-transparent to-[#E66839]" />
           </div>
           <div className="flex justify-center">
             <LeaderCard leader={teamLeader} size="lg" />

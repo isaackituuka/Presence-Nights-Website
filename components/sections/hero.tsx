@@ -7,18 +7,18 @@ import { ChevronDown } from "lucide-react"
 
 /* Stable particle list — computed once, no hydration mismatch */
 const PARTICLES = [
-  { id: 0,  x: 8,  y: 30, size: 3, dur: 7,  delay: 0,   color: "#E26721" },
-  { id: 1,  x: 15, y: 55, size: 2, dur: 9,  delay: 1.2, color: "#F08D28" },
-  { id: 2,  x: 22, y: 40, size: 4, dur: 6,  delay: 0.5, color: "#D62A5F" },
-  { id: 3,  x: 30, y: 65, size: 2, dur: 11, delay: 2,   color: "#9E1194" },
-  { id: 4,  x: 38, y: 25, size: 3, dur: 8,  delay: 0.8, color: "#E26721" },
-  { id: 5,  x: 45, y: 70, size: 2, dur: 7,  delay: 3,   color: "#F08D28" },
-  { id: 6,  x: 52, y: 45, size: 3, dur: 10, delay: 1.5, color: "#D62A5F" },
-  { id: 7,  x: 60, y: 35, size: 2, dur: 9,  delay: 0.3, color: "#E26721" },
-  { id: 8,  x: 68, y: 60, size: 4, dur: 6,  delay: 2.5, color: "#9E1194" },
-  { id: 9,  x: 75, y: 48, size: 2, dur: 8,  delay: 1,   color: "#F08D28" },
-  { id: 10, x: 82, y: 30, size: 3, dur: 12, delay: 0.7, color: "#D62A5F" },
-  { id: 11, x: 88, y: 55, size: 2, dur: 7,  delay: 3.5, color: "#E26721" },
+  { id: 0,  x: 8,  y: 30, size: 3, dur: 7,  delay: 0,   color: "#D85325" },
+  { id: 1,  x: 15, y: 55, size: 2, dur: 9,  delay: 1.2, color: "#E66839" },
+  { id: 2,  x: 22, y: 40, size: 4, dur: 6,  delay: 0.5, color: "#A9C0BF" },
+  { id: 3,  x: 30, y: 65, size: 2, dur: 11, delay: 2,   color: "#A9C0BF" },
+  { id: 4,  x: 38, y: 25, size: 3, dur: 8,  delay: 0.8, color: "#D85325" },
+  { id: 5,  x: 45, y: 70, size: 2, dur: 7,  delay: 3,   color: "#E66839" },
+  { id: 6,  x: 52, y: 45, size: 3, dur: 10, delay: 1.5, color: "#A9C0BF" },
+  { id: 7,  x: 60, y: 35, size: 2, dur: 9,  delay: 0.3, color: "#D85325" },
+  { id: 8,  x: 68, y: 60, size: 4, dur: 6,  delay: 2.5, color: "#A9C0BF" },
+  { id: 9,  x: 75, y: 48, size: 2, dur: 8,  delay: 1,   color: "#E66839" },
+  { id: 10, x: 82, y: 30, size: 3, dur: 12, delay: 0.7, color: "#A9C0BF" },
+  { id: 11, x: 88, y: 55, size: 2, dur: 7,  delay: 3.5, color: "#D85325" },
 ]
 
 function ParticleField() {
@@ -75,18 +75,18 @@ export function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover object-center"
           style={{ cursor: "default", transform: "translateZ(0)", willChange: "transform" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0C070A]/60 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/40 via-transparent to-[#0C070A]/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(12,7,10,0.65)_100%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/55 to-[#000000]/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000000]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/40 via-transparent to-[#000000]/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.65)_100%)]" />
       </motion.div>
 
       {/* Particles */}
       <ParticleField />
 
       {/* Ground glows */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-48 bg-[#E26721]/6 blur-[80px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 w-1/3 h-32 bg-[#D62A5F]/5 blur-[60px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-48 bg-[#D85325]/6 blur-[80px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-1/3 w-1/3 h-32 bg-[#A9C0BF]/5 blur-[60px] rounded-full pointer-events-none" />
 
       {/* Content — uses CSS animations, NOT framer-motion animate */}
       <motion.div
@@ -95,21 +95,21 @@ export function HeroSection() {
       >
         {/* PN logo badge — CSS animated */}
         <div className="hero-logo-anim mb-8">
-          <div className="relative w-16 h-16 rounded-full border border-[#E26721]/40 flex items-center justify-center animate-pulse-glow">
+          <div className="relative w-16 h-16 rounded-full border border-[#D85325]/40 flex items-center justify-center animate-pulse-glow">
             <span
-              className="text-[#E26721] text-lg font-bold text-glow-orange"
+              className="text-[#D85325] text-lg font-bold text-glow-orange"
               style={{ fontFamily: "var(--font-display)" }}
             >
               PN
             </span>
-            <div className="absolute inset-[-6px] rounded-full border border-dashed border-[#E26721]/20 animate-spin-slow" />
+            <div className="absolute inset-[-6px] rounded-full border border-dashed border-[#D85325]/20 animate-spin-slow" />
           </div>
         </div>
 
         {/* PRESENCE */}
         <h1
           aria-label="Presence Nights Tulsa"
-          className="mb-3 font-bold text-[#EBE6E2] tracking-[-0.02em] leading-none"
+          className="mb-3 font-bold text-[#FFFFED] tracking-[-0.02em] leading-none"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(3.2rem, 13vw, 10rem)",
@@ -125,18 +125,18 @@ export function HeroSection() {
 
         {/* TULSA */}
         <div className="hero-tulsa flex items-center gap-3 mb-6">
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#D85325]" />
           <span
-            className="text-[#E26721] tracking-[0.5em] text-sm md:text-base uppercase text-glow-orange"
+            className="text-[#D85325] tracking-[0.5em] text-sm md:text-base uppercase text-glow-orange"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             TULSA
           </span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <div className="h-px w-12 bg-gradient-to-l from-transparent to-[#D85325]" />
         </div>
 
         <p
-          className="hero-fade-in mb-5 max-w-xl text-sm md:text-base text-[#EBE6E2]/82 leading-relaxed"
+          className="hero-fade-in mb-5 max-w-xl text-sm md:text-base text-[#FFFFED]/82 leading-relaxed"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Young adults in Tulsa gathering every last Friday for worship, prayer,
@@ -160,7 +160,7 @@ export function HeroSection() {
             waitTime={2200}
             deleteSpeed={28}
             cursorChar="_"
-            cursorClassName="text-[#E26721] ml-0.5"
+            cursorClassName="text-[#D85325] ml-0.5"
           />
         </div>
       </motion.div>
@@ -174,7 +174,7 @@ export function HeroSection() {
           Scroll
         </span>
         <div className="animate-bounce-down">
-          <ChevronDown className="w-4 h-4 text-[#E26721]/70" />
+          <ChevronDown className="w-4 h-4 text-[#D85325]/70" />
         </div>
       </div>
     </section>

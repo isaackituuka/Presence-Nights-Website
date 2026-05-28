@@ -67,35 +67,35 @@ function NavLink({
       <a
         href={href}
         onClick={(e) => { if (smartScrollTo(href)) e.preventDefault() }}
-        className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[#EBE6E2] text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-transform duration-300 hover:scale-[1.04] whitespace-nowrap"
+        className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[#FFFFED] text-[10px] lg:text-[11px] tracking-[0.2em] uppercase transition-transform duration-300 hover:scale-[1.04] whitespace-nowrap"
         style={{ fontFamily: "var(--font-mono)" }}
       >
         {/* Pulsing live dot */}
         <span className="relative flex h-1.5 w-1.5 shrink-0">
           <motion.span
-            className="absolute inset-0 rounded-full bg-[#E26721]"
+            className="absolute inset-0 rounded-full bg-[#D85325]"
             animate={{ scale: [1, 2.2, 2.4], opacity: [0.55, 0.1, 0] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
           />
-          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E26721] shadow-[0_0_8px_rgba(226,103,33,0.85)]" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#D85325] shadow-[0_0_8px_rgba(216,83,37,0.85)]" />
         </span>
-        <span className="relative z-10 bg-gradient-to-r from-[#F08D28] via-[#E26721] to-[#D62A5F] bg-clip-text text-transparent font-semibold">
+        <span className="relative z-10 bg-gradient-to-r from-[#E66839] via-[#D85325] to-[#A9C0BF] bg-clip-text text-transparent font-semibold">
           {children}
         </span>
         {/* Pulsing border ring */}
         <motion.span
           aria-hidden
-          className="absolute inset-0 rounded-full border border-[#E26721]/45 pointer-events-none"
+          className="absolute inset-0 rounded-full border border-[#D85325]/45 pointer-events-none"
           animate={{ opacity: [0.45, 0.95, 0.45], boxShadow: [
-            "0 0 0px rgba(226,103,33,0.0), inset 0 0 0 rgba(226,103,33,0)",
-            "0 0 16px rgba(226,103,33,0.55), inset 0 0 8px rgba(226,103,33,0.15)",
-            "0 0 0px rgba(226,103,33,0.0), inset 0 0 0 rgba(226,103,33,0)",
+            "0 0 0px rgba(216,83,37,0.0), inset 0 0 0 rgba(216,83,37,0)",
+            "0 0 16px rgba(216,83,37,0.55), inset 0 0 8px rgba(216,83,37,0.15)",
+            "0 0 0px rgba(216,83,37,0.0), inset 0 0 0 rgba(216,83,37,0)",
           ] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Hover intensifier */}
         <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-          style={{ boxShadow: "0 0 22px rgba(226,103,33,0.65), 0 0 50px rgba(214,42,95,0.35)" }} />
+          style={{ boxShadow: "0 0 22px rgba(216,83,37,0.65), 0 0 50px rgba(169,192,191,0.35)" }} />
       </a>
     )
   }
@@ -104,14 +104,14 @@ function NavLink({
       href={href}
       onClick={(e) => { if (smartScrollTo(href)) e.preventDefault() }}
       className={`group relative text-[11px] tracking-[0.2em] uppercase transition-colors duration-300 ${
-        isActive ? "text-[#EBE6E2]" : "text-[#8A8280] hover:text-[#EBE6E2]"
+        isActive ? "text-[#FFFFED]" : "text-[#8A8280] hover:text-[#FFFFED]"
       }`}
       style={{ fontFamily: "var(--font-mono)" }}
     >
       <span className="relative z-10">{children}</span>
       {/* Hover underline — only when not active */}
       {!isActive && (
-        <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#E26721] via-[#D62A5F] to-[#9E1194] transition-all duration-500 group-hover:w-full" />
+        <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-[#D85325] via-[#A9C0BF] to-[#A9C0BF] transition-all duration-500 group-hover:w-full" />
       )}
       {/* Active section indicator — slides smoothly between links */}
       {isActive && (
@@ -119,8 +119,8 @@ function NavLink({
           layoutId="active-section-indicator"
           className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full"
           style={{
-            background: "linear-gradient(90deg, #F08D28, #E26721, #D62A5F, #9E1194)",
-            boxShadow: "0 0 8px rgba(226,103,33,0.65)",
+            background: "linear-gradient(90deg, #E66839, #D85325, #A9C0BF, #A9C0BF)",
+            boxShadow: "0 0 8px rgba(216,83,37,0.65)",
           }}
           transition={{ type: "spring", stiffness: 380, damping: 30 }}
         />
@@ -147,9 +147,9 @@ export function Navbar() {
   const ringOp   = useTransform(smoothProgress, [0, 1], [0.06, 0.22])
   const shadowOp = useTransform(smoothProgress, [0, 1], [0, 0.45])
 
-  const bg     = useTransform(bgAlpha, (v) => `rgba(12,7,10,${v})`)
+  const bg     = useTransform(bgAlpha, (v) => `rgba(0,0,0,${v})`)
   const blur   = useTransform(blurAmt, (v) => `blur(${v}px)`)
-  const border = useTransform(ringOp, (v) => `1px solid rgba(226,103,33,${v + 0.04})`)
+  const border = useTransform(ringOp, (v) => `1px solid rgba(216,83,37,${v + 0.04})`)
   const shadow = useTransform(shadowOp, (v) => `0 12px 50px rgba(0,0,0,${v})`)
 
   useEffect(() => {
@@ -244,13 +244,13 @@ export function Navbar() {
             aria-label="Presence Nights home"
           >
             <motion.div
-              className="relative w-8 h-8 rounded-full border border-[#E26721]/50 flex items-center justify-center group-hover:border-[#E26721] transition-colors duration-300 group-hover:shadow-[0_0_16px_rgba(226,103,33,0.55)]"
+              className="relative w-8 h-8 rounded-full border border-[#D85325]/50 flex items-center justify-center group-hover:border-[#D85325] transition-colors duration-300 group-hover:shadow-[0_0_16px_rgba(216,83,37,0.55)]"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span className="text-[#E26721] text-xs font-bold" style={{ fontFamily: "var(--font-display)" }}>PN</span>
+              <span className="text-[#D85325] text-xs font-bold" style={{ fontFamily: "var(--font-display)" }}>PN</span>
               <motion.div
-                className="absolute inset-0 rounded-full bg-[#E26721]/5 group-hover:bg-[#E26721]/15 transition-colors duration-300"
+                className="absolute inset-0 rounded-full bg-[#D85325]/5 group-hover:bg-[#D85325]/15 transition-colors duration-300"
                 animate={{ opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -280,20 +280,20 @@ export function Navbar() {
           <Link
             href="/#connect"
             onClick={(e) => { if (smartScrollTo("/#connect")) e.preventDefault() }}
-            className="relative hidden md:flex items-center gap-2 px-3.5 lg:px-4 py-1.5 rounded-full text-[#EBE6E2] text-[10px] lg:text-[11px] font-semibold tracking-[0.14em] lg:tracking-[0.16em] uppercase transition-transform duration-300 hover:scale-[1.04] whitespace-nowrap shrink-0"
+            className="relative hidden md:flex items-center gap-2 px-3.5 lg:px-4 py-1.5 rounded-full text-[#FFFFED] text-[10px] lg:text-[11px] font-semibold tracking-[0.14em] lg:tracking-[0.16em] uppercase transition-transform duration-300 hover:scale-[1.04] whitespace-nowrap shrink-0"
             style={{
               fontFamily: "var(--font-mono)",
-              background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-              boxShadow: "0 4px 18px rgba(226,103,33,0.25)",
+              background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+              boxShadow: "0 4px 18px rgba(216,83,37,0.25)",
             }}
           >
             <span className="relative z-10">Join the Movement</span>
             <span className="absolute inset-0 rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-              style={{ boxShadow: "0 0 26px rgba(226,103,33,0.6), 0 0 60px rgba(214,42,95,0.35)" }} />
+              style={{ boxShadow: "0 0 26px rgba(216,83,37,0.6), 0 0 60px rgba(169,192,191,0.35)" }} />
           </Link>
 
           <button
-            className="md:hidden text-[#8A8280] hover:text-[#EBE6E2] transition-colors"
+            className="md:hidden text-[#8A8280] hover:text-[#FFFFED] transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Open menu"
           >
@@ -306,13 +306,13 @@ export function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#0C070A]/98 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-[#000000]/98 backdrop-blur-2xl md:hidden"
             initial={{ opacity: 0, clipPath: "circle(0% at 95% 6%)" }}
             animate={{ opacity: 1, clipPath: "circle(150% at 95% 6%)" }}
             exit={{ opacity: 0, clipPath: "circle(0% at 95% 6%)" }}
             transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(226,103,33,0.08),transparent_70%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(216,83,37,0.08),transparent_70%)]" />
             <nav className="relative z-10 flex flex-col items-center gap-7">
               {navLinks.map((link, i) => (
                 <motion.a
@@ -325,7 +325,7 @@ export function Navbar() {
                   className={
                     link.featured
                       ? "relative px-5 py-2 rounded-full text-3xl font-bold tracking-tight transition-transform hover:scale-[1.03]"
-                      : "text-3xl font-bold text-[#EBE6E2]/70 hover:text-[#EBE6E2] transition-colors"
+                      : "text-3xl font-bold text-[#FFFFED]/70 hover:text-[#FFFFED] transition-colors"
                   }
                   style={{ fontFamily: "var(--font-display)" }}
                   initial={{ opacity: 0, y: 20 }}
@@ -334,16 +334,16 @@ export function Navbar() {
                 >
                   {link.featured ? (
                     <>
-                      <span className="relative z-10 bg-gradient-to-r from-[#F08D28] via-[#E26721] to-[#D62A5F] bg-clip-text text-transparent">
+                      <span className="relative z-10 bg-gradient-to-r from-[#E66839] via-[#D85325] to-[#A9C0BF] bg-clip-text text-transparent">
                         {link.label}
                       </span>
                       <motion.span
                         aria-hidden
-                        className="absolute inset-0 rounded-full border border-[#E26721]/50"
+                        className="absolute inset-0 rounded-full border border-[#D85325]/50"
                         animate={{ opacity: [0.45, 1, 0.45], boxShadow: [
-                          "0 0 0px rgba(226,103,33,0)",
-                          "0 0 30px rgba(226,103,33,0.55)",
-                          "0 0 0px rgba(226,103,33,0)",
+                          "0 0 0px rgba(216,83,37,0)",
+                          "0 0 30px rgba(216,83,37,0.55)",
+                          "0 0 0px rgba(216,83,37,0)",
                         ] }}
                         transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
                       />
@@ -357,10 +357,10 @@ export function Navbar() {
                   if (smartScrollTo("/#connect", () => setIsOpen(false))) e.preventDefault()
                   else setIsOpen(false)
                 }}
-                className="mt-3 px-8 py-3 rounded-full text-[#EBE6E2] font-semibold tracking-[0.25em] uppercase text-sm"
+                className="mt-3 px-8 py-3 rounded-full text-[#FFFFED] font-semibold tracking-[0.25em] uppercase text-sm"
                 style={{
                   fontFamily: "var(--font-mono)",
-                  background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
+                  background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

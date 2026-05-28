@@ -115,7 +115,7 @@ export function AmbientAudio() {
   const labelText = !enabled ? "Tap for sound" : muted ? "Click to unmute" : "Click to mute"
   const playing = enabled && !muted
   const Icon = !enabled || muted ? (muted ? VolumeX : Volume2) : Volume2
-  const iconColor = !enabled ? "#E26721" : muted ? "#8A8280" : "#E26721"
+  const iconColor = !enabled ? "#D85325" : muted ? "#8A8280" : "#D85325"
 
   return (
     <AnimatePresence>
@@ -135,13 +135,13 @@ export function AmbientAudio() {
             onMouseLeave={() => setIsHovered(false)}
             layout
             transition={{ layout: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } }}
-            className="flex items-center gap-2 rounded-full backdrop-blur-md text-[#EBE6E2]"
+            className="flex items-center gap-2 rounded-full backdrop-blur-md text-[#FFFFED]"
             style={{
               fontFamily: "var(--font-mono)",
-              background: "rgba(12,7,10,0.65)",
-              border: `1px solid rgba(226,103,33,${enabled && muted ? 0.25 : 0.45})`,
+              background: "rgba(0,0,0,0.65)",
+              border: `1px solid rgba(216,83,37,${enabled && muted ? 0.25 : 0.45})`,
               boxShadow: showPrompt
-                ? "0 8px 30px rgba(226,103,33,0.18)"
+                ? "0 8px 30px rgba(216,83,37,0.18)"
                 : "0 4px 18px rgba(0,0,0,0.4)",
               padding: compact ? "10px" : "8px 16px",
             }}

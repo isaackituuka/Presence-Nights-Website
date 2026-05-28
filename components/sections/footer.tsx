@@ -29,16 +29,16 @@ export function Footer() {
   return (
     <footer className="relative border-t border-[rgba(255,255,255,0.05)] pt-16 pb-8 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,103,33,0.03)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(216,83,37,0.03)_0%,transparent_60%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full border border-[#E26721]/40 flex items-center justify-center animate-pulse-glow">
+              <div className="w-10 h-10 rounded-full border border-[#D85325]/40 flex items-center justify-center animate-pulse-glow">
                 <span
-                  className="text-[#E26721] font-bold text-sm"
+                  className="text-[#D85325] font-bold text-sm"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   PN
@@ -46,13 +46,13 @@ export function Footer() {
               </div>
               <div>
                 <div
-                  className="text-[#EBE6E2] font-bold text-sm"
+                  className="text-[#FFFFED] font-bold text-sm"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   Presence Nights
                 </div>
                 <div
-                  className="text-[#E26721] text-xs tracking-widest"
+                  className="text-[#D85325] text-xs tracking-widest"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   TULSA
@@ -69,7 +69,7 @@ export function Footer() {
             </p>
 
             <div className="flex items-center gap-2 text-[#8A8280]/50 text-xs" style={{ fontFamily: "var(--font-mono)" }}>
-              <MapPin size={10} className="text-[#E26721]" />
+              <MapPin size={10} className="text-[#D85325]" />
               Tulsa, Oklahoma
             </div>
           </div>
@@ -78,7 +78,7 @@ export function Footer() {
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h4
-                className="text-[#E26721] text-xs tracking-[0.35em] uppercase mb-5"
+                className="text-[#D85325] text-xs tracking-[0.35em] uppercase mb-5"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 {category}
@@ -88,10 +88,10 @@ export function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[#8A8280] text-sm hover:text-[#EBE6E2] transition-colors duration-200 flex items-center gap-1.5 group"
+                      className="text-[#8A8280] text-sm hover:text-[#FFFFED] transition-colors duration-200 flex items-center gap-1.5 group"
                       style={{ fontFamily: "var(--font-sans)" }}
                     >
-                      <span className="w-0 group-hover:w-2 h-px bg-[#E26721] transition-all duration-300 shrink-0" />
+                      <span className="w-0 group-hover:w-2 h-px bg-[#D85325] transition-all duration-300 shrink-0" />
                       {link.label}
                     </a>
                   </li>
@@ -111,7 +111,7 @@ export function Footer() {
           </p>
 
           <div className="flex items-center gap-1.5 text-[#8A8280]/40 text-xs" style={{ fontFamily: "var(--font-mono)" }}>
-            Built by <i>Junior Kituuka</i> <Heart size={10} className="text-[#D62A5F] mx-0.5 fill-current" /> for His presence
+            Built by <i>Junior Kituuka</i> <Heart size={10} className="text-[#A9C0BF] mx-0.5 fill-current" /> for His presence
           </div>
 
           <div className="divider-gradient w-full md:hidden opacity-20" />

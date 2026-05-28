@@ -1,21 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, DM_Sans, Space_Grotesk } from "next/font/google";
+import { Bowlby_One, Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { absoluteUrl, organizationJsonLd, siteConfig, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+// Brand 2026 — display: Bowlby One (free Google Fonts substitute for the
+// commercial KonTikiJF Aloha specified in the brand book). Chunky condensed
+// sans-serif that matches the brand's bold poster aesthetic.
+const bowlbyOne = Bowlby_One({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "900"],
-  style: ["normal", "italic"],
+  weight: ["400"],
 });
 
-const dmSans = DM_Sans({
+// Body: Inter (free, system Helvetica fallback). Closest open substitute for
+// the brand's Helvetica Neue Bold.
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -96,7 +100,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0C070A",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
@@ -109,9 +113,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} ${spaceGrotesk.variable} antialiased`}
+      className={`${bowlbyOne.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
     >
-      <body suppressHydrationWarning className="bg-[#0C070A] text-[#EBE6E2] min-h-screen">
+      <body suppressHydrationWarning className="bg-[#000000] text-[#FFFFED] min-h-screen">
         <JsonLd id="presence-organization-jsonld" data={organizationJsonLd()} />
         <JsonLd id="presence-website-jsonld" data={websiteJsonLd()} />
         {children}

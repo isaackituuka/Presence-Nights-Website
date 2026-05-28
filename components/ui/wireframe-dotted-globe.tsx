@@ -96,9 +96,9 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
       avatar.style.cssText = `
         width: 28px; height: 28px; border-radius: 50%;
         overflow: hidden;
-        border: 2px solid #E26721;
-        box-shadow: 0 0 10px rgba(226,103,33,0.55);
-        background: #0C070A;
+        border: 2px solid #D85325;
+        box-shadow: 0 0 10px rgba(216,83,37,0.55);
+        background: #000000;
         transition: transform 0.25s ease, box-shadow 0.25s ease, width 0.25s ease, height 0.25s ease;
       `
       if (pin.src) {
@@ -114,7 +114,7 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
         avatar.style.alignItems = "center"
         avatar.style.justifyContent = "center"
         const dot = document.createElement("div")
-        dot.style.cssText = "width:8px;height:8px;border-radius:50%;background:#E26721;"
+        dot.style.cssText = "width:8px;height:8px;border-radius:50%;background:#D85325;"
         avatar.appendChild(dot)
       }
       // label — appears on hover, hidden by default. Positioned absolutely
@@ -128,18 +128,18 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
         transform: translate(-50%, -4px);
         padding: 3px 10px;
         border-radius: 9999px;
-        background: rgba(12,7,10,0.92);
-        color: #EBE6E2;
+        background: rgba(0,0,0,0.92);
+        color: #FFFFED;
         font-size: 10px;
         font-family: monospace;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         white-space: nowrap;
-        border: 1px solid rgba(226,103,33,0.55);
+        border: 1px solid rgba(216,83,37,0.55);
         opacity: 0;
         transition: opacity 0.25s ease, transform 0.25s ease;
         pointer-events: none;
-        box-shadow: 0 6px 20px rgba(226,103,33,0.25);
+        box-shadow: 0 6px 20px rgba(216,83,37,0.25);
       `
       wrap.appendChild(avatar)
       wrap.appendChild(label)
@@ -147,14 +147,14 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
       wrap.addEventListener("mouseenter", () => {
         avatar.style.width = "44px"
         avatar.style.height = "44px"
-        avatar.style.boxShadow = "0 0 22px rgba(226,103,33,0.85), 0 0 60px rgba(214,42,95,0.4)"
+        avatar.style.boxShadow = "0 0 22px rgba(216,83,37,0.85), 0 0 60px rgba(169,192,191,0.4)"
         label.style.opacity = "1"
         label.style.transform = "translate(-50%, 0)"
       })
       wrap.addEventListener("mouseleave", () => {
         avatar.style.width = "28px"
         avatar.style.height = "28px"
-        avatar.style.boxShadow = "0 0 10px rgba(226,103,33,0.55)"
+        avatar.style.boxShadow = "0 0 10px rgba(216,83,37,0.55)"
         label.style.opacity = "0"
         label.style.transform = "translate(-50%, -4px)"
       })
@@ -241,7 +241,7 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
           path({ type: "LineString", coordinates: [fromLL, toLL] })
 
           // Soft outer glow
-          ctx.strokeStyle = "rgba(226,103,33,0.25)"
+          ctx.strokeStyle = "rgba(216,83,37,0.25)"
           ctx.lineWidth = 3.5
           ctx.lineCap = "round"
           ctx.stroke()
@@ -249,7 +249,7 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
           // Bright inner stroke
           ctx.beginPath()
           path({ type: "LineString", coordinates: [fromLL, toLL] })
-          ctx.strokeStyle = "rgba(240,141,40,0.95)"
+          ctx.strokeStyle = "rgba(230,104,57,0.95)"
           ctx.lineWidth = 1.2
           ctx.stroke()
 
@@ -268,7 +268,7 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
                 // Glow
                 ctx.beginPath()
                 ctx.arc(p[0], p[1], 6, 0, Math.PI * 2)
-                ctx.fillStyle = "rgba(226,103,33,0.35)"
+                ctx.fillStyle = "rgba(216,83,37,0.35)"
                 ctx.fill()
                 // Core
                 ctx.beginPath()
@@ -399,7 +399,7 @@ export default function WireframeDottedGlobe({ width = 500, height = 500, classN
       <div ref={overlayRef} className="absolute inset-0" style={{ pointerEvents: "none" }} />
       {!loaded && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-12 h-12 rounded-full border border-[#E26721]/40 animate-pulse" />
+          <div className="w-12 h-12 rounded-full border border-[#D85325]/40 animate-pulse" />
         </div>
       )}
     </div>

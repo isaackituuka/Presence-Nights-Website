@@ -27,7 +27,7 @@ export function SceneBridge() {
       className="relative h-[100vh] flex items-center justify-center overflow-hidden"
     >
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(226,103,33,0.08)_0%,transparent_70%)] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(216,83,37,0.08)_0%,transparent_70%)] pointer-events-none"
         style={{ opacity }}
       />
       <motion.div
@@ -41,7 +41,7 @@ export function SceneBridge() {
           And so —
         </p>
         <p
-          className="text-3xl md:text-5xl lg:text-6xl italic leading-snug text-[#EBE6E2]"
+          className="text-3xl md:text-5xl lg:text-6xl italic leading-snug text-[#FFFFED]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           we make space{" "}
@@ -51,7 +51,7 @@ export function SceneBridge() {
           and we wait <span className="gradient-text-brand not-italic font-semibold">on Him</span>.
         </p>
         <motion.div
-          className="mx-auto mt-10 h-px w-40 origin-center bg-gradient-to-r from-transparent via-[#E26721]/80 to-transparent"
+          className="mx-auto mt-10 h-px w-40 origin-center bg-gradient-to-r from-transparent via-[#D85325]/80 to-transparent"
           style={{ scaleX: lineScale }}
         />
       </motion.div>

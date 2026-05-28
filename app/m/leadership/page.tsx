@@ -7,12 +7,12 @@ type Leader = { name: string; role: string; photo: string }
 const LEADERS: { team: string; color: string; people: Leader[] }[] = [
   {
     team: "Team Leader",
-    color: "#F08D28",
+    color: "#E66839",
     people: [{ name: "Tim", role: "Team Leader", photo: "/gallery/IMG_111.JPG" }],
   },
   {
     team: "Operations",
-    color: "#E26721",
+    color: "#D85325",
     people: [
       { name: "Sam", role: "Programming & Operations", photo: "/gallery/IMG_4571.JPG" },
       { name: "Aaron", role: "Programming & Operations", photo: "/gallery/IMG_4572.JPG" },
@@ -21,7 +21,7 @@ const LEADERS: { team: string; color: string; people: Leader[] }[] = [
   },
   {
     team: "Discipleship & Community",
-    color: "#D62A5F",
+    color: "#A9C0BF",
     people: [
       { name: "David", role: "Outreach & Prayer", photo: "/gallery/IMG_4573.JPG" },
       { name: "Debbie", role: "Community & Culture", photo: "/gallery/IMG_4574.JPG" },
@@ -30,7 +30,7 @@ const LEADERS: { team: string; color: string; people: Leader[] }[] = [
   },
   {
     team: "Production & Worship",
-    color: "#9E1194",
+    color: "#A9C0BF",
     people: [
       { name: "Sadie", role: "Marketing & Communication", photo: "/gallery/IMG_4577.JPG" },
       { name: "Wonder & Theo Joshua", role: "Worship", photo: "/gallery/Untitled (Poster (US)) - 1.PNG" },
@@ -42,7 +42,7 @@ function LeaderCard({ leader, eager = false }: { leader: Leader; eager?: boolean
   return (
     <div className="mobile-touch group relative">
       <div
-        className="relative aspect-square overflow-hidden rounded-2xl border border-[#EBE6E2]/8"
+        className="relative aspect-square overflow-hidden rounded-2xl border border-[#FFFFED]/8"
         style={{ boxShadow: "0 14px 30px rgba(0,0,0,0.45)" }}
       >
         <Image
@@ -54,17 +54,17 @@ function LeaderCard({ leader, eager = false }: { leader: Leader; eager?: boolean
           loading={eager ? "eager" : "lazy"}
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent" />
       </div>
       <div className="mt-3 px-1">
         <div
-          className="text-[#EBE6E2] font-semibold text-[16px] leading-tight"
+          className="text-[#FFFFED] font-semibold text-[16px] leading-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {leader.name}
         </div>
         <div
-          className="mt-1 text-[#E26721] text-[12px] tracking-[0.22em] uppercase"
+          className="mt-1 text-[#D85325] text-[12px] tracking-[0.22em] uppercase"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           {leader.role}
@@ -76,17 +76,17 @@ function LeaderCard({ leader, eager = false }: { leader: Leader; eager?: boolean
 
 export default function MobileLeadershipPage() {
   return (
-    <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen">
+    <main className="relative bg-[#000000] text-[#FFFFED] min-h-screen">
       {/* Hero */}
       <section
         className="relative px-5 pt-32 pb-10"
         style={{ paddingTop: "calc(env(safe-area-inset-top) + 8rem)" }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,103,33,0.07),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(216,83,37,0.07),transparent_55%)]" />
         <div className="relative">
           <FadeIn static>
             <span
-              className="text-[10px] tracking-[0.5em] uppercase text-[#E26721]"
+              className="text-[10px] tracking-[0.5em] uppercase text-[#D85325]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               07 — Leadership
@@ -94,7 +94,7 @@ export default function MobileLeadershipPage() {
           </FadeIn>
           <FadeIn static delay={50}>
             <h1
-              className="mt-5 font-bold text-[#EBE6E2] leading-[0.98]"
+              className="mt-5 font-bold text-[#FFFFED] leading-[0.98]"
               style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.6rem, 11vw, 3.6rem)" }}
             >
               Our <span className="italic gradient-text-fire">leadership</span> team.
@@ -156,13 +156,13 @@ export default function MobileLeadershipPage() {
         <FadeIn>
           <div className="mt-4 text-center px-2">
             <span
-              className="text-[10px] tracking-[0.45em] uppercase text-[#E26721]/85"
+              className="text-[10px] tracking-[0.45em] uppercase text-[#D85325]/85"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               And many more —
             </span>
             <p
-              className="mt-4 text-[16px] italic text-[#EBE6E2]/80 leading-relaxed"
+              className="mt-4 text-[16px] italic text-[#FFFFED]/80 leading-relaxed"
               style={{ fontFamily: "var(--font-display)" }}
             >
               We are more than just a leadership team. Alongside us are countless hosts, intercessors, worshipers, and friends who make every gathering possible.

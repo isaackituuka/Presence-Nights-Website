@@ -79,7 +79,7 @@ function Word({
     <motion.span
       style={{ opacity, y, scale, rotate, filter, transformOrigin: "50% 100%" }}
       className={`inline-block will-change-transform ${highlight
-        ? "italic gradient-text-fire drop-shadow-[0_0_32px_rgba(226,103,33,0.65)]"
+        ? "italic gradient-text-fire drop-shadow-[0_0_32px_rgba(216,83,37,0.65)]"
         : ""
         }`}
     >
@@ -154,7 +154,7 @@ function PhotoLayer({
             <Image src={stage.photoB} alt="" fill className="object-cover" sizes="100vw" loading="lazy" />
           </motion.div>
           {/* split divider line */}
-          <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#E26721]/70 to-transparent" />
+          <div className="absolute left-0 right-0 top-1/2 h-px bg-gradient-to-r from-transparent via-[#D85325]/70 to-transparent" />
         </>
       ) : (
         <motion.div className="absolute inset-0" style={{ scale, y }}>
@@ -163,15 +163,15 @@ function PhotoLayer({
       )}
 
       {/* Cinematic overlays */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,7,10,0.35)_0%,rgba(12,7,10,0.9)_100%)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/90 via-[#0C070A]/40 to-[#0C070A]/70" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.35)_0%,rgba(0,0,0,0.9)_100%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/90 via-[#000000]/40 to-[#000000]/70" />
       {/* Entrance flash */}
       <motion.div
         className="absolute inset-0 pointer-events-none mix-blend-screen"
         style={{
           opacity: flash,
           background:
-            "radial-gradient(ellipse at center, rgba(226,103,33,0.85) 0%, rgba(214,42,95,0.4) 35%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(216,83,37,0.85) 0%, rgba(169,192,191,0.4) 35%, transparent 70%)",
         }}
       />
     </motion.div>
@@ -244,7 +244,7 @@ function Stage({
 
       <div className="relative max-w-[1280px] w-full px-6 md:px-12">
         <motion.div
-          className="text-[#E26721] text-[10px] mb-6 md:mb-10"
+          className="text-[#D85325] text-[10px] mb-6 md:mb-10"
           style={{
             x: eyebrowX,
             opacity: eyebrowOpacity,
@@ -256,7 +256,7 @@ function Stage({
         </motion.div>
 
         <motion.h2
-          className="text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[8.5rem] font-bold leading-[0.95] tracking-[-0.02em] text-[#EBE6E2]"
+          className="text-[3rem] sm:text-[4.5rem] md:text-[6.5rem] lg:text-[8.5rem] font-bold leading-[0.95] tracking-[-0.02em] text-[#FFFFED]"
           style={{ fontFamily: "var(--font-display)", scale: headlineScale, transformOrigin: "0% 50%" }}
         >
           {stage.line.map((word, i) => {
@@ -291,7 +291,7 @@ function Stage({
           <div
             key={i}
             className="w-1 h-6 rounded-full transition-all duration-500"
-            style={{ background: i === index ? "#E26721" : "rgba(255,255,255,0.18)" }}
+            style={{ background: i === index ? "#D85325" : "rgba(255,255,255,0.18)" }}
           />
         ))}
       </div>

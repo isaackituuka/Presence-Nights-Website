@@ -57,9 +57,9 @@ function GlimpseLayer({
         <Image src={g.src} alt={g.caption} fill className="object-cover brightness-[1.08] saturate-[0.92] contrast-[1.04]" sizes="100vw" loading="lazy" />
       </motion.div>
       {/* Cinematic vignette so caption stays legible */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(12,7,10,0.0)_0%,rgba(12,7,10,0.52)_100%)]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/76 via-[#0C070A]/10 to-[#0C070A]/24" />
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(226,103,33,0.08),transparent_42%,rgba(214,42,95,0.08))] mix-blend-screen" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.0)_0%,rgba(0,0,0,0.52)_100%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/76 via-[#000000]/10 to-[#000000]/24" />
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(216,83,37,0.08),transparent_42%,rgba(169,192,191,0.08))] mix-blend-screen" />
     </motion.div>
   )
 }
@@ -87,13 +87,13 @@ function GlimpseCaption({
       style={{ opacity, y }}
     >
       <span
-        className="text-[#E26721] text-[10px] tracking-[0.5em] uppercase mb-3"
+        className="text-[#D85325] text-[10px] tracking-[0.5em] uppercase mb-3"
         style={{ fontFamily: "var(--font-mono)" }}
       >
         {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {g.year}
       </span>
       <p
-        className="text-2xl md:text-4xl lg:text-5xl italic text-[#EBE6E2] leading-tight tracking-[-0.01em]"
+        className="text-2xl md:text-4xl lg:text-5xl italic text-[#FFFFED] leading-tight tracking-[-0.01em]"
         style={{ fontFamily: "var(--font-display)" }}
       >
         {g.caption}
@@ -132,7 +132,7 @@ function Dot({
   )
   return (
     <motion.div
-      className="w-1 h-5 rounded-full bg-[#E26721]"
+      className="w-1 h-5 rounded-full bg-[#D85325]"
       style={{ opacity, scaleY }}
     />
   )
@@ -168,7 +168,7 @@ export function SceneGlimpses() {
         {/* Static eyebrow */}
         <div className="absolute top-20 md:top-8 left-4 md:left-8 z-30 pointer-events-none">
           <span
-            className="text-[#E26721] text-[10px] tracking-[0.5em]"
+            className="text-[#D85325] text-[10px] tracking-[0.5em]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             05 — GLIMPSES

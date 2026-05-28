@@ -49,10 +49,10 @@ export function MobileNavbar() {
           }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: scrolled ? "rgba(12,7,10,0.82)" : "rgba(12,7,10,0.38)",
+            background: scrolled ? "rgba(0,0,0,0.82)" : "rgba(0,0,0,0.38)",
             backdropFilter: "blur(22px) saturate(140%)",
             WebkitBackdropFilter: "blur(22px) saturate(140%)",
-            border: `1px solid rgba(226,103,33,${scrolled ? 0.22 : 0.14})`,
+            border: `1px solid rgba(216,83,37,${scrolled ? 0.22 : 0.14})`,
             boxShadow: scrolled
               ? "0 14px 38px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04)"
               : "0 6px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.04)",
@@ -69,17 +69,17 @@ export function MobileNavbar() {
               className="relative inline-flex h-9 w-9 items-center justify-center rounded-full"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(240,141,40,0.18), rgba(226,103,33,0.10) 50%, rgba(214,42,95,0.16))",
-                border: "1px solid rgba(226,103,33,0.45)",
+                  "linear-gradient(135deg, rgba(230,104,57,0.18), rgba(216,83,37,0.10) 50%, rgba(169,192,191,0.16))",
+                border: "1px solid rgba(216,83,37,0.45)",
                 boxShadow:
-                  "0 0 14px rgba(226,103,33,0.20), inset 0 0 8px rgba(226,103,33,0.10)",
+                  "0 0 14px rgba(216,83,37,0.20), inset 0 0 8px rgba(216,83,37,0.10)",
               }}
               whileTap={{ scale: 0.92 }}
             >
               {/* slow ambient ring */}
               <motion.span
                 aria-hidden
-                className="absolute inset-0 rounded-full border border-[#E26721]/30"
+                className="absolute inset-0 rounded-full border border-[#D85325]/30"
                 animate={{
                   scale: [1, 1.22, 1],
                   opacity: [0.45, 0.05, 0.45],
@@ -100,7 +100,7 @@ export function MobileNavbar() {
 
             {/* Wordmark fades out on scroll for cleanliness */}
             <motion.span
-              className="text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase shrink-0"
+              className="text-[#FFFFED] text-[12px] tracking-[0.22em] uppercase shrink-0"
               style={{ fontFamily: "var(--font-mono)" }}
               animate={{
                 opacity: scrolled ? 0 : 1,
@@ -119,28 +119,28 @@ export function MobileNavbar() {
             className="relative flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0 mx-2"
             style={{
               background:
-                "linear-gradient(135deg, rgba(240,141,40,0.14), rgba(214,42,95,0.14))",
-              border: "1px solid rgba(226,103,33,0.32)",
+                "linear-gradient(135deg, rgba(230,104,57,0.14), rgba(169,192,191,0.14))",
+              border: "1px solid rgba(216,83,37,0.32)",
             }}
             aria-label="Activate 26"
           >
             <span className="relative flex h-1.5 w-1.5">
               <motion.span
-                className="absolute inset-0 rounded-full bg-[#E26721]"
+                className="absolute inset-0 rounded-full bg-[#D85325]"
                 animate={{ scale: [1, 2.4], opacity: [0.55, 0] }}
                 transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
               />
-              <span className="relative h-1.5 w-1.5 rounded-full bg-[#F08D28]" />
+              <span className="relative h-1.5 w-1.5 rounded-full bg-[#E66839]" />
             </span>
             <span
               className="text-[9.5px] tracking-[0.16em] uppercase font-semibold"
               style={{
                 fontFamily: "var(--font-mono)",
                 background:
-                  "linear-gradient(135deg, #F08D28 0%, #E26721 60%, #D62A5F 100%)",
+                  "linear-gradient(135deg, #E66839 0%, #D85325 60%, #A9C0BF 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                color: "#F08D28",
+                color: "#E66839",
               }}
             >
               Activate 26
@@ -153,10 +153,10 @@ export function MobileNavbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="mobile-touch relative h-9 w-9 flex items-center justify-center rounded-full text-[#EBE6E2]/90 active:scale-90 transition-transform shrink-0"
+            className="mobile-touch relative h-9 w-9 flex items-center justify-center rounded-full text-[#FFFFED]/90 active:scale-90 transition-transform shrink-0"
             style={{
-              background: "rgba(226,103,33,0.08)",
-              border: "1px solid rgba(226,103,33,0.20)",
+              background: "rgba(216,83,37,0.08)",
+              border: "1px solid rgba(216,83,37,0.20)",
             }}
           >
             <IconMorph open={open} />
@@ -174,7 +174,7 @@ export function MobileNavbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
             style={{
-              background: "rgba(12,7,10,0.94)",
+              background: "rgba(0,0,0,0.94)",
               backdropFilter: "blur(28px)",
               WebkitBackdropFilter: "blur(28px)",
               paddingTop: "env(safe-area-inset-top)",
@@ -182,8 +182,8 @@ export function MobileNavbar() {
             }}
           >
             {/* Ambient backdrop */}
-            <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#E26721]/12 blur-[110px]" />
-            <div className="absolute bottom-0 -right-20 w-[420px] h-[420px] rounded-full bg-[#9E1194]/10 blur-[120px]" />
+            <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#D85325]/12 blur-[110px]" />
+            <div className="absolute bottom-0 -right-20 w-[420px] h-[420px] rounded-full bg-[#A9C0BF]/10 blur-[120px]" />
 
             <nav className="relative h-full flex flex-col items-center justify-center gap-5 px-8">
               {links.map((l, i) => {
@@ -213,13 +213,13 @@ export function MobileNavbar() {
                         fontSize: featured ? "2.25rem" : "1.9rem",
                         fontWeight: featured ? 700 : 600,
                         letterSpacing: "-0.01em",
-                        color: featured ? "transparent" : "#EBE6E2",
+                        color: featured ? "transparent" : "#FFFFED",
                         ...(featured && {
                           backgroundImage:
-                            "linear-gradient(135deg, #F08D28 0%, #E26721 50%, #D62A5F 100%)",
+                            "linear-gradient(135deg, #E66839 0%, #D85325 50%, #A9C0BF 100%)",
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
-                          textShadow: "0 0 28px rgba(226,103,33,0.30)",
+                          textShadow: "0 0 28px rgba(216,83,37,0.30)",
                         }),
                       }}
                     >
@@ -227,13 +227,13 @@ export function MobileNavbar() {
                       {featured && (
                         <motion.span
                           aria-hidden
-                          className="absolute -inset-1 rounded-2xl border border-[#E26721]/30 pointer-events-none"
+                          className="absolute -inset-1 rounded-2xl border border-[#D85325]/30 pointer-events-none"
                           animate={{
                             opacity: [0.35, 0.95, 0.35],
                             boxShadow: [
-                              "0 0 0 rgba(226,103,33,0)",
-                              "0 0 32px rgba(226,103,33,0.45)",
-                              "0 0 0 rgba(226,103,33,0)",
+                              "0 0 0 rgba(216,83,37,0)",
+                              "0 0 32px rgba(216,83,37,0.45)",
+                              "0 0 0 rgba(216,83,37,0)",
                             ],
                           }}
                           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}

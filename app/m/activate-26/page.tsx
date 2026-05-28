@@ -14,25 +14,25 @@ const PILLARS = [
     word: "AWAKEN",
     body: "Rise from spiritual sleep. God is awakening a generation to see with clarity, feel with conviction, and respond with urgency.",
     photo: "/curated/glimpses/7N2A0213.JPG",
-    color: "#F08D28",
+    color: "#E66839",
   },
   {
     word: "IGNITE",
     body: "Let the fire of the Holy Spirit take over. This is more than a moment it's the beginning of a life set ablaze with divine purpose.",
     photo: "/curated/glimpses/7N2A0081.JPG",
-    color: "#E26721",
+    color: "#D85325",
   },
   {
     word: "REVIVE",
     body: "What seemed lost or lifeless is being restored. God is breathing life back into dry places, dreams, and hearts.",
     photo: "/curated/glimpses/7N2A0021.JPG",
-    color: "#D62A5F",
+    color: "#A9C0BF",
   },
   {
     word: "ARISE",
     body: "Stand in boldness and truth. You were made for this hour called to arise and carry the fire forward.",
     photo: "/curated/glimpses/7N2A9975.JPG",
-    color: "#9E1194",
+    color: "#A9C0BF",
   },
 ]
 
@@ -59,7 +59,7 @@ const TARGET = new Date("2026-10-02T19:00:00-05:00").getTime()
 
 /* ─── PRIMITIVES ───────────────────────────────────────────── */
 
-function SectionLabel({ children, color = "#E26721" }: { children: React.ReactNode; color?: string }) {
+function SectionLabel({ children, color = "#D85325" }: { children: React.ReactNode; color?: string }) {
   return (
     <span
       className="text-[10px] tracking-[0.45em] uppercase"
@@ -73,7 +73,7 @@ function SectionLabel({ children, color = "#E26721" }: { children: React.ReactNo
 function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
-      className="text-[2.2rem] font-bold leading-[1.05] text-[#EBE6E2]"
+      className="text-[2.2rem] font-bold leading-[1.05] text-[#FFFFED]"
       style={{ fontFamily: "var(--font-display)" }}
     >
       {children}
@@ -114,8 +114,8 @@ function Hero() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/35" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(226,103,33,0.18)_0%,transparent_55%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/55 to-[#000000]/35" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(216,83,37,0.18)_0%,transparent_55%)]" />
 
       <div
         className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
@@ -123,15 +123,15 @@ function Hero() {
       >
         {/* Live chip */}
         <div
-          className="mb-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E26721]/40"
-          style={{ background: "rgba(12,7,10,0.4)", backdropFilter: "blur(8px)" }}
+          className="mb-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D85325]/40"
+          style={{ background: "rgba(0,0,0,0.4)", backdropFilter: "blur(8px)" }}
         >
           <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inset-0 rounded-full bg-[#E26721] mobile-pulse-ring" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E26721]" />
+            <span className="absolute inset-0 rounded-full bg-[#D85325] mobile-pulse-ring" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#D85325]" />
           </span>
           <span
-            className="text-[#EBE6E2]/85 text-[10px] tracking-[0.4em] uppercase"
+            className="text-[#FFFFED]/85 text-[10px] tracking-[0.4em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Coming Oct 2026
@@ -139,7 +139,7 @@ function Hero() {
         </div>
 
         <h1
-          className="font-bold text-[#EBE6E2] leading-[0.85]"
+          className="font-bold text-[#FFFFED] leading-[0.85]"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 14vw, 5rem)" }}
         >
           ACTIVATE
@@ -152,28 +152,28 @@ function Hero() {
             fontSize: "clamp(5rem, 22vw, 8rem)",
             lineHeight: 1,
             backgroundImage:
-              "linear-gradient(135deg, #F08D28 0%, #E26721 50%, #9E1194 100%)",
+              "linear-gradient(135deg, #E66839 0%, #D85325 50%, #A9C0BF 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            filter: "drop-shadow(0 0 24px rgba(226,103,33,0.4))",
+            filter: "drop-shadow(0 0 24px rgba(216,83,37,0.4))",
           }}
         >
           26
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          <span className="h-px w-7 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <span className="h-px w-7 bg-gradient-to-r from-transparent to-[#D85325]" />
           <span
-            className="text-[#E26721] text-[11px] tracking-[0.4em] uppercase"
+            className="text-[#D85325] text-[11px] tracking-[0.4em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Oct 2 · 3 · Tulsa
           </span>
-          <span className="h-px w-7 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <span className="h-px w-7 bg-gradient-to-l from-transparent to-[#D85325]" />
         </div>
 
         <p
-          className="mt-6 text-[#EBE6E2]/75 text-[15px]"
+          className="mt-6 text-[#FFFFED]/75 text-[15px]"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Activating a generation for End Time Revival.
@@ -182,7 +182,7 @@ function Hero() {
 
       {/* Scroll cue */}
       <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
-        <ChevronDown size={18} className="text-[#E26721]/85" />
+        <ChevronDown size={18} className="text-[#D85325]/85" />
       </div>
     </section>
   )
@@ -200,11 +200,11 @@ function CountdownCard() {
     <section className="px-5 -mt-12 relative z-20">
       <FadeIn>
         <div
-          className="relative rounded-3xl p-5 border border-[#E26721]/25 overflow-hidden"
+          className="relative rounded-3xl p-5 border border-[#D85325]/25 overflow-hidden"
           style={{
             background:
-              "linear-gradient(135deg, rgba(22,16,14,0.95) 0%, rgba(12,7,10,0.95) 100%)",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.55), 0 0 30px rgba(226,103,33,0.10)",
+              "linear-gradient(135deg, rgba(22,16,14,0.95) 0%, rgba(0,0,0,0.95) 100%)",
+            boxShadow: "0 25px 60px rgba(0,0,0,0.55), 0 0 30px rgba(216,83,37,0.10)",
           }}
         >
           <div className="flex items-center justify-between mb-4">
@@ -220,7 +220,7 @@ function CountdownCard() {
             {cells.map((cell) => (
               <div
                 key={cell.label}
-                className="flex flex-col items-center rounded-xl py-3 border border-[#EBE6E2]/6"
+                className="flex flex-col items-center rounded-xl py-3 border border-[#FFFFED]/6"
                 style={{ background: "rgba(22,16,14,0.7)" }}
               >
                 <span
@@ -228,7 +228,7 @@ function CountdownCard() {
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "clamp(1.6rem, 7vw, 2.2rem)",
-                    backgroundImage: "linear-gradient(180deg, #FFFAF5 0%, #F08D28 60%, #E26721 100%)",
+                    backgroundImage: "linear-gradient(180deg, #FFFAF5 0%, #E66839 60%, #D85325 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                   }}
@@ -254,7 +254,7 @@ function SaveTheDate() {
   return (
     <section className="px-5 mt-8">
       <FadeIn>
-        <SectionLabel color="#D62A5F">The place</SectionLabel>
+        <SectionLabel color="#A9C0BF">The place</SectionLabel>
         <H2>
           Tulsa, <span className="italic gradient-text-fire">again</span>.
         </H2>
@@ -268,14 +268,14 @@ function SaveTheDate() {
 
       <FadeIn delay={120}>
         <div
-          className="mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+          className="mt-6 rounded-2xl p-5 border border-[#FFFFED]/8"
           style={{ background: "rgba(22,16,14,0.65)" }}
         >
           <div className="flex items-start gap-3 mb-5">
-            <MapPin size={18} className="text-[#E26721] mt-0.5 flex-shrink-0" />
+            <MapPin size={18} className="text-[#D85325] mt-0.5 flex-shrink-0" />
             <div>
               <div
-                className="text-[#EBE6E2] font-semibold"
+                className="text-[#FFFFED] font-semibold"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {VENUE.name}
@@ -293,11 +293,11 @@ function SaveTheDate() {
             href={VENUE.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mobile-touch flex items-center justify-center gap-2 rounded-full py-3 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
+            className="mobile-touch flex items-center justify-center gap-2 rounded-full py-3 text-[#FFFFED] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
             style={{
               fontFamily: "var(--font-mono)",
-              background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-              boxShadow: "0 8px 24px rgba(226,103,33,0.3)",
+              background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+              boxShadow: "0 8px 24px rgba(216,83,37,0.3)",
             }}
           >
             <MapPin size={14} /> Get Directions
@@ -312,7 +312,7 @@ function VideoEmbed({ videoId, label }: { videoId: string; label: string }) {
   const [playing, setPlaying] = useState(false)
   return (
     <div
-      className="relative aspect-video rounded-2xl overflow-hidden border border-[#E26721]/22"
+      className="relative aspect-video rounded-2xl overflow-hidden border border-[#D85325]/22"
       style={{ boxShadow: "0 22px 50px rgba(0,0,0,0.55)" }}
     >
       {playing ? (
@@ -337,22 +337,22 @@ function VideoEmbed({ videoId, label }: { videoId: string; label: string }) {
             className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/80 via-[#0C070A]/15 to-[#0C070A]/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-[#000000]/15 to-[#000000]/35" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               className="relative h-16 w-16 flex items-center justify-center rounded-full"
               style={{
-                background: "rgba(226,103,33,0.18)",
+                background: "rgba(216,83,37,0.18)",
                 backdropFilter: "blur(8px)",
-                border: "1px solid rgba(226,103,33,0.5)",
-                boxShadow: "0 0 30px rgba(226,103,33,0.4)",
+                border: "1px solid rgba(216,83,37,0.5)",
+                boxShadow: "0 0 30px rgba(216,83,37,0.4)",
               }}
             >
-              <Play size={22} className="text-[#EBE6E2] ml-1" fill="#EBE6E2" />
+              <Play size={22} className="text-[#FFFFED] ml-1" fill="#FFFFED" />
             </div>
           </div>
           <div
-            className="absolute bottom-3 left-4 right-4 text-left text-[#EBE6E2]/85 text-[10px] tracking-[0.3em] uppercase"
+            className="absolute bottom-3 left-4 right-4 text-left text-[#FFFFED]/85 text-[10px] tracking-[0.3em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Watch — {label}
@@ -367,7 +367,7 @@ function Recap() {
   return (
     <section className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#9E1194">In our own words</SectionLabel>
+        <SectionLabel color="#A9C0BF">In our own words</SectionLabel>
         <H2>
           Do it again <span className="italic gradient-text-fire">in our times</span>.
         </H2>
@@ -383,14 +383,14 @@ function Recap() {
       <FadeIn delay={200}>
         <figure className="mt-10 text-center">
           <blockquote
-            className="text-[18px] italic text-[#EBE6E2]/85 leading-relaxed px-3"
+            className="text-[18px] italic text-[#FFFFED]/85 leading-relaxed px-3"
             style={{ fontFamily: "var(--font-display)" }}
           >
             “O LORD, I have heard of what You have done, and I am filled with{" "}
             <span className="not-italic font-semibold gradient-text-fire">awe</span>.”
           </blockquote>
           <figcaption
-            className="mt-4 text-[10px] tracking-[0.45em] uppercase text-[#E26721]"
+            className="mt-4 text-[10px] tracking-[0.45em] uppercase text-[#D85325]"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Habakkuk 3:2
@@ -405,7 +405,7 @@ function PillarsList() {
   return (
     <section className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#E26721">Activate pillars</SectionLabel>
+        <SectionLabel color="#D85325">Activate pillars</SectionLabel>
         <H2>
           Four words we won&apos;t <span className="italic gradient-text-fire">put down</span>.
         </H2>
@@ -415,7 +415,7 @@ function PillarsList() {
         {PILLARS.map((p, i) => (
           <FadeIn key={p.word} delay={80 + i * 60}>
             <div
-              className="relative rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
+              className="relative rounded-2xl overflow-hidden border border-[#FFFFED]/8"
               style={{ background: "rgba(22,16,14,0.65)" }}
             >
               <div className="relative h-36 w-full overflow-hidden">
@@ -448,7 +448,7 @@ function PillarsList() {
                 </div>
               </div>
               <p
-                className="px-4 py-4 text-[#EBE6E2]/82 text-[14px] leading-relaxed"
+                className="px-4 py-4 text-[#FFFFED]/82 text-[14px] leading-relaxed"
                 style={{ fontFamily: "var(--font-sans)" }}
               >
                 {p.body}
@@ -466,7 +466,7 @@ function GlimpsesCarousel() {
     <section className="mt-16">
       <div className="px-5">
         <FadeIn>
-          <SectionLabel color="#D62A5F">Glimpses</SectionLabel>
+          <SectionLabel color="#A9C0BF">Glimpses</SectionLabel>
           <H2>
             Frames from <span className="italic gradient-text-fire">last year</span>.
           </H2>
@@ -478,7 +478,7 @@ function GlimpsesCarousel() {
           {GLIMPSES.map((src, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
+              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#FFFFED]/8"
               style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
             >
               <Image
@@ -490,7 +490,7 @@ function GlimpsesCarousel() {
                 loading={i < 2 ? "eager" : "lazy"}
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/55 via-transparent to-transparent" />
             </div>
           ))}
         </div>
@@ -509,7 +509,7 @@ function ComingSoon() {
   return (
     <section className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#9E1194">What&apos;s coming</SectionLabel>
+        <SectionLabel color="#A9C0BF">What&apos;s coming</SectionLabel>
         <H2>
           Some things are <span className="italic gradient-text-fire">on the way</span>.
         </H2>
@@ -519,26 +519,26 @@ function ComingSoon() {
         {items.map((it, i) => (
           <FadeIn key={it.label} delay={70 + i * 50}>
             <div
-              className="relative flex items-start gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 overflow-hidden"
+              className="relative flex items-start gap-4 rounded-2xl p-4 border border-[#FFFFED]/8 overflow-hidden"
               style={{ background: "rgba(22,16,14,0.55)" }}
             >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className="text-[10px] tracking-[0.42em] uppercase text-[#E26721]"
+                    className="text-[10px] tracking-[0.42em] uppercase text-[#D85325]"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
                     {it.label}
                   </span>
                   <span
-                    className="text-[8px] tracking-[0.32em] uppercase text-[#8A8280] px-1.5 py-0.5 rounded-full border border-[#EBE6E2]/10"
+                    className="text-[8px] tracking-[0.32em] uppercase text-[#8A8280] px-1.5 py-0.5 rounded-full border border-[#FFFFED]/10"
                     style={{ fontFamily: "var(--font-mono)" }}
                   >
                     Soon
                   </span>
                 </div>
                 <p
-                  className="text-[#EBE6E2]/85 text-[15px] leading-snug"
+                  className="text-[#FFFFED]/85 text-[15px] leading-snug"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {it.body}
@@ -591,20 +591,20 @@ function Invitation() {
               className="mobile-touch flex flex-col items-center justify-center rounded-2xl py-5 active:scale-[0.97] transition-transform select-none"
               style={{
                 background:
-                  "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-                border: "1px solid rgba(226,103,33,0.45)",
-                boxShadow: "0 10px 28px rgba(226,103,33,0.32)",
+                  "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+                border: "1px solid rgba(216,83,37,0.45)",
+                boxShadow: "0 10px 28px rgba(216,83,37,0.32)",
                 minHeight: "44px",
               }}
             >
               <span
-                className="text-[#EBE6E2] tracking-[0.22em] uppercase text-[12px] font-bold"
+                className="text-[#FFFFED] tracking-[0.22em] uppercase text-[12px] font-bold"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 {b.label}
               </span>
               <span
-                className="mt-1 text-[8px] tracking-[0.32em] uppercase text-[#EBE6E2]/80"
+                className="mt-1 text-[8px] tracking-[0.32em] uppercase text-[#FFFFED]/80"
                 style={{ fontFamily: "var(--font-mono)" }}
               >
                 {b.sub}
@@ -616,7 +616,7 @@ function Invitation() {
 
       <FadeIn delay={200}>
         <p
-          className="mt-10 text-center text-[10px] tracking-[0.45em] uppercase text-[#E26721]/85"
+          className="mt-10 text-center text-[10px] tracking-[0.45em] uppercase text-[#D85325]/85"
           style={{ fontFamily: "var(--font-mono)" }}
         >
           This generation · This hour · This fire
@@ -637,11 +637,11 @@ function StickyCTA() {
           href={VENUE.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mobile-touch flex items-center justify-center gap-2 w-full rounded-full py-3.5 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.98] transition-transform"
+          className="mobile-touch flex items-center justify-center gap-2 w-full rounded-full py-3.5 text-[#FFFFED] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.98] transition-transform"
           style={{
             fontFamily: "var(--font-mono)",
-            background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-            boxShadow: "0 12px 30px rgba(226,103,33,0.45), 0 0 30px rgba(214,42,95,0.25)",
+            background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+            boxShadow: "0 12px 30px rgba(216,83,37,0.45), 0 0 30px rgba(169,192,191,0.25)",
           }}
         >
           <MapPin size={14} /> Get directions
@@ -656,7 +656,7 @@ function StickyCTA() {
 
 export default function MobileActivatePage() {
   return (
-    <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen pb-28">
+    <main className="relative bg-[#000000] text-[#FFFFED] min-h-screen pb-28">
       <Hero />
       <CountdownCard />
       <SaveTheDate />

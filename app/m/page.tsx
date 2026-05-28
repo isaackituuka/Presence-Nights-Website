@@ -74,25 +74,25 @@ const PILLARS = [
     label: "Prayer",
     body: "We believe, there's no presence without prayer.",
     photo: "/Main Empashis/7N2A0276.jpg",
-    color: "#E26721",
+    color: "#D85325",
   },
   {
     label: "Worship",
     body: "We believe that we were created to worship.",
     photo: "/Main Empashis/IMG_0005.JPG",
-    color: "#D62A5F",
+    color: "#A9C0BF",
   },
   {
     label: "Community",
     body: "We believe that purpose is discovered in community.",
     photo: "/Main Empashis/7N2A9803.jpg",
-    color: "#9E1194",
+    color: "#A9C0BF",
   },
   {
     label: "Growth",
     body: "We believe that he takes us from glory to glory.",
     photo: "/Main Empashis/7N2A1949.jpg",
-    color: "#F08D28",
+    color: "#E66839",
   },
 ]
 
@@ -107,7 +107,7 @@ const GLIMPSES = [
 
 /* ─── PRIMITIVES ───────────────────────────────────────────── */
 
-function SectionLabel({ children, color = "#E26721" }: { children: React.ReactNode; color?: string }) {
+function SectionLabel({ children, color = "#D85325" }: { children: React.ReactNode; color?: string }) {
   return (
     <span
       className="text-[10px] tracking-[0.45em] uppercase"
@@ -121,7 +121,7 @@ function SectionLabel({ children, color = "#E26721" }: { children: React.ReactNo
 function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2
-      className="text-[2.2rem] font-bold leading-[1.05] text-[#EBE6E2]"
+      className="text-[2.2rem] font-bold leading-[1.05] text-[#FFFFED]"
       style={{ fontFamily: "var(--font-display)" }}
     >
       {children}
@@ -146,19 +146,19 @@ function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ transform: "translateZ(0)", willChange: "transform" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/15" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(12,7,10,0.7)_100%)]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-[#000000]/55 to-[#000000]/15" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(0,0,0,0.7)_100%)]" />
 
       <div
         className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <span
-          className="relative inline-flex h-14 w-14 mb-6 items-center justify-center rounded-full border border-[#E26721]/55"
-          style={{ boxShadow: "0 0 22px rgba(226,103,33,0.35)" }}
+          className="relative inline-flex h-14 w-14 mb-6 items-center justify-center rounded-full border border-[#D85325]/55"
+          style={{ boxShadow: "0 0 22px rgba(216,83,37,0.35)" }}
         >
           <span
-            className="text-[#E26721] text-base font-bold"
+            className="text-[#D85325] text-base font-bold"
             style={{ fontFamily: "var(--font-display)" }}
           >
             PN
@@ -166,7 +166,7 @@ function Hero() {
         </span>
 
         <h1
-          className="font-bold text-[#EBE6E2] leading-[0.95]"
+          className="font-bold text-[#FFFFED] leading-[0.95]"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 14vw, 5rem)" }}
         >
           PRESENCE
@@ -175,18 +175,18 @@ function Hero() {
         </h1>
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#D85325]" />
           <span
-            className="text-[#E26721] text-xs tracking-[0.5em] uppercase"
+            className="text-[#D85325] text-xs tracking-[0.5em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Tulsa
           </span>
-          <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#D85325]" />
         </div>
 
         <p
-          className="mt-7 text-[#EBE6E2]/85 text-base px-2"
+          className="mt-7 text-[#FFFFED]/85 text-base px-2"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Come hungry. He will meet you here.
@@ -201,7 +201,7 @@ function Hero() {
         >
           Scroll
         </span>
-        <span className="block w-px h-9 bg-gradient-to-b from-[#E26721] to-transparent" />
+        <span className="block w-px h-9 bg-gradient-to-b from-[#D85325] to-transparent" />
       </div>
     </section>
   )
@@ -216,10 +216,10 @@ function ActivateBanner() {
           className="mobile-touch group block relative overflow-hidden rounded-3xl active:scale-[0.99] transition-transform"
           style={{
             background:
-              "linear-gradient(135deg, rgba(240,141,40,0.18) 0%, rgba(226,103,33,0.18) 50%, rgba(158,17,148,0.18) 100%)",
-            border: "1px solid rgba(226,103,33,0.45)",
+              "linear-gradient(135deg, rgba(230,104,57,0.18) 0%, rgba(216,83,37,0.18) 50%, rgba(169,192,191,0.18) 100%)",
+            border: "1px solid rgba(216,83,37,0.45)",
             boxShadow:
-              "0 22px 50px rgba(0,0,0,0.5), 0 0 30px rgba(226,103,33,0.15), inset 0 0 30px rgba(226,103,33,0.07)",
+              "0 22px 50px rgba(0,0,0,0.5), 0 0 30px rgba(216,83,37,0.15), inset 0 0 30px rgba(216,83,37,0.07)",
           }}
         >
           <Image
@@ -230,17 +230,17 @@ function ActivateBanner() {
             quality={70}
             className="object-cover opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/70 via-transparent to-[#0C070A]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/70 via-transparent to-[#000000]/40" />
 
           <div className="relative px-5 py-5 flex items-center gap-4">
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-2">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="absolute inset-0 rounded-full bg-[#E26721] mobile-pulse-ring" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#E26721]" />
+                  <span className="absolute inset-0 rounded-full bg-[#D85325] mobile-pulse-ring" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#D85325]" />
                 </span>
                 <span
-                  className="text-[#E26721] text-[9px] tracking-[0.35em] uppercase"
+                  className="text-[#D85325] text-[9px] tracking-[0.35em] uppercase"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   Live · Oct 2–3, 2026
@@ -251,7 +251,7 @@ function ActivateBanner() {
                 style={{
                   fontFamily: "var(--font-display)",
                   backgroundImage:
-                    "linear-gradient(135deg, #FFFAF5 0%, #F08D28 50%, #D62A5F 100%)",
+                    "linear-gradient(135deg, #FFFAF5 0%, #E66839 50%, #A9C0BF 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -259,13 +259,13 @@ function ActivateBanner() {
                 ACTIVATE&nbsp;26
               </div>
               <div
-                className="mt-1.5 text-[#EBE6E2]/75 text-[12px] tracking-wide"
+                className="mt-1.5 text-[#FFFFED]/75 text-[12px] tracking-wide"
                 style={{ fontFamily: "var(--font-sans)" }}
               >
                 Two days. Tulsa. A generation.
               </div>
             </div>
-            <ChevronRight size={22} className="text-[#E26721] flex-shrink-0 transition-transform group-active:translate-x-1" />
+            <ChevronRight size={22} className="text-[#D85325] flex-shrink-0 transition-transform group-active:translate-x-1" />
           </div>
         </Link>
       </FadeIn>
@@ -291,7 +291,7 @@ function NextGathering() {
 
       <FadeIn delay={120}>
         <div
-          className="mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+          className="mt-6 rounded-2xl p-5 border border-[#FFFFED]/8"
           style={{
             background: "rgba(22,16,14,0.65)",
             backdropFilter: "blur(10px)",
@@ -299,7 +299,7 @@ function NextGathering() {
           }}
         >
           <p
-            className="text-[#EBE6E2]/85 text-[14px] leading-relaxed"
+            className="text-[#FFFFED]/85 text-[14px] leading-relaxed"
             style={{ fontFamily: "var(--font-sans)" }}
           >
             We meet at a private home. Join the WhatsApp group for the
@@ -310,11 +310,11 @@ function NextGathering() {
             href="https://chat.whatsapp.com/DCyTlkJf9E27cdilM8x7kh?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
-            className="mobile-touch mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
+            className="mobile-touch mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-[#FFFFED] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
             style={{
               fontFamily: "var(--font-mono)",
-              background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-              boxShadow: "0 8px 24px rgba(226,103,33,0.3)",
+              background: "linear-gradient(135deg, #D85325 0%, #A9C0BF 60%, #A9C0BF 100%)",
+              boxShadow: "0 8px 24px rgba(216,83,37,0.3)",
             }}
           >
             Connect with us
@@ -350,7 +350,7 @@ function About() {
       </FadeIn>
 
       <FadeIn delay={140}>
-        <div className="mt-7 relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#EBE6E2]/8">
+        <div className="mt-7 relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#FFFFED]/8">
           <Image
             src="/curated/main/we-his-presence.jpg"
             alt=""
@@ -359,7 +359,7 @@ function About() {
             quality={75}
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/65 via-transparent to-[#0C070A]/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/65 via-transparent to-[#000000]/15" />
         </div>
       </FadeIn>
     </section>
@@ -370,7 +370,7 @@ function Pillars() {
   return (
     <section id="pillars" className="px-5 mt-16">
       <FadeIn>
-        <SectionLabel color="#D62A5F">Pillars</SectionLabel>
+        <SectionLabel color="#A9C0BF">Pillars</SectionLabel>
         <H2>
           Four things we <span className="italic gradient-text-fire">build on</span>.
         </H2>
@@ -380,7 +380,7 @@ function Pillars() {
         {PILLARS.map((p, i) => (
           <FadeIn key={p.label} delay={80 + i * 60}>
             <div
-              className="relative flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 overflow-hidden"
+              className="relative flex items-center gap-4 rounded-2xl p-4 border border-[#FFFFED]/8 overflow-hidden"
               style={{ background: "rgba(22,16,14,0.55)" }}
             >
               <div className="relative h-16 w-16 flex-shrink-0 rounded-xl overflow-hidden">
@@ -399,7 +399,7 @@ function Pillars() {
               </div>
               <div className="flex-1 min-w-0">
                 <div
-                  className="text-[#EBE6E2] text-lg font-bold leading-tight"
+                  className="text-[#FFFFED] text-lg font-bold leading-tight"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {p.label}
@@ -428,7 +428,7 @@ function Glimpses() {
     <section className="mt-16">
       <div className="px-5">
         <FadeIn>
-          <SectionLabel color="#9E1194">Glimpses</SectionLabel>
+          <SectionLabel color="#A9C0BF">Glimpses</SectionLabel>
           <H2>
             Frames from <span className="italic gradient-text-fire">last month</span>.
           </H2>
@@ -443,7 +443,7 @@ function Glimpses() {
           {GLIMPSES.map((src, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
+              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#FFFFED]/8"
               style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
             >
               <Image
@@ -455,7 +455,7 @@ function Glimpses() {
                 loading={i < 2 ? "eager" : "lazy"}
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/55 via-transparent to-transparent" />
             </div>
           ))}
         </div>
@@ -512,15 +512,15 @@ function Connect() {
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mobile-touch flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 active:scale-[0.99] transition-transform"
+              className="mobile-touch flex items-center gap-4 rounded-2xl p-4 border border-[#FFFFED]/8 active:scale-[0.99] transition-transform"
               style={{ background: "rgba(22,16,14,0.55)" }}
             >
-              <span className="h-11 w-11 flex-shrink-0 flex items-center justify-center rounded-full bg-[#E26721]/12 text-[#E26721]">
+              <span className="h-11 w-11 flex-shrink-0 flex items-center justify-center rounded-full bg-[#D85325]/12 text-[#D85325]">
                 {item.icon}
               </span>
               <div className="flex-1 min-w-0">
                 <div
-                  className="text-[#EBE6E2] font-semibold text-[15px]"
+                  className="text-[#FFFFED] font-semibold text-[15px]"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.label}
@@ -545,7 +545,7 @@ function Connect() {
 
 export default function MobileHomePage() {
   return (
-    <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen pb-12">
+    <main className="relative bg-[#000000] text-[#FFFFED] min-h-screen pb-12">
       <Hero />
       <ActivateBanner />
       <NextGathering />

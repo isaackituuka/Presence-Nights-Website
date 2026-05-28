@@ -12,7 +12,7 @@ const pillars = [
     verse: '"My house shall be called a house of prayer."',
     cite: "Matthew 21:13",
     photo: "/Main Empashis/7N2A0276.jpg",
-    color: "#E26721",
+    color: "#D85325",
   },
   {
     no: "II",
@@ -21,7 +21,7 @@ const pillars = [
     verse: "He inhabits the praise of His people.",
     cite: "Psalm 22:3",
     photo: "/Main Empashis/IMG_0005.JPG",
-    color: "#D62A5F",
+    color: "#A9C0BF",
   },
   {
     no: "III",
@@ -30,7 +30,7 @@ const pillars = [
     verse: "Iron sharpens iron.",
     cite: "Proverbs 27:17",
     photo: "/Main Empashis/7N2A9803.jpg",
-    color: "#9E1194",
+    color: "#A9C0BF",
   },
   {
     no: "IV",
@@ -39,7 +39,7 @@ const pillars = [
     verse: "But when I grew up, I left those infant ways for good.",
     cite: "1 Corinthians 13:11",
     photo: "/Main Empashis/7N2A1949.jpg",
-    color: "#F08D28",
+    color: "#E66839",
   },
 ]
 
@@ -63,7 +63,7 @@ export function ScenePursuit() {
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         {/* Eyebrow + progress (fixed overlay) */}
         <div className="absolute top-8 left-8 right-8 z-30 flex items-center justify-between pointer-events-none">
-          <span className="text-[#E26721] text-[10px] tracking-[0.5em]" style={{ fontFamily: "var(--font-mono)" }}>
+          <span className="text-[#D85325] text-[10px] tracking-[0.5em]" style={{ fontFamily: "var(--font-mono)" }}>
             02 — THE FOUR PILLARS
           </span>
           <PillarProgress progress={scrollYProgress} count={pillars.length} />
@@ -99,7 +99,7 @@ function PillarProgressDot({ progress, index, count }: {
   const segEnd   = (index + 1) / count
   const opacity = useTransform(progress, [segStart - 0.05, segStart, segEnd - 0.02, segEnd + 0.05], [0.3, 1, 1, 0.3])
   const width   = useTransform(progress, [segStart - 0.05, segStart, segEnd - 0.02, segEnd + 0.05], [16, 32, 32, 16])
-  return <motion.div className="h-[2px] rounded-full bg-[#E26721]" style={{ opacity, width }} />
+  return <motion.div className="h-[2px] rounded-full bg-[#D85325]" style={{ opacity, width }} />
 }
 
 function Panel({ pillar, index }: { pillar: (typeof pillars)[0]; index: number }) {
@@ -115,8 +115,8 @@ function Panel({ pillar, index }: { pillar: (typeof pillars)[0]; index: number }
           sizes="100vw"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/85 via-[#0C070A]/45 to-[#0C070A]/85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/80 via-transparent to-[#0C070A]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/85 via-[#000000]/45 to-[#000000]/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-transparent to-[#000000]/40" />
         <div
           className="absolute inset-0 mix-blend-screen opacity-25 pointer-events-none"
           style={{ background: `radial-gradient(ellipse at 50% 50%, ${pillar.color}, transparent 65%)` }}
@@ -145,7 +145,7 @@ function Panel({ pillar, index }: { pillar: (typeof pillars)[0]; index: number }
             CORE / 0{index + 1}
           </div>
           <h3
-            className="text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[9rem] font-bold leading-[0.9] tracking-[-0.02em] text-[#EBE6E2]"
+            className="text-[3.5rem] sm:text-[5rem] md:text-[7rem] lg:text-[9rem] font-bold leading-[0.9] tracking-[-0.02em] text-[#FFFFED]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             {pillar.title}
@@ -153,7 +153,7 @@ function Panel({ pillar, index }: { pillar: (typeof pillars)[0]; index: number }
 
           <div className="mt-5 max-w-md">
             <p
-              className="text-[#EBE6E2]/85 text-lg md:text-xl italic leading-snug"
+              className="text-[#FFFFED]/85 text-lg md:text-xl italic leading-snug"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {pillar.italic}
