@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ChevronRight, MapPin, Mail } from "lucide-react"
+import { ChevronRight, Mail } from "lucide-react"
 
 // Lucide-react 1.14 doesn't ship an Instagram glyph — use an inline SVG.
 function InstagramIcon({ size = 18 }: { size?: number }) {
@@ -71,46 +71,39 @@ import { MobileFooter } from "@/components/mobile/mobile-footer"
 
 const PILLARS = [
   {
-    label: "Worship",
-    body: "Sung, shouted, whispered. The room becomes the altar.",
-    photo: "/curated/main/pillar-worship.jpg",
+    label: "Prayer",
+    body: "Persistent, unhurried, contending — until heaven moves.",
+    photo: "/Main Empashis/7N2A0276.jpg",
     color: "#E26721",
   },
   {
-    label: "Prayer",
-    body: "Persistent, unhurried, contending — until heaven moves.",
-    photo: "/curated/main/pillar-prayer.jpg",
-    color: "#F08D28",
+    label: "Worship",
+    body: "Sung, shouted, whispered. The room becomes the altar.",
+    photo: "/Main Empashis/IMG_0005.JPG",
+    color: "#D62A5F",
   },
   {
     label: "Community",
     body: "Tables, testimonies, late-night conversations. Family.",
-    photo: "/curated/main/pillar-community.jpg",
-    color: "#D62A5F",
+    photo: "/Main Empashis/7N2A9803.jpg",
+    color: "#9E1194",
   },
   {
     label: "Growth",
     body: "Discipleship that costs us — formed by Word and Spirit.",
-    photo: "/curated/main/pillar-growth.jpg",
-    color: "#9E1194",
+    photo: "/Main Empashis/7N2A1949.jpg",
+    color: "#F08D28",
   },
 ]
 
 const GLIMPSES = [
-  "/curated/glimpses/worship-believers.jpg",
-  "/curated/glimpses/altar-response.jpg",
-  "/curated/glimpses/prayer-intercession.jpg",
-  "/curated/glimpses/this-generation-fire.jpg",
-  "/curated/glimpses/commissioning-circle.jpg",
-  "/curated/glimpses/activated-family.jpg",
+  "/curated/glimpses/7N2A1794.jpg",
+  "/curated/glimpses/7N2A0151.jpg",
+  "/curated/glimpses/IMG_4570.JPG",
+  "/curated/glimpses/7N2A0072.jpg",
+  "/curated/glimpses/7N2A1708.jpg",
+  "/curated/glimpses/7N2A0647.JPG",
 ]
-
-const VENUE = {
-  name: "Bixby, OK",
-  address: "12231 S. 74th E Ave., Bixby, OK 74008",
-  mapsUrl:
-    "https://maps.apple.com/?address=12231%20S.%2074th%20E%20Ave.%2C%20Bixby%2C%20OK%2074008",
-}
 
 /* ─── PRIMITIVES ───────────────────────────────────────────── */
 
@@ -141,13 +134,17 @@ function H2({ children }: { children: React.ReactNode }) {
 function Hero() {
   return (
     <section className="relative h-[100svh] w-full overflow-hidden">
-      <Image
-        src="/hero-bg.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
+      <video
+        src="/video/hero-mobile.mp4"
+        poster="/hero-bg.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ transform: "translateZ(0)", willChange: "transform" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/15" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(12,7,10,0.7)_100%)]" />
@@ -301,23 +298,16 @@ function NextGathering() {
             WebkitBackdropFilter: "blur(10px)",
           }}
         >
-          <div className="flex items-start gap-3">
-            <MapPin size={18} className="text-[#E26721] mt-0.5 flex-shrink-0" />
-            <div className="flex-1">
-              <div className="text-[#EBE6E2] font-semibold" style={{ fontFamily: "var(--font-display)" }}>
-                {VENUE.name}
-              </div>
-              <div
-                className="mt-0.5 text-[#8A8280] text-[13px]"
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                {VENUE.address}
-              </div>
-            </div>
-          </div>
+          <p
+            className="text-[#EBE6E2]/85 text-[14px] leading-relaxed"
+            style={{ fontFamily: "var(--font-sans)" }}
+          >
+            We meet at a private home. Join the WhatsApp group for the
+            address and the latest updates.
+          </p>
 
           <a
-            href={VENUE.mapsUrl}
+            href="https://chat.whatsapp.com/DCyTlkJf9E27cdilM8x7kh?mode=gi_t"
             target="_blank"
             rel="noopener noreferrer"
             className="mobile-touch mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
@@ -327,8 +317,14 @@ function NextGathering() {
               boxShadow: "0 8px 24px rgba(226,103,33,0.3)",
             }}
           >
-            Get Directions
+            Connect with us
           </a>
+          <div
+            className="mt-3 text-center text-[#8A8280] text-[11px] tracking-[0.18em] uppercase"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Get the address &amp; join the group
+          </div>
         </div>
       </FadeIn>
     </section>
@@ -515,12 +511,6 @@ function Connect() {
             label: "Follow on TikTok",
             sub: "@presencenights.tu",
             href: "https://www.tiktok.com/@presencenights.tu",
-          },
-          {
-            icon: <MapPin size={18} />,
-            label: "Get Directions",
-            sub: VENUE.name,
-            href: VENUE.mapsUrl,
           },
         ].map((item, i) => (
           <FadeIn key={item.label} delay={80 + i * 60}>

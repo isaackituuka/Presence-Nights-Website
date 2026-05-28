@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const links = [
   { label: "Home",        href: "/" },
@@ -33,96 +33,284 @@ export function MobileNavbar() {
     <>
       <header
         className="fixed top-3 left-3 right-3 z-50"
-        style={{ paddingTop: "env(safe-area-inset-top)" }}
+        style={{
+          paddingTop: "env(safe-area-inset-top)",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
       >
-        <div
-          className="mobile-touch flex items-center justify-between rounded-full px-4 py-2.5 transition-colors duration-300"
+        <motion.div
+          className="mobile-touch flex items-center justify-between rounded-full"
+          animate={{
+            paddingLeft: scrolled ? "0.75rem" : "1rem",
+            paddingRight: scrolled ? "0.5rem" : "0.75rem",
+            paddingTop: scrolled ? "0.45rem" : "0.6rem",
+            paddingBottom: scrolled ? "0.45rem" : "0.6rem",
+          }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: scrolled ? "rgba(12,7,10,0.78)" : "rgba(12,7,10,0.42)",
-            backdropFilter: "blur(18px)",
-            WebkitBackdropFilter: "blur(18px)",
-            border: "1px solid rgba(226,103,33,0.18)",
-            boxShadow: scrolled ? "0 12px 30px rgba(0,0,0,0.45)" : "none",
+            background: scrolled ? "rgba(12,7,10,0.82)" : "rgba(12,7,10,0.38)",
+            backdropFilter: "blur(22px) saturate(140%)",
+            WebkitBackdropFilter: "blur(22px) saturate(140%)",
+            border: `1px solid rgba(226,103,33,${scrolled ? 0.22 : 0.14})`,
+            boxShadow: scrolled
+              ? "0 14px 38px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.04)"
+              : "0 6px 20px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.04)",
+            transition: "background 0.35s, border-color 0.35s, box-shadow 0.35s",
           }}
         >
+          {/* Logo */}
           <Link
             href="/"
             aria-label="Presence Nights"
-            className="flex items-center gap-2"
+            className="flex items-center gap-2.5 shrink-0"
           >
-            <span
-              className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#E26721]/55"
-              style={{ boxShadow: "0 0 14px rgba(226,103,33,0.25)" }}
+            <motion.span
+              className="relative inline-flex h-9 w-9 items-center justify-center rounded-full"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(240,141,40,0.18), rgba(226,103,33,0.10) 50%, rgba(214,42,95,0.16))",
+                border: "1px solid rgba(226,103,33,0.45)",
+                boxShadow:
+                  "0 0 14px rgba(226,103,33,0.20), inset 0 0 8px rgba(226,103,33,0.10)",
+              }}
+              whileTap={{ scale: 0.92 }}
             >
+              {/* slow ambient ring */}
+              <motion.span
+                aria-hidden
+                className="absolute inset-0 rounded-full border border-[#E26721]/30"
+                animate={{
+                  scale: [1, 1.22, 1],
+                  opacity: [0.45, 0.05, 0.45],
+                }}
+                transition={{
+                  duration: 3.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
               <span
-                className="text-[#E26721] text-xs font-bold"
+                className="relative text-[#F4ECE6] text-[11px] font-bold tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 PN
               </span>
+            </motion.span>
+
+            {/* Wordmark fades out on scroll for cleanliness */}
+            <motion.span
+              className="text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase shrink-0"
+              style={{ fontFamily: "var(--font-mono)" }}
+              animate={{
+                opacity: scrolled ? 0 : 1,
+                width: scrolled ? 0 : "auto",
+                marginLeft: scrolled ? 0 : 0,
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
+              Presence
+            </motion.span>
+          </Link>
+
+          {/* Live Activate 26 chip */}
+          <Link
+            href="/activate-26"
+            className="relative flex items-center gap-1.5 px-2.5 py-1 rounded-full shrink-0 mx-2"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(240,141,40,0.14), rgba(214,42,95,0.14))",
+              border: "1px solid rgba(226,103,33,0.32)",
+            }}
+            aria-label="Activate 26"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <motion.span
+                className="absolute inset-0 rounded-full bg-[#E26721]"
+                animate={{ scale: [1, 2.4], opacity: [0.55, 0] }}
+                transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
+              />
+              <span className="relative h-1.5 w-1.5 rounded-full bg-[#F08D28]" />
+            </span>
+            <span
+              className="text-[9.5px] tracking-[0.16em] uppercase font-semibold"
+              style={{
+                fontFamily: "var(--font-mono)",
+                background:
+                  "linear-gradient(135deg, #F08D28 0%, #E26721 60%, #D62A5F 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "#F08D28",
+              }}
+            >
+              Activate 26
             </span>
           </Link>
 
+          {/* Menu / X — animated icon morph */}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="mobile-touch h-10 w-10 -mr-1 flex items-center justify-center rounded-full text-[#EBE6E2]/85 active:scale-95 transition-transform"
+            aria-expanded={open}
+            className="mobile-touch relative h-9 w-9 flex items-center justify-center rounded-full text-[#EBE6E2]/90 active:scale-90 transition-transform shrink-0"
+            style={{
+              background: "rgba(226,103,33,0.08)",
+              border: "1px solid rgba(226,103,33,0.20)",
+            }}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            <IconMorph open={open} />
           </button>
-        </div>
+        </motion.div>
       </header>
 
       {/* Full-screen menu */}
-      {open && (
-        <div
-          className="fixed inset-0 z-40 bg-[#0C070A] transition-opacity duration-300 ease-out"
-          style={{
-            paddingTop: "env(safe-area-inset-top)",
-            paddingBottom: "env(safe-area-inset-bottom)",
-          }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(226,103,33,0.10),transparent_60%)]" />
-          <nav className="relative h-full flex flex-col items-center justify-center gap-6 px-8">
-            {links.map((l, i) => {
-              const featured = "featured" in l && l.featured
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="fixed inset-0 z-40 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            style={{
+              background: "rgba(12,7,10,0.94)",
+              backdropFilter: "blur(28px)",
+              WebkitBackdropFilter: "blur(28px)",
+              paddingTop: "env(safe-area-inset-top)",
+              paddingBottom: "env(safe-area-inset-bottom)",
+            }}
+          >
+            {/* Ambient backdrop */}
+            <div className="absolute -top-32 -left-16 w-[420px] h-[420px] rounded-full bg-[#E26721]/12 blur-[110px]" />
+            <div className="absolute bottom-0 -right-20 w-[420px] h-[420px] rounded-full bg-[#9E1194]/10 blur-[120px]" />
 
-              return (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className={
-                    "mobile-touch relative w-full text-center py-3 rounded-full transition-transform active:scale-[0.98] " +
-                    (featured
-                      ? "border border-[#E26721]/55"
-                      : "border border-transparent")
-                  }
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: featured ? "2.4rem" : "2rem",
-                    fontWeight: featured ? 700 : 600,
-                    color: "#EBE6E2",
-                    animation: `mobile-menu-item-in 0.4s ease ${0.05 + i * 0.06}s both`,
-                    ...(featured
-                      ? {
+            <nav className="relative h-full flex flex-col items-center justify-center gap-5 px-8">
+              {links.map((l, i) => {
+                const featured = "featured" in l && l.featured
+
+                return (
+                  <motion.div
+                    key={l.href}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{
+                      duration: 0.45,
+                      ease: [0.22, 1, 0.36, 1],
+                      delay: 0.08 + i * 0.06,
+                    }}
+                    className="w-full"
+                  >
+                    <Link
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      className={
+                        "mobile-touch relative w-full text-center py-3.5 rounded-2xl block active:scale-[0.98] transition-transform"
+                      }
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: featured ? "2.25rem" : "1.9rem",
+                        fontWeight: featured ? 700 : 600,
+                        letterSpacing: "-0.01em",
+                        color: featured ? "transparent" : "#EBE6E2",
+                        ...(featured && {
                           backgroundImage:
                             "linear-gradient(135deg, #F08D28 0%, #E26721 50%, #D62A5F 100%)",
                           WebkitBackgroundClip: "text",
                           WebkitTextFillColor: "transparent",
-                          boxShadow: "0 0 28px rgba(226,103,33,0.35)",
-                        }
-                      : {}),
-                  }}
-                >
-                  {l.label}
-                </Link>
-              )
-            })}
-          </nav>
-        </div>
-      )}
+                          textShadow: "0 0 28px rgba(226,103,33,0.30)",
+                        }),
+                      }}
+                    >
+                      {l.label}
+                      {featured && (
+                        <motion.span
+                          aria-hidden
+                          className="absolute -inset-1 rounded-2xl border border-[#E26721]/30 pointer-events-none"
+                          animate={{
+                            opacity: [0.35, 0.95, 0.35],
+                            boxShadow: [
+                              "0 0 0 rgba(226,103,33,0)",
+                              "0 0 32px rgba(226,103,33,0.45)",
+                              "0 0 0 rgba(226,103,33,0)",
+                            ],
+                          }}
+                          transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      )}
+                    </Link>
+                  </motion.div>
+                )
+              })}
+
+              {/* Tagline at bottom */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.55 }}
+                exit={{ opacity: 0 }}
+                transition={{ delay: 0.55, duration: 0.4 }}
+                className="absolute bottom-10 left-0 right-0 text-center text-[10px] tracking-[0.4em] uppercase text-[#8A8280]"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                Come hungry · Tulsa
+              </motion.p>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
+  )
+}
+
+function IconMorph({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {/* Top line — rotates to top of X */}
+      <motion.line
+        x1="3"
+        y1="6"
+        x2="21"
+        y2="6"
+        animate={
+          open
+            ? { x1: 5, y1: 5, x2: 19, y2: 19 }
+            : { x1: 3, y1: 6, x2: 21, y2: 6 }
+        }
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      />
+      {/* Middle line — fades out when open */}
+      <motion.line
+        x1="3"
+        y1="12"
+        x2="21"
+        y2="12"
+        animate={{ opacity: open ? 0 : 1 }}
+        transition={{ duration: 0.18 }}
+      />
+      {/* Bottom line — rotates to bottom of X */}
+      <motion.line
+        x1="3"
+        y1="18"
+        x2="21"
+        y2="18"
+        animate={
+          open
+            ? { x1: 5, y1: 19, x2: 19, y2: 5 }
+            : { x1: 3, y1: 18, x2: 21, y2: 18 }
+        }
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </svg>
   )
 }

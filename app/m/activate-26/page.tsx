@@ -13,37 +13,39 @@ const PILLARS = [
   {
     word: "AWAKEN",
     body: "From slumber. From small dreams. From the lie that this generation is too far gone.",
-    photo: "/curated/glimpses/after-prayer.jpg",
+    photo: "/curated/glimpses/7N2A0213.JPG",
     color: "#F08D28",
   },
   {
     word: "IGNITE",
     body: "The fire of the Holy Spirit on a generation that won't apologize for burning bright.",
-    photo: "/curated/glimpses/this-generation-fire.jpg",
+    photo: "/curated/glimpses/7N2A0081.JPG",
     color: "#E26721",
   },
   {
     word: "REVIVE",
     body: "Restoration. Breath returning. The dry bones standing up — an army.",
-    photo: "/curated/glimpses/altar-response.jpg",
+    photo: "/curated/glimpses/7N2A0021.JPG",
     color: "#D62A5F",
   },
   {
     word: "ARISE",
     body: "From our seats. Into our cities. Sent ones with boldness, truth, and tenderness.",
-    photo: "/curated/glimpses/commissioning-circle.jpg",
+    photo: "/curated/glimpses/7N2A9975.JPG",
     color: "#9E1194",
   },
 ]
 
 const GLIMPSES = [
-  "/curated/glimpses/activate-stage.jpg",
-  "/curated/glimpses/worship-believers.jpg",
-  "/curated/glimpses/altar-response.jpg",
-  "/curated/glimpses/prayer-intercession.jpg",
-  "/curated/glimpses/commissioning-circle.jpg",
-  "/curated/glimpses/activated-family.jpg",
-  "/curated/glimpses/discipleship-room.jpg",
+  "/curated/glimpses/7N2A1783.JPG",
+  "/curated/glimpses/7N2A1510.JPG",
+  "/curated/glimpses/7N2A1369.JPG",
+  "/curated/glimpses/7N2A1304.JPG",
+  "/curated/glimpses/7N2A1045.JPG",
+  "/curated/glimpses/7N2A0627.JPG",
+  "/curated/glimpses/7N2A1143.JPG",
+  "/curated/glimpses/7N2A0495.JPG",
+  "/curated/glimpses/7N2A0335.JPG",
 ]
 
 const VENUE = {
@@ -105,7 +107,7 @@ function Hero() {
   return (
     <section className="relative h-[100svh] w-full overflow-hidden">
       <Image
-        src="/curated/glimpses/this-generation-fire.jpg"
+        src="/curated/glimpses/IMG_1826.jpg"
         alt=""
         fill
         priority
