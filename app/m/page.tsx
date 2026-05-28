@@ -136,14 +136,15 @@ function Hero() {
     <section className="relative h-[100svh] w-full overflow-hidden">
       <video
         src="/video/hero-mobile.mp4"
+        poster="/hero-bg.jpg"
         autoPlay
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ transform: "translateZ(0)", willChange: "transform", backgroundColor: "#0C070A" }}
+        style={{ transform: "translateZ(0)", willChange: "transform" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/15" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(12,7,10,0.7)_100%)]" />
