@@ -19,10 +19,6 @@ const PARTICLES = [
   { id: 9,  x: 75, y: 48, size: 2, dur: 8,  delay: 1,   color: "#F08D28" },
   { id: 10, x: 82, y: 30, size: 3, dur: 12, delay: 0.7, color: "#D62A5F" },
   { id: 11, x: 88, y: 55, size: 2, dur: 7,  delay: 3.5, color: "#E26721" },
-  { id: 12, x: 5,  y: 75, size: 3, dur: 9,  delay: 1.8, color: "#9E1194" },
-  { id: 13, x: 93, y: 40, size: 2, dur: 8,  delay: 0.4, color: "#F08D28" },
-  { id: 14, x: 18, y: 80, size: 3, dur: 6,  delay: 2.2, color: "#E26721" },
-  { id: 15, x: 72, y: 20, size: 2, dur: 10, delay: 1.1, color: "#D62A5F" },
 ]
 
 function ParticleField() {
