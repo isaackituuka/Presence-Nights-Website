@@ -1,25 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Bowlby_One, Inter, Space_Grotesk } from "next/font/google";
+import { Playfair_Display, DM_Sans, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { absoluteUrl, organizationJsonLd, siteConfig, websiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-// Brand 2026 — display: Bowlby One (free Google Fonts substitute for the
-// commercial KonTikiJF Aloha specified in the brand book). Chunky condensed
-// sans-serif that matches the brand's bold poster aesthetic.
-const bowlbyOne = Bowlby_One({
+const playfair = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400"],
+  weight: ["400", "600", "700", "900"],
+  style: ["normal", "italic"],
 });
 
-// Body: Inter (free, system Helvetica fallback). Closest open substitute for
-// the brand's Helvetica Neue Bold.
-const inter = Inter({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const spaceGrotesk = Space_Grotesk({
@@ -113,7 +109,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bowlbyOne.variable} ${inter.variable} ${spaceGrotesk.variable} antialiased`}
+      className={`${playfair.variable} ${dmSans.variable} ${spaceGrotesk.variable} antialiased`}
     >
       <body suppressHydrationWarning className="bg-[#000000] text-[#FFFFED] min-h-screen">
         <JsonLd id="presence-organization-jsonld" data={organizationJsonLd()} />
