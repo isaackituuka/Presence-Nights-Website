@@ -88,12 +88,6 @@ const PILLARS = [
     photo: "/Main Empashis/7N2A9803.jpg",
     color: "#9E1194",
   },
-  {
-    label: "Growth",
-    body: "We believe that he takes us from glory to glory.",
-    photo: "/Main Empashis/7N2A1949.jpg",
-    color: "#F08D28",
-  },
 ]
 
 const GLIMPSES = [
@@ -243,7 +237,7 @@ function ActivateBanner() {
                   className="text-[#E26721] text-[9px] tracking-[0.35em] uppercase"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
-                  Live · Oct 2–3, 2026
+                  Live · Oct 23 · 24, 2026
                 </span>
               </div>
               <div
@@ -372,7 +366,7 @@ function Pillars() {
       <FadeIn>
         <SectionLabel color="#D62A5F">Pillars</SectionLabel>
         <H2>
-          Four things we <span className="italic gradient-text-fire">build on</span>.
+          Three things we <span className="italic gradient-text-fire">build on</span>.
         </H2>
       </FadeIn>
 

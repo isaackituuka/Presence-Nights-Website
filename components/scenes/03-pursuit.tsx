@@ -32,15 +32,6 @@ const pillars = [
     photo: "/Main Empashis/7N2A9803.jpg",
     color: "#9E1194",
   },
-  {
-    no: "IV",
-    title: "Growth",
-    italic: "We believe that he takes us from glory to glory.",
-    verse: "But when I grew up, I left those infant ways for good.",
-    cite: "1 Corinthians 13:11",
-    photo: "/Main Empashis/7N2A1949.jpg",
-    color: "#F08D28",
-  },
 ]
 
 export function ScenePursuit() {
