@@ -55,7 +55,7 @@ const VENUE = {
     "https://maps.apple.com/?address=12231%20S.%2074th%20E%20Ave.%2C%20Bixby%2C%20OK%2074008",
 }
 
-const TARGET = new Date("2026-10-02T19:00:00-05:00").getTime()
+const TARGET = new Date("2026-10-23T19:00:00-05:00").getTime()
 
 /* ─── PRIMITIVES ───────────────────────────────────────────── */
 
@@ -167,7 +167,7 @@ function Hero() {
             className="text-[#E26721] text-[11px] tracking-[0.4em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Oct 2 · 3 · Tulsa
+            Oct 23 · 24 · Tulsa
           </span>
           <span className="h-px w-7 bg-gradient-to-l from-transparent to-[#E26721]" />
         </div>
@@ -213,7 +213,7 @@ function CountdownCard() {
               className="text-[10px] tracking-[0.3em] uppercase text-[#8A8280]"
               style={{ fontFamily: "var(--font-mono)" }}
             >
-              Oct 2 · 7pm
+              Oct 23 · 7pm
             </span>
           </div>
           <div className="grid grid-cols-4 gap-2">

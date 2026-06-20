@@ -103,8 +103,8 @@ export function activate26EventJsonLd() {
       "Activate 26 is a two-day Presence Nights gathering in Bixby near Tulsa for worship, prayer, discipleship, and commissioning a generation to burn for Jesus.",
     url: absoluteUrl("/activate-26"),
     image: [absoluteUrl(siteConfig.images.activate)],
-    startDate: "2026-10-02T19:00:00-05:00",
-    endDate: "2026-10-03",
+    startDate: "2026-10-23T19:00:00-05:00",
+    endDate: "2026-10-24",
     eventStatus: "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {

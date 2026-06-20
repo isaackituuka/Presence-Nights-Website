@@ -18,7 +18,7 @@ const featured = {
 
 const events = [
   { no: "01", tag: "RECURRING", title: "Prayer Stretches", date: "3× Monthly", location: "Bixby, OK", line: "Intercession for our generation, our city, our nation, and the global church.", color: "#D62A5F" },
-  { no: "02", tag: "ANNUAL", title: "Activate 2026", date: "October 2-3 · 2026", location: "Bixby, OK", line: "A two-day revival and equipping gathering shaped by worship, prayer, commissioning and discipleship.", color: "#9E1194" },
+  { no: "02", tag: "ANNUAL", title: "Activate 2026", date: "October 23-24 · 2026", location: "Bixby, OK", line: "A two-day revival and equipping gathering shaped by worship, prayer, commissioning and discipleship.", color: "#9E1194" },
   { no: "03", tag: "END OF YEAR", title: "Crossover 2027", date: "Dec 31 · 9 PM", location: "Bixby, OK", line: "Step into 2027 in His presence — worship, prayer, prophetic declaration.", color: "#F08D28" },
 ]
 

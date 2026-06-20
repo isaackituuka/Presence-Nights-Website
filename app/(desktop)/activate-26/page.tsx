@@ -189,7 +189,7 @@ function IgnitionHero() {
             className="text-[#E26721] tracking-[0.4em] md:tracking-[0.55em] text-xs md:text-sm uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Oct 2 · 3 · Tulsa
+            Oct 23 · 24 · Tulsa
           </span>
           <span className="h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-[#E26721]" />
         </motion.div>
@@ -648,7 +648,7 @@ function GlimpsesMosaic() {
  *  7. THE DATE — countdown
  * --------------------------------------------------------- */
 
-const TARGET = new Date("2026-10-02T19:00:00-05:00").getTime()
+const TARGET = new Date("2026-10-23T19:00:00-05:00").getTime()
 
 function useCountdown() {
   const [now, setNow] = useState<number | null>(null)
@@ -722,7 +722,7 @@ function TheDate() {
           className="mt-6 text-4xl sm:text-6xl md:text-7xl font-bold text-[#EBE6E2] leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          October <span className="italic gradient-text-fire whitespace-nowrap">2 &amp; 3</span>
+          October <span className="italic gradient-text-fire whitespace-nowrap">23 &amp; 24</span>
           <span className="block sm:inline text-[#EBE6E2]/85">, 2026</span>
         </motion.h2>
 
