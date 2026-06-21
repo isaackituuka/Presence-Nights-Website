@@ -518,59 +518,6 @@ function GlimpsesCarousel() {
   )
 }
 
-function ComingSoon() {
-  const items = [
-    { label: "Lineup", body: "Voices being prepared. Names revealed soon." },
-    { label: "Schedule", body: "Two nights. Sessions, sets, and altar moments." },
-    { label: "Registration", body: "Tickets open in waves. First wave drops first." },
-    { label: "After-hours", body: "Happy Hour returns 5–8pm. Tables, food, family." },
-  ]
-  return (
-    <section className="px-5 mt-16">
-      <FadeIn>
-        <SectionLabel color="#9E1194">What&apos;s coming</SectionLabel>
-        <H2>
-          Some things are <span className="italic gradient-text-fire">on the way</span>.
-        </H2>
-      </FadeIn>
-
-      <div className="mt-7 space-y-3">
-        {items.map((it, i) => (
-          <FadeIn key={it.label} delay={70 + i * 50}>
-            <div
-              className="relative flex items-start gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 overflow-hidden"
-              style={{ background: "rgba(22,16,14,0.55)" }}
-            >
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2 mb-1">
-                  <span
-                    className="text-[10px] tracking-[0.42em] uppercase text-[#E26721]"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    {it.label}
-                  </span>
-                  <span
-                    className="text-[8px] tracking-[0.32em] uppercase text-[#8A8280] px-1.5 py-0.5 rounded-full border border-[#EBE6E2]/10"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    Soon
-                  </span>
-                </div>
-                <p
-                  className="text-[#EBE6E2]/85 text-[15px] leading-snug"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {it.body}
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-        ))}
-      </div>
-    </section>
-  )
-}
-
 function Invitation() {
   return (
     <section className="px-5 mt-16 mb-4">
@@ -693,7 +640,6 @@ export default function MobileActivatePage() {
         Will you not <span className="gradient-text-fire not-italic font-semibold">revive us again</span>, that your people may rejoice in you?
       </Bridge>
       <GlimpsesCarousel />
-      <ComingSoon />
       <Bridge eyebrow="Activate 26">
         This generation. This hour. <span className="gradient-text-fire not-italic font-semibold">This fire</span>.
       </Bridge>

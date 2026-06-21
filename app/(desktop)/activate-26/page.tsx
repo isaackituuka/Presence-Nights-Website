@@ -808,73 +808,6 @@ function ThePlace() {
  *  9. WHAT'S COMING — teasers
  * --------------------------------------------------------- */
 
-function WhatsComing() {
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-15%" })
-
-  const teasers = [
-    { label: "Lineup", body: "Voices being prepared. Names revealed soon." },
-    { label: "Schedule", body: "Two nights. Sessions, sets, and altar moments." },
-    { label: "Registration", body: "Tickets open in waves. First wave drops first." },
-    { label: "After-hours", body: "Happy Hour returns 5–8pm. Tables, food, family." },
-  ]
-
-  return (
-    <section ref={ref} className="relative py-16 md:py-24 px-6 md:px-12 overflow-hidden">
-      <div className="relative max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-12 md:mb-16"
-        >
-          <Eyebrow color="#9E1194">What&apos;s coming</Eyebrow>
-          <h2
-            className="mt-5 text-3xl md:text-5xl font-bold text-[#EBE6E2] leading-tight"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Some things are <span className="italic gradient-text-fire">on the way</span>.
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-          {teasers.map((t, i) => (
-            <motion.div
-              key={t.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.1 + i * 0.08 }}
-              className="group relative rounded-2xl border border-[#EBE6E2]/8 bg-[#16100E]/55 backdrop-blur-md p-7 md:p-9 overflow-hidden hover:border-[#E26721]/35 transition-colors duration-500"
-            >
-              <div className="flex items-center justify-between mb-5">
-                <span
-                  className="text-[10px] tracking-[0.5em] uppercase text-[#E26721]"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {t.label}
-                </span>
-                <span
-                  className="text-[9px] tracking-[0.4em] uppercase text-[#8A8280] px-2 py-1 rounded-full border border-[#EBE6E2]/10"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  Soon
-                </span>
-              </div>
-              <p
-                className="text-[#EBE6E2]/85 text-lg md:text-xl leading-snug"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                {t.body}
-              </p>
-              <div className="absolute -bottom-px left-0 h-px w-0 bg-gradient-to-r from-[#E26721] via-[#D62A5F] to-[#9E1194] transition-all duration-700 group-hover:w-full" />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* -----------------------------------------------------------
  *  10. INVITATION — CTAs (inactive)
  * --------------------------------------------------------- */
@@ -1009,7 +942,6 @@ export default function Activate26Page() {
       <GlimpsesMosaic />
       <TheDate />
       <ThePlace />
-      <WhatsComing />
       <Invitation />
 
       <Footer />
