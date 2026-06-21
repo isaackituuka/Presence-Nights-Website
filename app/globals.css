@@ -232,6 +232,139 @@ html {
 /* Mobile body lock when full-screen menu is open */
 .mobile-no-scroll { overflow: hidden; touch-action: none; }
 
+/* ═══════════════ MOBILE CINEMATIC — scroll-driven motion ═══════════════
+   Native CSS scroll-driven animations (animation-timeline: view()/scroll()).
+   Runs on the compositor thread — buttery on mobile, zero JS cost.
+
+   PROGRESSIVE ENHANCEMENT: every effect lives inside
+   @supports (animation-timeline: view()) AND
+   @media (prefers-reduced-motion: no-preference).
+   On older browsers / reduced-motion, elements render in their final
+   visible state (no base opacity:0 is ever set outside these blocks),
+   so the page can never look broken. The IntersectionObserver FadeIn
+   primitive remains the universal fallback floor.
+   ───────────────────────────────────────────────────────────────────── */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* Reveal up — fade + rise as the element enters the viewport */
+    .sd-reveal {
+      animation: sd-reveal-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+    @keyframes sd-reveal-kf {
+      from { opacity: 0; transform: translateY(38px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Soft rise+scale for cards / images */
+    .sd-rise {
+      animation: sd-rise-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+    @keyframes sd-rise-kf {
+      from { opacity: 0; transform: translateY(54px) scale(0.965); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Clip-path wipe reveal (cinematic image entrance) */
+    .sd-clip {
+      animation: sd-clip-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    @keyframes sd-clip-kf {
+      from { clip-path: inset(42% 8% 0 8% round 1rem); opacity: 0.35; }
+      to   { clip-path: inset(0% 0% 0 0% round 1rem); opacity: 1; }
+    }
+
+    /* Parallax depth — inner image (taller than its frame) drifts as the
+       frame crosses the viewport. Frame must be overflow-hidden and the
+       image scaled >100% so there's room to travel. */
+    .sd-parallax {
+      animation: sd-parallax-kf linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes sd-parallax-kf {
+      from { transform: translateY(-7%) scale(1.18); }
+      to   { transform: translateY(7%) scale(1.18); }
+    }
+
+    /* Staggered children (word / line cascade). Parent gets .sd-cascade,
+       each child .sd-cascade-item; nth-child delays the entry range. */
+    .sd-cascade-item {
+      animation: sd-reveal-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+    .sd-cascade-item:nth-child(2) { animation-range: entry 8% entry 58%; }
+    .sd-cascade-item:nth-child(3) { animation-range: entry 16% entry 66%; }
+    .sd-cascade-item:nth-child(4) { animation-range: entry 24% entry 74%; }
+
+    /* Hero scroll-away — content scales down + dims over the first viewport
+       of scroll. scroll(root) = the page scroller. */
+    .sd-hero-away {
+      animation: sd-hero-away-kf linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 95svh;
+    }
+    @keyframes sd-hero-away-kf {
+      from { opacity: 1; transform: scale(1) translateY(0); }
+      to   { opacity: 0; transform: scale(0.9) translateY(-6%); }
+    }
+
+    /* Top scroll-progress bar — fills as you read the page */
+    .sd-progress {
+      animation: sd-progress-kf linear both;
+      animation-timeline: scroll(root);
+      transform-origin: 0 50%;
+    }
+    @keyframes sd-progress-kf {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* Horizontal-scroll item focus — centered item scales up slightly.
+       Uses the inline (horizontal) axis of the scroll container. */
+    .sd-glimpse {
+      animation: sd-glimpse-kf linear both;
+      animation-timeline: view(inline);
+      animation-range: entry 10% exit 90%;
+    }
+    @keyframes sd-glimpse-kf {
+      0%   { transform: scale(0.9);  opacity: 0.6; }
+      50%  { transform: scale(1);    opacity: 1;   }
+      100% { transform: scale(0.9);  opacity: 0.6; }
+    }
+  }
+}
+
+/* Sticky-stacking cards (works with or without scroll-driven support —
+   it's plain position:sticky). Each card pins and the next slides over it. */
+.sd-stack-card {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* Outgoing card dims + shrinks slightly as it gets covered */
+    .sd-stack-card .sd-stack-inner {
+      animation: sd-stack-kf linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+    @keyframes sd-stack-kf {
+      from { transform: scale(1);    filter: brightness(1); }
+      to   { transform: scale(0.92); filter: brightness(0.5); }
+    }
+  }
+}
+
 /* Glass */
 .glass {
   background: rgba(22, 16, 14, 0.65);

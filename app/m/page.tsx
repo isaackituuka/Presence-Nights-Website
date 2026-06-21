@@ -64,6 +64,7 @@ function YouTubeIcon({ size = 18 }: { size?: number }) {
     </svg>
   )
 }
+
 import { FadeIn } from "@/components/mobile/fade-in"
 import { MobileFooter } from "@/components/mobile/mobile-footer"
 
@@ -72,7 +73,7 @@ import { MobileFooter } from "@/components/mobile/mobile-footer"
 const PILLARS = [
   {
     label: "Prayer",
-    body: "We believe, there's no presence without prayer.",
+    body: "We believe there's no presence without prayer.",
     photo: "/Main Empashis/7N2A0276.jpg",
     color: "#E26721",
   },
@@ -88,6 +89,13 @@ const PILLARS = [
     photo: "/Main Empashis/7N2A9803.jpg",
     color: "#9E1194",
   },
+]
+
+const CONVICTIONS = [
+  { text: "His Presence is real", accent: "and can be experienced.", photo: "/Main Empashis/7N2A0091.jpg" },
+  { text: "His Presence brings", accent: "real-life transformation.", photo: "/Main Empashis/7N2A0083.jpg" },
+  { text: "His Presence sets", accent: "the captives free.", photo: "/Main Empashis/7N2A0014.jpg" },
+  { text: "He inhabits", accent: "the praise of His people.", photo: "/Main Empashis/7N2A1844.jpg" },
 ]
 
 const GLIMPSES = [
@@ -123,6 +131,39 @@ function H2({ children }: { children: React.ReactNode }) {
   )
 }
 
+/** Frame with a parallax image that drifts as it scrolls past. */
+function ParallaxImage({
+  src,
+  className = "",
+  priority = false,
+  overlay = true,
+}: {
+  src: string
+  className?: string
+  priority?: boolean
+  overlay?: boolean
+}) {
+  return (
+    <div className={`relative overflow-hidden ${className}`}>
+      <div className="sd-parallax absolute inset-0">
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="100vw"
+          quality={74}
+          priority={priority}
+          loading={priority ? undefined : "lazy"}
+          className="object-cover"
+        />
+      </div>
+      {overlay && (
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/70 via-transparent to-[#0C070A]/15" />
+      )}
+    </div>
+  )
+}
+
 /* ─── SECTIONS ─────────────────────────────────────────────── */
 
 function Hero() {
@@ -144,7 +185,7 @@ function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(12,7,10,0.7)_100%)]" />
 
       <div
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+        className="sd-hero-away relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <span
@@ -188,7 +229,7 @@ function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+      <div className="sd-hero-away absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
         <span
           className="text-[#8A8280]/70 text-[9px] tracking-[0.35em] uppercase"
           style={{ fontFamily: "var(--font-mono)" }}
@@ -216,14 +257,16 @@ function ActivateBanner() {
               "0 22px 50px rgba(0,0,0,0.5), 0 0 30px rgba(226,103,33,0.15), inset 0 0 30px rgba(226,103,33,0.07)",
           }}
         >
-          <Image
-            src="/curated/glimpses/this-generation-fire.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={70}
-            className="object-cover opacity-30"
-          />
+          <div className="sd-parallax absolute inset-0">
+            <Image
+              src="/curated/glimpses/this-generation-fire.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              quality={70}
+              className="object-cover opacity-30"
+            />
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0C070A]/70 via-transparent to-[#0C070A]/40" />
 
           <div className="relative px-5 py-5 flex items-center gap-4">
@@ -270,7 +313,7 @@ function ActivateBanner() {
 function NextGathering() {
   return (
     <section id="events" className="px-5 mt-12">
-      <FadeIn>
+      <div className="sd-reveal">
         <SectionLabel>The next gathering</SectionLabel>
         <H2>
           Last Friday <span className="italic gradient-text-fire">of the month</span>.
@@ -281,46 +324,44 @@ function NextGathering() {
         >
           Every last Friday · 7:30 PM. The heartbeat of everything we do is His presence. Come hungry. Come expectant.
         </p>
-      </FadeIn>
+      </div>
 
-      <FadeIn delay={120}>
-        <div
-          className="mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+      <div
+        className="sd-rise mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+        style={{
+          background: "rgba(22,16,14,0.65)",
+          backdropFilter: "blur(10px)",
+          WebkitBackdropFilter: "blur(10px)",
+        }}
+      >
+        <p
+          className="text-[#EBE6E2]/85 text-[14px] leading-relaxed"
+          style={{ fontFamily: "var(--font-sans)" }}
+        >
+          We meet at a private home. Join the WhatsApp group for the
+          address and the latest updates.
+        </p>
+
+        <a
+          href="https://chat.whatsapp.com/DCyTlkJf9E27cdilM8x7kh?mode=gi_t"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mobile-touch mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
           style={{
-            background: "rgba(22,16,14,0.65)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
+            fontFamily: "var(--font-mono)",
+            background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
+            boxShadow: "0 8px 24px rgba(226,103,33,0.3)",
           }}
         >
-          <p
-            className="text-[#EBE6E2]/85 text-[14px] leading-relaxed"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            We meet at a private home. Join the WhatsApp group for the
-            address and the latest updates.
-          </p>
-
-          <a
-            href="https://chat.whatsapp.com/DCyTlkJf9E27cdilM8x7kh?mode=gi_t"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mobile-touch mt-5 flex items-center justify-center gap-2 rounded-full py-3 text-[#EBE6E2] text-[12px] tracking-[0.22em] uppercase font-semibold active:scale-[0.97] transition-transform"
-            style={{
-              fontFamily: "var(--font-mono)",
-              background: "linear-gradient(135deg, #E26721 0%, #D62A5F 60%, #9E1194 100%)",
-              boxShadow: "0 8px 24px rgba(226,103,33,0.3)",
-            }}
-          >
-            Connect with us
-          </a>
-          <div
-            className="mt-3 text-center text-[#8A8280] text-[11px] tracking-[0.18em] uppercase"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            Get the address &amp; join the group
-          </div>
+          Connect with us
+        </a>
+        <div
+          className="mt-3 text-center text-[#8A8280] text-[11px] tracking-[0.18em] uppercase"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Get the address &amp; join the group
         </div>
-      </FadeIn>
+      </div>
     </section>
   )
 }
@@ -328,7 +369,7 @@ function NextGathering() {
 function About() {
   return (
     <section id="about" className="px-5 mt-16">
-      <FadeIn>
+      <div className="sd-reveal">
         <SectionLabel>Who we are</SectionLabel>
         <H2>
           We are <span className="italic gradient-text-fire">young adults</span> burning for one thing.
@@ -341,76 +382,135 @@ function About() {
           to host. We gather every month so a generation can meet Him in the
           unhurried weight of His presence.
         </p>
-      </FadeIn>
+      </div>
 
-      <FadeIn delay={140}>
-        <div className="mt-7 relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#EBE6E2]/8">
-          <Image
-            src="/curated/main/we-his-presence.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            quality={75}
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/65 via-transparent to-[#0C070A]/15" />
-        </div>
-      </FadeIn>
+      <ParallaxImage
+        src="/curated/main/we-his-presence.jpg"
+        className="sd-clip mt-7 aspect-[4/5] rounded-2xl border border-[#EBE6E2]/8"
+      />
     </section>
   )
 }
 
 function Pillars() {
   return (
-    <section id="pillars" className="px-5 mt-16">
-      <FadeIn>
+    <section id="pillars" className="mt-16">
+      <div className="px-5 sd-reveal">
         <SectionLabel color="#D62A5F">Pillars</SectionLabel>
         <H2>
           Three things we <span className="italic gradient-text-fire">build on</span>.
         </H2>
-      </FadeIn>
+        <p
+          className="mt-3 text-[#8A8280] text-[13px] tracking-[0.15em] uppercase"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Swipe →
+        </p>
+      </div>
 
-      <div className="mt-7 space-y-3">
+      <div
+        className="mobile-snap-x mt-6 flex gap-4 overflow-x-auto pl-5 pr-5 pb-2"
+        aria-label="The pillars"
+      >
         {PILLARS.map((p, i) => (
-          <FadeIn key={p.label} delay={80 + i * 60}>
-            <div
-              className="relative flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 overflow-hidden"
-              style={{ background: "rgba(22,16,14,0.55)" }}
-            >
-              <div className="relative h-16 w-16 flex-shrink-0 rounded-xl overflow-hidden">
-                <Image
-                  src={p.photo}
-                  alt=""
-                  fill
-                  sizes="64px"
-                  quality={70}
-                  className="object-cover"
-                />
-                <div
-                  className="absolute inset-0 mix-blend-overlay opacity-60"
-                  style={{ background: `linear-gradient(135deg, ${p.color}66, transparent)` }}
-                />
-              </div>
-              <div className="flex-1 min-w-0">
-                <div
-                  className="text-[#EBE6E2] text-lg font-bold leading-tight"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {p.label}
-                </div>
-                <div
-                  className="mt-1 text-[#8A8280] text-[13px] leading-snug"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  {p.body}
-                </div>
-              </div>
-              <span
-                className="h-1 w-1 rounded-full flex-shrink-0"
-                style={{ background: p.color, boxShadow: `0 0 10px ${p.color}` }}
+          <div
+            key={p.label}
+            className="relative flex-shrink-0 w-[82%] aspect-[3/4] rounded-3xl overflow-hidden border border-[#EBE6E2]/10"
+            style={{ boxShadow: "0 16px 40px rgba(0,0,0,0.5)" }}
+          >
+            <div className="sd-parallax absolute inset-0">
+              <Image
+                src={p.photo}
+                alt={p.label}
+                fill
+                sizes="82vw"
+                quality={74}
+                loading={i < 1 ? "eager" : "lazy"}
+                className="object-cover"
               />
             </div>
-          </FadeIn>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/92 via-[#0C070A]/25 to-[#0C070A]/30" />
+            <div
+              className="absolute inset-0 mix-blend-overlay opacity-40"
+              style={{ background: `linear-gradient(150deg, ${p.color}88, transparent 60%)` }}
+            />
+
+            <div className="absolute left-0 right-0 bottom-0 p-6">
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className="text-[10px] tracking-[0.4em] uppercase"
+                  style={{ color: p.color, fontFamily: "var(--font-mono)" }}
+                >
+                  0{i + 1}
+                </span>
+                <span className="h-px flex-1" style={{ background: `linear-gradient(90deg, ${p.color}, transparent)` }} />
+              </div>
+              <div
+                className="text-[2.4rem] font-bold leading-none text-[#EBE6E2]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {p.label}
+              </div>
+              <p
+                className="mt-3 text-[#EBE6E2]/80 text-[14px] leading-snug max-w-[90%]"
+                style={{ fontFamily: "var(--font-sans)" }}
+              >
+                {p.body}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+/* The signature cinematic moment — sticky-stacking conviction cards.
+   Each card pins full-screen, the next slides over it as you scroll. */
+function Convictions() {
+  return (
+    <section id="community" className="mt-16">
+      <div className="px-5 mb-6 sd-reveal">
+        <SectionLabel color="#9E1194">What we believe</SectionLabel>
+        <H2>
+          Our <span className="italic gradient-text-fire">convictions</span>.
+        </H2>
+      </div>
+
+      <div className="relative">
+        {CONVICTIONS.map((c, i) => (
+          <div key={i} className="sd-stack-card">
+            <div className="sd-stack-inner relative h-full w-full overflow-hidden rounded-t-[2rem]">
+              <div className="sd-parallax absolute inset-0">
+                <Image
+                  src={c.photo}
+                  alt=""
+                  fill
+                  sizes="100vw"
+                  quality={74}
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/95 via-[#0C070A]/45 to-[#0C070A]/55" />
+
+              <div className="absolute inset-0 flex flex-col justify-end p-7 pb-20">
+                <span
+                  className="text-[10px] tracking-[0.45em] uppercase text-[#E26721] mb-4"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  0{i + 1} / 0{CONVICTIONS.length}
+                </span>
+                <p
+                  className="text-[2.3rem] font-bold leading-[1.05] text-[#EBE6E2]"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {c.text}{" "}
+                  <span className="italic gradient-text-fire">{c.accent}</span>
+                </p>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
@@ -420,40 +520,36 @@ function Pillars() {
 function Glimpses() {
   return (
     <section className="mt-16">
-      <div className="px-5">
-        <FadeIn>
-          <SectionLabel color="#9E1194">Glimpses</SectionLabel>
-          <H2>
-            Frames from <span className="italic gradient-text-fire">last month</span>.
-          </H2>
-        </FadeIn>
+      <div className="px-5 sd-reveal">
+        <SectionLabel color="#9E1194">Glimpses</SectionLabel>
+        <H2>
+          Frames from <span className="italic gradient-text-fire">last month</span>.
+        </H2>
       </div>
 
-      <FadeIn delay={120}>
-        <div
-          className="mobile-snap-x mt-7 flex gap-4 overflow-x-auto pl-5 pr-5 pb-2"
-          aria-label="Photo gallery"
-        >
-          {GLIMPSES.map((src, i) => (
-            <div
-              key={i}
-              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
-              style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="80vw"
-                quality={70}
-                loading={i < 2 ? "eager" : "lazy"}
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
-            </div>
-          ))}
-        </div>
-      </FadeIn>
+      <div
+        className="mobile-snap-x mt-7 flex gap-4 overflow-x-auto pl-5 pr-5 pb-2"
+        aria-label="Photo gallery"
+      >
+        {GLIMPSES.map((src, i) => (
+          <div
+            key={i}
+            className="sd-glimpse relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
+            style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              sizes="80vw"
+              quality={70}
+              loading={i < 2 ? "eager" : "lazy"}
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
+          </div>
+        ))}
+      </div>
     </section>
   )
 }
@@ -461,7 +557,7 @@ function Glimpses() {
 function Connect() {
   return (
     <section id="connect" className="px-5 mt-16">
-      <FadeIn>
+      <div className="sd-reveal">
         <SectionLabel>Connect</SectionLabel>
         <H2>
           Come <span className="italic gradient-text-fire">say hi</span>.
@@ -472,7 +568,7 @@ function Connect() {
         >
           Bring your questions, your friends, your empty cup.
         </p>
-      </FadeIn>
+      </div>
 
       <div className="mt-6 space-y-3">
         {[
@@ -500,35 +596,34 @@ function Connect() {
             sub: "@presencenights.tu",
             href: "https://www.tiktok.com/@presencenights.tu",
           },
-        ].map((item, i) => (
-          <FadeIn key={item.label} delay={80 + i * 60}>
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mobile-touch flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 active:scale-[0.99] transition-transform"
-              style={{ background: "rgba(22,16,14,0.55)" }}
-            >
-              <span className="h-11 w-11 flex-shrink-0 flex items-center justify-center rounded-full bg-[#E26721]/12 text-[#E26721]">
-                {item.icon}
-              </span>
-              <div className="flex-1 min-w-0">
-                <div
-                  className="text-[#EBE6E2] font-semibold text-[15px]"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {item.label}
-                </div>
-                <div
-                  className="text-[#8A8280] text-[12px] truncate"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {item.sub}
-                </div>
+        ].map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="sd-reveal mobile-touch flex items-center gap-4 rounded-2xl p-4 border border-[#EBE6E2]/8 active:scale-[0.99] transition-transform"
+            style={{ background: "rgba(22,16,14,0.55)" }}
+          >
+            <span className="h-11 w-11 flex-shrink-0 flex items-center justify-center rounded-full bg-[#E26721]/12 text-[#E26721]">
+              {item.icon}
+            </span>
+            <div className="flex-1 min-w-0">
+              <div
+                className="text-[#EBE6E2] font-semibold text-[15px]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {item.label}
               </div>
-              <ChevronRight size={18} className="text-[#8A8280] flex-shrink-0" />
-            </a>
-          </FadeIn>
+              <div
+                className="text-[#8A8280] text-[12px] truncate"
+                style={{ fontFamily: "var(--font-mono)" }}
+              >
+                {item.sub}
+              </div>
+            </div>
+            <ChevronRight size={18} className="text-[#8A8280] flex-shrink-0" />
+          </a>
         ))}
       </div>
     </section>
@@ -540,11 +635,20 @@ function Connect() {
 export default function MobileHomePage() {
   return (
     <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen pb-12">
+      {/* Scroll progress bar */}
+      <div
+        aria-hidden="true"
+        className="sd-progress fixed top-0 left-0 right-0 h-[3px] z-[45] origin-left"
+        style={{
+          background: "linear-gradient(90deg, #F08D28, #E26721, #D62A5F, #9E1194)",
+        }}
+      />
       <Hero />
       <ActivateBanner />
       <NextGathering />
       <About />
       <Pillars />
+      <Convictions />
       <Glimpses />
       <Connect />
       <MobileFooter />
