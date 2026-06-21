@@ -12,22 +12,14 @@ export type MarqueeItem = {
 }
 
 /**
- * Drift gallery — auto-scrolls continuously AND is fully swipeable by hand.
- * The track is a native horizontal-overflow element (so momentum drag works),
- * nudged forward each frame by rAF. Touching/dragging pauses the drift; it
- * resumes a moment after you let go. The image set is duplicated so the loop
- * is seamless (we wrap scrollLeft by exactly one copy's width). Honors
+ * Drift engine — auto-scrolls a horizontal-overflow element continuously
+ * while leaving it fully swipeable by hand. rAF nudges scrollLeft forward;
+ * touch / drag / wheel pauses the drift and it resumes a moment after you
+ * let go. Content must be duplicated (rendered twice) so the seamless loop
+ * works — we wrap scrollLeft by exactly one copy's width. Honors
  * prefers-reduced-motion (no auto-drift; still swipeable).
  */
-export function MarqueeGallery({
-  items,
-  speed = 0.45,
-}: {
-  items: MarqueeItem[]
-  speed?: number
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-
+function useDrift(ref: React.RefObject<HTMLDivElement | null>, speed: number) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
@@ -51,18 +43,12 @@ export function MarqueeGallery({
     el.addEventListener("pointercancel", resumeSoon)
     el.addEventListener("touchstart", pause, { passive: true })
     el.addEventListener("touchend", resumeSoon, { passive: true })
-    // Wheel / trackpad horizontal scrolling also counts as manual.
     el.addEventListener("wheel", () => { pause(); resumeSoon() }, { passive: true })
 
     const tick = () => {
       const half = el.scrollWidth / 2
-      if (!paused && half > 0) {
-        el.scrollLeft += speed
-        if (el.scrollLeft >= half) el.scrollLeft -= half
-      } else if (half > 0 && el.scrollLeft >= half) {
-        // keep manual scrolling looping seamlessly too
-        el.scrollLeft -= half
-      }
+      if (half > 0 && el.scrollLeft >= half) el.scrollLeft -= half
+      if (!paused && half > 0) el.scrollLeft += speed
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
@@ -76,7 +62,38 @@ export function MarqueeGallery({
       el.removeEventListener("touchstart", pause)
       el.removeEventListener("touchend", resumeSoon)
     }
-  }, [speed])
+  }, [ref, speed])
+}
+
+/** Generic auto-drifting + swipeable row. Pass already-duplicated children. */
+export function DriftRow({
+  children,
+  speed = 0.4,
+  className = "",
+}: {
+  children: React.ReactNode
+  speed?: number
+  className?: string
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  useDrift(ref, speed)
+  return (
+    <div ref={ref} className={`sd-drift sd-marquee-mask flex gap-4 pl-4 pr-4 pb-2 ${className}`}>
+      {children}
+    </div>
+  )
+}
+
+/** Image/scripture drift gallery built on the same engine. */
+export function MarqueeGallery({
+  items,
+  speed = 0.45,
+}: {
+  items: MarqueeItem[]
+  speed?: number
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  useDrift(ref, speed)
 
   const track = [...items, ...items]
   return (

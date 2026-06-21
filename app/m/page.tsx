@@ -67,7 +67,7 @@ function YouTubeIcon({ size = 18 }: { size?: number }) {
 
 import { FadeIn } from "@/components/mobile/fade-in"
 import { MobileFooter } from "@/components/mobile/mobile-footer"
-import { MarqueeGallery, Bridge } from "@/components/mobile/cinematic"
+import { MarqueeGallery, DriftRow, Bridge } from "@/components/mobile/cinematic"
 
 /* ─── DATA ────────────────────────────────────────────────── */
 
@@ -378,37 +378,37 @@ function About() {
         </p>
       </div>
 
-      {/* Pinned zoom moment — the photo holds + slowly zooms as you scroll
-          past, with a scripture rising over it. */}
-      <div className="mt-8 relative h-[150vh]">
-        <div className="sticky top-0 h-[100svh] overflow-hidden">
-          <div className="sd-pinzoom-img absolute inset-0">
-            <Image
-              src="/curated/main/we-his-presence.jpg"
-              alt=""
-              fill
-              sizes="100vw"
-              quality={78}
-              className="object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/25 to-[#0C070A]/55" />
-          <div className="absolute inset-0 flex items-end p-7 pb-24">
-            <p
-              className="sd-reveal text-[1.95rem] italic leading-[1.25] text-[#EBE6E2] max-w-[92%]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              “One thing I ask of the LORD — that I may{" "}
-              <span className="not-italic gradient-text-fire font-semibold">dwell in His house</span>.”
-            </p>
-          </div>
-          <span
-            className="absolute top-7 right-7 text-[10px] tracking-[0.4em] uppercase text-[#E26721]"
-            style={{ fontFamily: "var(--font-mono)" }}
-          >
-            Psalm 27:4
-          </span>
+      {/* Parallax image with the scripture over it — scrolls normally. */}
+      <div
+        className="sd-clip relative mx-5 mt-8 h-[68vh] rounded-3xl overflow-hidden border border-[#EBE6E2]/8"
+        style={{ boxShadow: "0 22px 50px rgba(0,0,0,0.5)" }}
+      >
+        <div className="sd-parallax absolute inset-0">
+          <Image
+            src="/curated/main/we-his-presence.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            quality={78}
+            className="object-cover"
+          />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/25 to-[#0C070A]/45" />
+        <div className="absolute inset-0 flex items-end p-7">
+          <p
+            className="text-[1.85rem] italic leading-[1.25] text-[#EBE6E2] max-w-[92%]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            “One thing I ask of the LORD — that I may{" "}
+            <span className="not-italic gradient-text-fire font-semibold">dwell in His house</span>.”
+          </p>
+        </div>
+        <span
+          className="absolute top-6 right-6 text-[10px] tracking-[0.4em] uppercase text-[#E26721]"
+          style={{ fontFamily: "var(--font-mono)" }}
+        >
+          Psalm 27:4
+        </span>
       </div>
     </section>
   )
@@ -426,18 +426,15 @@ function Pillars() {
           className="mt-3 text-[#8A8280] text-[13px] tracking-[0.15em] uppercase"
           style={{ fontFamily: "var(--font-mono)" }}
         >
-          Swipe →
+          Auto-scrolling · swipe to explore
         </p>
       </div>
 
-      <div
-        className="mobile-snap-x mt-6 flex gap-4 overflow-x-auto pl-5 pr-5 pb-2"
-        aria-label="The pillars"
-      >
-        {PILLARS.map((p, i) => (
+      <DriftRow speed={0.32} className="mt-6">
+        {[...PILLARS, ...PILLARS].map((p, i) => (
           <div
-            key={p.label}
-            className="sd-glimpse relative flex-shrink-0 w-[82%] aspect-[3/4] rounded-3xl overflow-hidden border border-[#EBE6E2]/10"
+            key={i}
+            className="relative flex-shrink-0 w-[78%] aspect-[3/4] rounded-3xl overflow-hidden border border-[#EBE6E2]/10"
             style={{ boxShadow: "0 16px 40px rgba(0,0,0,0.5)" }}
           >
             <div className="sd-parallax absolute inset-0">
@@ -445,10 +442,11 @@ function Pillars() {
                 src={p.photo}
                 alt={p.label}
                 fill
-                sizes="82vw"
+                sizes="78vw"
                 quality={74}
-                loading={i < 1 ? "eager" : "lazy"}
-                className="object-cover"
+                loading={i < 2 ? "eager" : "lazy"}
+                className="object-cover pointer-events-none select-none"
+                draggable={false}
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/92 via-[#0C070A]/25 to-[#0C070A]/30" />
@@ -463,7 +461,7 @@ function Pillars() {
                   className="text-[10px] tracking-[0.4em] uppercase"
                   style={{ color: p.color, fontFamily: "var(--font-mono)" }}
                 >
-                  0{i + 1}
+                  0{(i % PILLARS.length) + 1}
                 </span>
                 <span className="h-px flex-1" style={{ background: `linear-gradient(90deg, ${p.color}, transparent)` }} />
               </div>
@@ -482,7 +480,7 @@ function Pillars() {
             </div>
           </div>
         ))}
-      </div>
+      </DriftRow>
     </section>
   )
 }
