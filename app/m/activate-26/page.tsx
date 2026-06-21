@@ -511,7 +511,7 @@ function GlimpsesCarousel() {
             src,
             year: i % 3 === 0 ? "ACTIVATE 2025" : i % 3 === 1 ? "DAY 1" : "DAY 2",
           }))}
-          speed={0.4}
+          speed={0.65}
         />
       </div>
     </section>

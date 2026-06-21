@@ -430,7 +430,7 @@ function Pillars() {
         </p>
       </div>
 
-      <DriftRow speed={0.32} className="mt-6">
+      <DriftRow speed={0.55} className="mt-6">
         {[...PILLARS, ...PILLARS].map((p, i) => (
           <div
             key={i}
@@ -548,7 +548,7 @@ function Glimpses() {
       </div>
 
       <div className="mt-7">
-        <MarqueeGallery items={GLIMPSES} speed={0.45} />
+        <MarqueeGallery items={GLIMPSES} speed={0.7} />
       </div>
     </section>
   )

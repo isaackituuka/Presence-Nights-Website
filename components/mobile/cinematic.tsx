@@ -28,6 +28,10 @@ function useDrift(ref: React.RefObject<HTMLDivElement | null>, speed: number) {
     let raf = 0
     let paused = false
     let resumeTimer: ReturnType<typeof setTimeout> | undefined
+    // Accumulate position in a float — reading el.scrollLeft back each frame
+    // returns a browser-rounded integer, so a sub-pixel increment would stall
+    // at 0 forever. We track our own position and write it out.
+    let pos = el.scrollLeft
 
     const pause = () => {
       paused = true
@@ -35,7 +39,10 @@ function useDrift(ref: React.RefObject<HTMLDivElement | null>, speed: number) {
     }
     const resumeSoon = () => {
       if (resumeTimer) clearTimeout(resumeTimer)
-      resumeTimer = setTimeout(() => { paused = false }, 1600)
+      resumeTimer = setTimeout(() => {
+        paused = false
+        pos = el.scrollLeft // re-sync to wherever the user left it
+      }, 1400)
     }
 
     el.addEventListener("pointerdown", pause)
@@ -47,8 +54,20 @@ function useDrift(ref: React.RefObject<HTMLDivElement | null>, speed: number) {
 
     const tick = () => {
       const half = el.scrollWidth / 2
-      if (half > 0 && el.scrollLeft >= half) el.scrollLeft -= half
-      if (!paused && half > 0) el.scrollLeft += speed
+      if (half > 0) {
+        if (paused) {
+          // follow the user; just keep the seamless wrap working
+          pos = el.scrollLeft
+          if (pos >= half) {
+            pos -= half
+            el.scrollLeft = pos
+          }
+        } else {
+          pos += speed
+          if (pos >= half) pos -= half
+          el.scrollLeft = pos
+        }
+      }
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
