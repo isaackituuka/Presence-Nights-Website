@@ -178,7 +178,7 @@ function Hero() {
         playsInline
         preload="metadata"
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="sd-kenburns absolute inset-0 w-full h-full object-cover object-center"
         style={{ transform: "translateZ(0)", willChange: "transform" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/15" />
@@ -189,7 +189,7 @@ function Hero() {
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <span
-          className="relative inline-flex h-14 w-14 mb-6 items-center justify-center rounded-full border border-[#E26721]/55"
+          className="sd-load-pop sd-d1 relative inline-flex h-14 w-14 mb-6 items-center justify-center rounded-full border border-[#E26721]/55"
           style={{ boxShadow: "0 0 22px rgba(226,103,33,0.35)" }}
         >
           <span
@@ -204,24 +204,27 @@ function Hero() {
           className="font-bold text-[#EBE6E2] leading-[0.95]"
           style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 14vw, 5rem)" }}
         >
-          PRESENCE
-          <br />
-          NIGHTS
+          <span className="block overflow-hidden">
+            <span className="sd-load-clip sd-d2 block">PRESENCE</span>
+          </span>
+          <span className="block overflow-hidden">
+            <span className="sd-load-clip sd-d3 block">NIGHTS</span>
+          </span>
         </h1>
 
         <div className="mt-4 flex items-center gap-3">
-          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <span className="sd-load-grow sd-d4 h-px w-8 bg-gradient-to-r from-transparent to-[#E26721]" />
           <span
-            className="text-[#E26721] text-xs tracking-[0.5em] uppercase"
+            className="sd-load-fade sd-d4 text-[#E26721] text-xs tracking-[0.5em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Tulsa
           </span>
-          <span className="h-px w-8 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <span className="sd-load-grow sd-d4 h-px w-8 bg-gradient-to-l from-transparent to-[#E26721]" />
         </div>
 
         <p
-          className="mt-7 text-[#EBE6E2]/85 text-base px-2"
+          className="sd-load-rise sd-d5 mt-7 text-[#EBE6E2]/85 text-base px-2"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Come hungry. He will meet you here.
@@ -248,7 +251,7 @@ function ActivateBanner() {
       <FadeIn>
         <Link
           href="/activate-26"
-          className="mobile-touch group block relative overflow-hidden rounded-3xl active:scale-[0.99] transition-transform"
+          className="sd-shimmer mobile-touch group block relative overflow-hidden rounded-3xl active:scale-[0.99] transition-transform"
           style={{
             background:
               "linear-gradient(135deg, rgba(240,141,40,0.18) 0%, rgba(226,103,33,0.18) 50%, rgba(158,17,148,0.18) 100%)",
@@ -415,7 +418,7 @@ function Pillars() {
         {PILLARS.map((p, i) => (
           <div
             key={p.label}
-            className="relative flex-shrink-0 w-[82%] aspect-[3/4] rounded-3xl overflow-hidden border border-[#EBE6E2]/10"
+            className="sd-glimpse relative flex-shrink-0 w-[82%] aspect-[3/4] rounded-3xl overflow-hidden border border-[#EBE6E2]/10"
             style={{ boxShadow: "0 16px 40px rgba(0,0,0,0.5)" }}
           >
             <div className="sd-parallax absolute inset-0">

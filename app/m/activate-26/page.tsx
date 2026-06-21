@@ -106,24 +106,26 @@ function useCountdown() {
 function Hero() {
   return (
     <section className="relative h-[100svh] w-full overflow-hidden">
-      <Image
-        src="/curated/glimpses/IMG_1826.jpg"
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+      <div className="sd-kenburns absolute inset-0">
+        <Image
+          src="/curated/glimpses/IMG_1826.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/55 to-[#0C070A]/35" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(226,103,33,0.18)_0%,transparent_55%)]" />
 
       <div
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+        className="sd-hero-away relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         {/* Live chip */}
         <div
-          className="mb-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E26721]/40"
+          className="sd-load-pop sd-d1 mb-7 inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#E26721]/40"
           style={{ background: "rgba(12,7,10,0.4)", backdropFilter: "blur(8px)" }}
         >
           <span className="relative flex h-1.5 w-1.5">
@@ -138,15 +140,17 @@ function Hero() {
           </span>
         </div>
 
-        <h1
-          className="font-bold text-[#EBE6E2] leading-[0.85]"
-          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 14vw, 5rem)" }}
-        >
-          ACTIVATE
-        </h1>
+        <span className="block overflow-hidden">
+          <h1
+            className="sd-load-clip sd-d2 font-bold text-[#EBE6E2] leading-[0.85]"
+            style={{ fontFamily: "var(--font-display)", fontSize: "clamp(3rem, 14vw, 5rem)" }}
+          >
+            ACTIVATE
+          </h1>
+        </span>
 
         <div
-          className="-mt-1 italic font-black"
+          className="sd-load-pop sd-d3 -mt-1 italic font-black"
           style={{
             fontFamily: "var(--font-display)",
             fontSize: "clamp(5rem, 22vw, 8rem)",
@@ -162,18 +166,18 @@ function Hero() {
         </div>
 
         <div className="mt-5 flex items-center gap-3">
-          <span className="h-px w-7 bg-gradient-to-r from-transparent to-[#E26721]" />
+          <span className="sd-load-grow sd-d4 h-px w-7 bg-gradient-to-r from-transparent to-[#E26721]" />
           <span
-            className="text-[#E26721] text-[11px] tracking-[0.4em] uppercase"
+            className="sd-load-fade sd-d4 text-[#E26721] text-[11px] tracking-[0.4em] uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Oct 23 · 24 · Tulsa
           </span>
-          <span className="h-px w-7 bg-gradient-to-l from-transparent to-[#E26721]" />
+          <span className="sd-load-grow sd-d4 h-px w-7 bg-gradient-to-l from-transparent to-[#E26721]" />
         </div>
 
         <p
-          className="mt-6 text-[#EBE6E2]/75 text-[15px]"
+          className="sd-load-rise sd-d5 mt-6 text-[#EBE6E2]/75 text-[15px]"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Activating a generation for End Time Revival.
@@ -181,8 +185,8 @@ function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
-        <ChevronDown size={18} className="text-[#E26721]/85" />
+      <div className="sd-hero-away absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-10">
+        <ChevronDown size={18} className="text-[#E26721]/85 animate-bounce-down" />
       </div>
     </section>
   )
@@ -403,58 +407,66 @@ function Recap() {
 
 function PillarsList() {
   return (
-    <section className="px-5 mt-16">
-      <FadeIn>
+    <section className="mt-16">
+      <div className="px-5 mb-6 sd-reveal">
         <SectionLabel color="#E26721">Activate pillars</SectionLabel>
         <H2>
           Four words we won&apos;t <span className="italic gradient-text-fire">put down</span>.
         </H2>
-      </FadeIn>
+      </div>
 
-      <div className="mt-7 space-y-4">
+      {/* Sticky-stacking scene — each pillar pins full-screen and the next
+          slides over it as you scroll. */}
+      <div className="relative">
         {PILLARS.map((p, i) => (
-          <FadeIn key={p.word} delay={80 + i * 60}>
-            <div
-              className="relative rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
-              style={{ background: "rgba(22,16,14,0.65)" }}
-            >
-              <div className="relative h-36 w-full overflow-hidden">
+          <div key={p.word} className="sd-stack-card">
+            <div className="sd-stack-inner relative h-full w-full overflow-hidden rounded-t-[2rem]">
+              <div className="sd-parallax absolute inset-0">
                 <Image
                   src={p.photo}
                   alt=""
                   fill
                   sizes="100vw"
-                  quality={70}
+                  quality={74}
                   loading="lazy"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#16100E] via-[#16100E]/20 to-transparent" />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/95 via-[#0C070A]/40 to-[#0C070A]/55" />
+              <div
+                className="absolute inset-0 mix-blend-overlay opacity-45"
+                style={{ background: `radial-gradient(ellipse at 30% 75%, ${p.color}, transparent 62%)` }}
+              />
+
+              <div className="absolute inset-0 flex flex-col justify-end p-7 pb-20">
+                <span
+                  className="text-[10px] tracking-[0.45em] uppercase mb-3"
+                  style={{ color: p.color, fontFamily: "var(--font-mono)" }}
+                >
+                  0{i + 1} / 0{PILLARS.length}
+                </span>
                 <div
-                  className="absolute inset-0 mix-blend-overlay opacity-50"
-                  style={{ background: `radial-gradient(ellipse at 30% 70%, ${p.color}80, transparent 65%)` }}
-                />
-                <div
-                  className="absolute left-4 bottom-3 font-bold leading-none"
+                  className="font-black leading-[0.9]"
                   style={{
                     fontFamily: "var(--font-display)",
-                    fontSize: "2rem",
-                    backgroundImage: `linear-gradient(120deg, #FFFAF5 0%, ${p.color} 70%)`,
+                    fontSize: "clamp(3rem, 17vw, 5rem)",
+                    backgroundImage: `linear-gradient(120deg, #FFFAF5 0%, ${p.color} 75%)`,
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                    textShadow: `0 0 18px ${p.color}55`,
+                    textShadow: `0 0 24px ${p.color}44`,
                   }}
                 >
                   {p.word}
                 </div>
+                <p
+                  className="mt-4 text-[#EBE6E2]/85 text-[15px] leading-relaxed max-w-[92%]"
+                  style={{ fontFamily: "var(--font-sans)" }}
+                >
+                  {p.body}
+                </p>
               </div>
-              <p
-                className="px-4 py-4 text-[#EBE6E2]/82 text-[14px] leading-relaxed"
-                style={{ fontFamily: "var(--font-sans)" }}
-              >
-                {p.body}
-              </p>
             </div>
-          </FadeIn>
+          </div>
         ))}
       </div>
     </section>
@@ -478,7 +490,7 @@ function GlimpsesCarousel() {
           {GLIMPSES.map((src, i) => (
             <div
               key={i}
-              className="relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
+              className="sd-glimpse relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
               style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
             >
               <Image
@@ -657,6 +669,14 @@ function StickyCTA() {
 export default function MobileActivatePage() {
   return (
     <main className="relative bg-[#0C070A] text-[#EBE6E2] min-h-screen pb-28">
+      {/* Scroll progress bar */}
+      <div
+        aria-hidden="true"
+        className="sd-progress fixed top-0 left-0 right-0 h-[3px] z-[45] origin-left"
+        style={{
+          background: "linear-gradient(90deg, #F08D28, #E26721, #D62A5F, #9E1194)",
+        }}
+      />
       <Hero />
       <CountdownCard />
       <SaveTheDate />
