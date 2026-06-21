@@ -67,6 +67,7 @@ function YouTubeIcon({ size = 18 }: { size?: number }) {
 
 import { FadeIn } from "@/components/mobile/fade-in"
 import { MobileFooter } from "@/components/mobile/mobile-footer"
+import { MarqueeGallery, Bridge } from "@/components/mobile/cinematic"
 
 /* ─── DATA ────────────────────────────────────────────────── */
 
@@ -99,12 +100,12 @@ const CONVICTIONS = [
 ]
 
 const GLIMPSES = [
-  "/curated/glimpses/7N2A1794.jpg",
-  "/curated/glimpses/7N2A0151.jpg",
-  "/curated/glimpses/IMG_4570.JPG",
-  "/curated/glimpses/7N2A0072.jpg",
-  "/curated/glimpses/7N2A1708.jpg",
-  "/curated/glimpses/7N2A0647.JPG",
+  { src: "/curated/glimpses/7N2A1794.jpg", caption: "If my people, who are called by my name,", year: "2 CHRON 7:14" },
+  { src: "/curated/glimpses/7N2A0151.jpg", caption: "will humble themselves and pray,", year: "AND SEEK" },
+  { src: "/curated/glimpses/IMG_4570.JPG", caption: "and seek my face,", year: "HIS FACE" },
+  { src: "/curated/glimpses/7N2A0072.jpg", caption: "then I will hear from heaven,", year: "PROMISE" },
+  { src: "/curated/glimpses/7N2A1708.jpg", caption: "and will forgive their sin,", year: "GRACE" },
+  { src: "/curated/glimpses/7N2A0647.JPG", caption: "and will heal their land.", year: "REVIVAL" },
 ]
 
 /* ─── PRIMITIVES ───────────────────────────────────────────── */
@@ -316,7 +317,7 @@ function ActivateBanner() {
 function NextGathering() {
   return (
     <section id="events" className="px-5 mt-12">
-      <div className="sd-reveal">
+      <div className="sd-reveal-blur">
         <SectionLabel>The next gathering</SectionLabel>
         <H2>
           Last Friday <span className="italic gradient-text-fire">of the month</span>.
@@ -372,7 +373,7 @@ function NextGathering() {
 function About() {
   return (
     <section id="about" className="px-5 mt-16">
-      <div className="sd-reveal">
+      <div className="sd-reveal-blur">
         <SectionLabel>Who we are</SectionLabel>
         <H2>
           We are <span className="italic gradient-text-fire">young adults</span> burning for one thing.
@@ -523,35 +524,15 @@ function Convictions() {
 function Glimpses() {
   return (
     <section className="mt-16">
-      <div className="px-5 sd-reveal">
+      <div className="px-5 sd-reveal-blur">
         <SectionLabel color="#9E1194">Glimpses</SectionLabel>
         <H2>
-          Frames from <span className="italic gradient-text-fire">last month</span>.
+          He met us <span className="italic gradient-text-fire">here</span>.
         </H2>
       </div>
 
-      <div
-        className="mobile-snap-x mt-7 flex gap-4 overflow-x-auto pl-5 pr-5 pb-2"
-        aria-label="Photo gallery"
-      >
-        {GLIMPSES.map((src, i) => (
-          <div
-            key={i}
-            className="sd-glimpse relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
-            style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
-          >
-            <Image
-              src={src}
-              alt=""
-              fill
-              sizes="80vw"
-              quality={70}
-              loading={i < 2 ? "eager" : "lazy"}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
-          </div>
-        ))}
+      <div className="mt-7">
+        <MarqueeGallery items={GLIMPSES} duration={46} />
       </div>
     </section>
   )
@@ -560,7 +541,7 @@ function Glimpses() {
 function Connect() {
   return (
     <section id="connect" className="px-5 mt-16">
-      <div className="sd-reveal">
+      <div className="sd-reveal-blur">
         <SectionLabel>Connect</SectionLabel>
         <H2>
           Come <span className="italic gradient-text-fire">say hi</span>.
@@ -650,9 +631,15 @@ export default function MobileHomePage() {
       <ActivateBanner />
       <NextGathering />
       <About />
+      <Bridge eyebrow="And so —">
+        we make space <span className="gradient-text-fire not-italic font-semibold">every last Friday</span>, and we wait <span className="gradient-text-fire not-italic font-semibold">on Him</span>.
+      </Bridge>
       <Pillars />
       <Convictions />
       <Glimpses />
+      <Bridge eyebrow="The invitation">
+        Come <span className="gradient-text-fire not-italic font-semibold">hungry</span>. He will meet you here.
+      </Bridge>
       <Connect />
       <MobileFooter />
     </main>

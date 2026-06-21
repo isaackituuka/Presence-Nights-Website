@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import { ChevronRight, MapPin, Play, ChevronDown } from "lucide-react"
 import { FadeIn } from "@/components/mobile/fade-in"
 import { MobileFooter } from "@/components/mobile/mobile-footer"
+import { MarqueeGallery, Bridge } from "@/components/mobile/cinematic"
 
 /* ─── DATA ────────────────────────────────────────────────── */
 
@@ -476,37 +477,22 @@ function PillarsList() {
 function GlimpsesCarousel() {
   return (
     <section className="mt-16">
-      <div className="px-5">
-        <FadeIn>
-          <SectionLabel color="#D62A5F">Glimpses</SectionLabel>
-          <H2>
-            Frames from <span className="italic gradient-text-fire">last year</span>.
-          </H2>
-        </FadeIn>
+      <div className="px-5 sd-reveal-blur">
+        <SectionLabel color="#D62A5F">Glimpses</SectionLabel>
+        <H2>
+          Frames from <span className="italic gradient-text-fire">last year</span>.
+        </H2>
       </div>
 
-      <FadeIn delay={120}>
-        <div className="mobile-snap-x mt-7 flex gap-3 overflow-x-auto pl-5 pr-5 pb-2">
-          {GLIMPSES.map((src, i) => (
-            <div
-              key={i}
-              className="sd-glimpse relative flex-shrink-0 w-[78%] aspect-[4/5] rounded-2xl overflow-hidden border border-[#EBE6E2]/8"
-              style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.45)" }}
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="80vw"
-                quality={68}
-                loading={i < 2 ? "eager" : "lazy"}
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/55 via-transparent to-transparent" />
-            </div>
-          ))}
-        </div>
-      </FadeIn>
+      <div className="mt-7">
+        <MarqueeGallery
+          items={GLIMPSES.map((src, i) => ({
+            src,
+            year: i % 3 === 0 ? "ACTIVATE 2025" : i % 3 === 1 ? "DAY 1" : "DAY 2",
+          }))}
+          duration={50}
+        />
+      </div>
     </section>
   )
 }
@@ -682,8 +668,14 @@ export default function MobileActivatePage() {
       <SaveTheDate />
       <Recap />
       <PillarsList />
+      <Bridge eyebrow="Psalm 85:6">
+        Will you not <span className="gradient-text-fire not-italic font-semibold">revive us again</span>, that your people may rejoice in you?
+      </Bridge>
       <GlimpsesCarousel />
       <ComingSoon />
+      <Bridge eyebrow="Activate 26">
+        This generation. This hour. <span className="gradient-text-fire not-italic font-semibold">This fire</span>.
+      </Bridge>
       <Invitation />
       <MobileFooter />
       <StickyCTA />

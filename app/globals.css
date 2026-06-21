@@ -434,7 +434,51 @@ html {
       from { transform: scale(1.25); }
       to   { transform: scale(1.0); }
     }
+
+    /* Reveal with a blur-in — richer than a plain fade */
+    .sd-reveal-blur {
+      animation: sd-reveal-blur-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 62%;
+    }
+    @keyframes sd-reveal-blur-kf {
+      from { opacity: 0; transform: translateY(42px); filter: blur(12px); }
+      to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    /* Section bridge — a centered phrase that rises in, holds, then lifts
+       away across its full pass through the viewport. The desktop's
+       "scene bridge" beat, translated to mobile. */
+    .sd-bridge {
+      animation: sd-bridge-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 5% exit 95%;
+    }
+    @keyframes sd-bridge-kf {
+      0%   { opacity: 0; transform: translateY(44px) scale(0.94); filter: blur(10px); }
+      28%  { opacity: 1; transform: translateY(0) scale(1);       filter: blur(0); }
+      68%  { opacity: 1; transform: translateY(0) scale(1);       filter: blur(0); }
+      100% { opacity: 0; transform: translateY(-34px) scale(0.97); filter: blur(8px); }
+    }
+    .sd-bridge-line {
+      animation: sd-bridge-line-kf linear both;
+      animation-timeline: view();
+      animation-range: entry 22% cover 52%;
+      transform-origin: center;
+    }
+    @keyframes sd-bridge-line-kf {
+      from { transform: scaleX(0); opacity: 0; }
+      to   { transform: scaleX(1); opacity: 1; }
+    }
   }
+}
+
+/* Auto-scrolling marquee track + soft edge fade.
+   Reuses the activate-marquee keyframe (translate 0 → -50% over a
+   duplicated track). Paused for reduced-motion. */
+.sd-marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
 }
 
 /* Glass */
