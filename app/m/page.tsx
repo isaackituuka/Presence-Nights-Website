@@ -132,39 +132,6 @@ function H2({ children }: { children: React.ReactNode }) {
   )
 }
 
-/** Frame with a parallax image that drifts as it scrolls past. */
-function ParallaxImage({
-  src,
-  className = "",
-  priority = false,
-  overlay = true,
-}: {
-  src: string
-  className?: string
-  priority?: boolean
-  overlay?: boolean
-}) {
-  return (
-    <div className={`relative overflow-hidden ${className}`}>
-      <div className="sd-parallax absolute inset-0">
-        <Image
-          src={src}
-          alt=""
-          fill
-          sizes="100vw"
-          quality={74}
-          priority={priority}
-          loading={priority ? undefined : "lazy"}
-          className="object-cover"
-        />
-      </div>
-      {overlay && (
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A]/70 via-transparent to-[#0C070A]/15" />
-      )}
-    </div>
-  )
-}
-
 /* ─── SECTIONS ─────────────────────────────────────────────── */
 
 function Hero() {
@@ -316,14 +283,37 @@ function ActivateBanner() {
 
 function NextGathering() {
   return (
-    <section id="events" className="px-5 mt-12">
-      <div className="sd-reveal-blur">
-        <SectionLabel>The next gathering</SectionLabel>
-        <H2>
-          Last Friday <span className="italic gradient-text-fire">of the month</span>.
-        </H2>
+    <section id="events" className="mt-14">
+      {/* Cinematic image band */}
+      <div
+        className="sd-clip relative mx-5 h-[56vh] rounded-3xl overflow-hidden border border-[#EBE6E2]/8"
+        style={{ boxShadow: "0 22px 50px rgba(0,0,0,0.5)" }}
+      >
+        <div className="sd-parallax absolute inset-0">
+          <Image
+            src="/curated/main/gather-presence.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            quality={74}
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/35 to-[#0C070A]/15" />
+        <div className="absolute inset-x-0 bottom-0 p-6">
+          <SectionLabel>The next gathering</SectionLabel>
+          <h2
+            className="mt-2 text-[2.7rem] font-bold leading-[0.98] text-[#EBE6E2]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Last Friday <span className="italic gradient-text-fire">of the month</span>.
+          </h2>
+        </div>
+      </div>
+
+      <div className="px-5">
         <p
-          className="mt-4 text-[#8A8280] text-[15px] leading-relaxed"
+          className="sd-reveal-blur mt-6 text-[#8A8280] text-[15px] leading-relaxed"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Every last Friday · 7:30 PM. The heartbeat of everything we do is His presence. Come hungry. Come expectant.
@@ -331,7 +321,7 @@ function NextGathering() {
       </div>
 
       <div
-        className="sd-rise mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+        className="sd-rise mt-6 mx-5 rounded-2xl p-5 border border-[#EBE6E2]/8"
         style={{
           background: "rgba(22,16,14,0.65)",
           backdropFilter: "blur(10px)",
@@ -372,8 +362,8 @@ function NextGathering() {
 
 function About() {
   return (
-    <section id="about" className="px-5 mt-16">
-      <div className="sd-reveal-blur">
+    <section id="about" className="mt-16">
+      <div className="px-5 sd-reveal-blur">
         <SectionLabel>Who we are</SectionLabel>
         <H2>
           We are <span className="italic gradient-text-fire">young adults</span> burning for one thing.
@@ -388,10 +378,38 @@ function About() {
         </p>
       </div>
 
-      <ParallaxImage
-        src="/curated/main/we-his-presence.jpg"
-        className="sd-clip mt-7 aspect-[4/5] rounded-2xl border border-[#EBE6E2]/8"
-      />
+      {/* Pinned zoom moment — the photo holds + slowly zooms as you scroll
+          past, with a scripture rising over it. */}
+      <div className="mt-8 relative h-[150vh]">
+        <div className="sticky top-0 h-[100svh] overflow-hidden">
+          <div className="sd-pinzoom-img absolute inset-0">
+            <Image
+              src="/curated/main/we-his-presence.jpg"
+              alt=""
+              fill
+              sizes="100vw"
+              quality={78}
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/25 to-[#0C070A]/55" />
+          <div className="absolute inset-0 flex items-end p-7 pb-24">
+            <p
+              className="sd-reveal text-[1.95rem] italic leading-[1.25] text-[#EBE6E2] max-w-[92%]"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              “One thing I ask of the LORD — that I may{" "}
+              <span className="not-italic gradient-text-fire font-semibold">dwell in His house</span>.”
+            </p>
+          </div>
+          <span
+            className="absolute top-7 right-7 text-[10px] tracking-[0.4em] uppercase text-[#E26721]"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Psalm 27:4
+          </span>
+        </div>
+      </div>
     </section>
   )
 }
@@ -532,7 +550,7 @@ function Glimpses() {
       </div>
 
       <div className="mt-7">
-        <MarqueeGallery items={GLIMPSES} duration={46} />
+        <MarqueeGallery items={GLIMPSES} speed={0.45} />
       </div>
     </section>
   )

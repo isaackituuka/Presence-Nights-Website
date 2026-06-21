@@ -481,6 +481,18 @@ html {
   mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
 }
 
+/* Drift track — JS-driven auto-scroll that is ALSO manually swipeable
+   (native horizontal overflow). touch-action: pan-x keeps vertical page
+   scroll free while allowing horizontal drag. */
+.sd-drift {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
+}
+.sd-drift::-webkit-scrollbar { display: none; }
+
 /* Glass */
 .glass {
   background: rgba(22, 16, 14, 0.65);

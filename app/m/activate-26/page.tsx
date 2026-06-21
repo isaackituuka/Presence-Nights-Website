@@ -205,7 +205,7 @@ function CountdownCard() {
     <section className="px-5 -mt-12 relative z-20">
       <FadeIn>
         <div
-          className="relative rounded-3xl p-5 border border-[#E26721]/25 overflow-hidden"
+          className="sd-shimmer animate-pulse-glow relative rounded-3xl p-5 border border-[#E26721]/25 overflow-hidden"
           style={{
             background:
               "linear-gradient(135deg, rgba(22,16,14,0.95) 0%, rgba(12,7,10,0.95) 100%)",
@@ -257,23 +257,44 @@ function CountdownCard() {
 
 function SaveTheDate() {
   return (
-    <section className="px-5 mt-8">
-      <FadeIn>
-        <SectionLabel color="#D62A5F">The place</SectionLabel>
-        <H2>
-          Tulsa, <span className="italic gradient-text-fire">again</span>.
-        </H2>
+    <section className="mt-14">
+      {/* Cinematic image band */}
+      <div
+        className="sd-clip relative mx-5 h-[50vh] rounded-3xl overflow-hidden border border-[#EBE6E2]/8"
+        style={{ boxShadow: "0 22px 50px rgba(0,0,0,0.5)" }}
+      >
+        <div className="sd-parallax absolute inset-0">
+          <Image
+            src="/curated/glimpses/this-generation-fire.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            quality={74}
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0C070A] via-[#0C070A]/35 to-[#0C070A]/20" />
+        <div className="absolute inset-x-0 bottom-0 p-6">
+          <SectionLabel color="#D62A5F">The place</SectionLabel>
+          <h2
+            className="mt-2 text-[2.7rem] font-bold leading-[0.98] text-[#EBE6E2]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Tulsa, <span className="italic gradient-text-fire">again</span>.
+          </h2>
+        </div>
+      </div>
+
+      <div className="px-5">
         <p
-          className="mt-4 text-[#8A8280] text-[15px] leading-relaxed"
+          className="sd-reveal-blur mt-6 text-[#8A8280] text-[15px] leading-relaxed"
           style={{ fontFamily: "var(--font-sans)" }}
         >
           Same ground where it broke open in &apos;25 — and we&apos;re widening the doors.
         </p>
-      </FadeIn>
 
-      <FadeIn delay={120}>
         <div
-          className="mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
+          className="sd-rise mt-6 rounded-2xl p-5 border border-[#EBE6E2]/8"
           style={{ background: "rgba(22,16,14,0.65)" }}
         >
           <div className="flex items-start gap-3 mb-5">
@@ -308,7 +329,7 @@ function SaveTheDate() {
             <MapPin size={14} /> Get Directions
           </a>
         </div>
-      </FadeIn>
+      </div>
     </section>
   )
 }
@@ -490,7 +511,7 @@ function GlimpsesCarousel() {
             src,
             year: i % 3 === 0 ? "ACTIVATE 2025" : i % 3 === 1 ? "DAY 1" : "DAY 2",
           }))}
-          duration={50}
+          speed={0.4}
         />
       </div>
     </section>
